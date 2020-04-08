@@ -1,12 +1,14 @@
 import React from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom';
 
-import Navbar from './Components/Navbar'
-import Home from './Components/Home'
-import Quiz from './Components/Quiz'
-import CharacterProfiles from './Components/CharacterProfiles'
-import Footer from './Components/Footer'
+import Navbar from './Components/Navbar';
+import Home from './Components/Home';
+import Quiz from './Components/Quiz';
+import CharacterProfiles from './Components/CharacterProfiles';
+import Footer from './Components/Footer';
 
+import './StylesFolder/GlobalStyles.scss';
+import './StylesFolder/NavHomeFooterStyles.scss';
 
 function App() {
   return (

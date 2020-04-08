@@ -7,7 +7,8 @@ function Home(props) {
 
     return (
         <div>
-            <Quiz />
+            <h1>TEST</h1>
+            {/* <Quiz /> */}
         </div>
     )
 }
