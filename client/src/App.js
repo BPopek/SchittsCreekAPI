@@ -9,6 +9,7 @@ import Footer from './Components/Footer';
 
 import './StylesFolder/GlobalStyles.scss';
 import './StylesFolder/NavHomeFooterStyles.scss';
+import './StylesFolder/CharacterStyles.scss';
 
 function App() {
   return (

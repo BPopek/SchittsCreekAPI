@@ -7,8 +7,9 @@ function Footer(props) {
 
     return (
         <div className='footer'>
-            <p className='footerLink'>Suggest Quote<a href="mailto:betsypopek@gmail.com" className='quoteEmail'>betsypopek@gmail.com</a></p>    
-            <a href="https://www.cbc.ca/schittscreek/" className='footerLink'>Visit Schitt's Creek Website</a> 
+            <p className='footerLinks'><a href="mailto:betsypopek@gmail.com"    
+                >Suggest Quote</a></p>    
+            <a href="https://www.cbc.ca/schittscreek/" className='footerLinks'>Visit Schitt's Creek Website</a> 
         </div>    
     )
 }

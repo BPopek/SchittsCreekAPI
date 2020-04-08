@@ -1,0 +1,79 @@
+@import 'GlobalStyles.scss';
+
+.characterContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 60px 50px 50px;
+    padding: 25px;
+    text-align: auto;
+    @media (min-width: 1000px) {
+        margin: 60px 100px 50px;
+    }
+    h3 {
+        font-family: $primaryHeaderFont;
+        margin: 20px auto 10px;
+        font-size: 18px;
+        @media (min-width: 1000px) {
+            margin: 30px auto 15px;
+            font-size: 22px;
+
+        }
+    }
+    p {
+        font-family: $primaryHeaderFont;
+        font-size: 16px;
+        font-weight: 100;
+        color: $grey;
+        line-height: 1.4;
+        margin-bottom: 50px;
+        @media (min-width: 1000px) {
+            font-size: 20px;
+        }
+    }
+    }
+.frame {
+  background-color: $ltgrey;
+  border: solid 25px $grey;
+  border-bottom-color: $grey;
+  border-left-color: $grey;
+  border-radius: 2px;
+  border-right-color: $grey;
+  border-top-color: $grey;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25);
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 25px auto 0px;
+  width: auto;
+  height: auto;
+  position: relative;
+  text-align: center;
+//   justify-self: center;
+  align-content: center;
+  &:before {
+    border-radius:2px;
+    bottom:-2vmin;
+    box-shadow:0 2px 5px 0 rgba(0,0,0,.25) inset;
+    content:"";
+    left:-2vmin;
+    position:absolute;
+    right:-2vmin;
+    top:-2vmin;
+  }
+  &:after {
+    border-radius:2px;
+    bottom:-2.5vmin;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.25);
+    content:"";
+    left:-2.5vmin;
+    position:absolute;
+    right:-2.5vmin;
+    top:-2.5vmin;
+  }
+}
+.charPhoto {
+    height: auto;
+    width: 500px;
+    margin: 20px;
+    
+}

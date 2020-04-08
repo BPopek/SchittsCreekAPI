@@ -1,0 +1,224 @@
+@import 'GlobalStyles.scss';
+
+.nav {
+    display: flex;
+    position: fixed;
+    background-color: $black;
+    top: 0;
+    height: 70px;
+    width: 100%;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    z-index: 1;
+    padding-right: 5px;
+    @media (min-width: 450px) {
+        padding-right: 10px;
+    }
+    @media (min-width: 700px) {
+        padding-right: 30px;
+    }
+    @media (min-width: 1200px) {
+        padding-right: 50px;
+    }
+}
+.navLinks {
+    top: 0x;
+    font-family: $primaryHeaderFont;
+    font-size: 16px;
+    color: $white;
+    font-weight: 300;
+    letter-spacing: 2px;
+    position: relative;
+    text-decoration: none;
+    line-height: 70px;
+    z-index: 1;
+    padding: 0px 5px;
+    justify-self: flex-end;
+    @media (min-width: 500px) {
+        font-size: 18px !important;
+        padding: 0px 10px;
+    }
+    @media (min-width: 700px) {
+        padding: 0px 30px;
+    }
+    @media (min-width: 1200px) {
+        padding: 0px 50px;
+    }
+    &:hover {
+        background-color: $yellow;
+        color: $black;
+    }
+}
+.navbarLogo {
+    height: 75px;
+    width: auto;
+    position: absolute;
+    left: 50px;
+    top: 0px;
+}
+.footer {
+    display: flex;
+    position: fixed;
+    background-color: $black;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    z-index: 1;
+    padding-right: 5px;
+    @media (min-width: 450px) {
+        padding-right: 10px;
+    }
+    @media (min-width: 700px) {
+        padding-right: 30px;
+    }
+    @media (min-width: 1200px) {
+        padding-right: 50px;
+    }
+}
+.footerLinks {
+    top: 0x;
+    font-family: $primaryHeaderFont;
+    font-size: 16px;
+    color: $white !important;
+    font-weight: 300;
+    letter-spacing: 2px;
+    position: relative;
+    text-decoration: none !important;
+    line-height: 50px;
+    z-index: 1;
+    padding: 0px 5px;
+    display: flex;
+    justify-self: space-around;
+    @media (min-width: 500px) {
+        font-size: 18px !important;
+        padding: 0px 10px;
+    }
+    @media (min-width: 700px) {
+        padding: 0px 30px;
+    }
+    @media (min-width: 1200px) {
+        padding: 0px 50px;
+    }
+    &:hover {
+        color: $yellow;
+    }
+    a {
+        color: $white;
+        text-decoration: none;  
+    }
+}
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 25px 0;
+    text-align: center;
+    margin: 0 25px 100px;
+    @media (min-width: 700px) {
+        flex-direction: row;
+    }
+}
+.homeCards {
+    margin: 25px auto ;
+    height: 150px;
+    width: 200px;
+    display: relative;
+    text-decoration: none;
+    background-color: $black;
+    border: 7px $yellow solid;
+    box-shadow: 3px 3px 7px $ltgrey;
+}
+.homeLogo {
+    width: 100px;
+    height: auto;
+    margin: 20px auto 10px;
+}
+.homeImage {
+    width: 100vw;
+    margin-top: 35px;
+    border-bottom: 3px black solid;
+}
+.homeText {
+    font-family: $primaryHeaderFont;
+    font-size: 24px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.5;
+    color: $white;
+    // margin: 5px auto;
+}
+.homeText2 {
+    font-family: $primaryHeaderFont;
+    font-size: 24px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.5;
+    color: $white;
+    padding: 20px 10px;
+    margin: 20px auto;
+}
+.skew1Container {
+    display: flex;
+    position: relative;
+    width: 211px;
+    height: 161px;
+    margin: 25px auto;
+}
+.skew2Container {
+    display: flex;
+    position: relative;
+    width: 211px;
+    height: 161px;
+    margin: 25px auto;
+}
+.skew1 {
+    width: 210px;
+    height: 100px;
+    background-color: $ltyellow;
+    opacity: 0;
+    position: absolute;
+    top: 55px;
+    left: 0px;
+    right: 0px;
+
+    &:hover {
+    // display: ;
+    opacity: .99;
+    box-sizing: border-box;
+    border-top: 10px $yellow solid;
+    border-bottom: 10px $yellow solid;
+    -ms-transform: skewY(4deg);
+    -webkit-transform: skewY(4deg);
+    transform: skewY(4deg);
+    }
+}
+.unskew1 {
+    font-family: $primaryHeaderFont;
+    font-weight: 500;
+    // font-style: italic;
+    font-size: 20px;
+    width: 210px;
+    height: 100px;
+    opacity: 0;
+    // color: red;
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    right: 0px;
+    margin: 0;
+    padding: 0;
+
+    &:hover {
+    color: $grey;
+    opacity: 100;
+    position: absolute;
+    // display: inline;
+    top: 15px;
+    left: 0px;
+    right: 0px;
+    -ms-transform: skewY(-4deg);
+    -webkit-transform: skewY(-4deg);
+    transform: skewY(-4deg);
+    }
+}
