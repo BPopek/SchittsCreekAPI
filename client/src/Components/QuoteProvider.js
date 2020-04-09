@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
 const quoteAxios = axios.create()
 
 const QuoteContext = React.createContext();
 
 function QuoteProvider(props) {
-    const [ quotes, setQuotes, characterQuotes, setCharacterQuotes, randomQuote, getRandomQuote ] = useState()
+    const [ quotes, setQuotes, character, setCharacter ] = useState([])
 
     const getAllQuotes = () => {
-        return quoteAxios.get('/api/quotes')
+        console.log('getting jobs')
+        return quoteAxios.get('/quotesDB/quotes')
         .then(res => {
             setQuotes(res.data);
             return res;
         })
     }
-    const getCharacterQuotes = () => {
-        return quoteAxios.get('/api/quotes/character')
-        .then(res => {
-            setCharacterQuotes(res.data);
-            return res;
-        })
-    }
+    // const getCharacterQuotes = () => {
+    //     return quoteAxios.get('/api/quotes/character')
+    //     .then(res => {
+    //         setCharacterQuotes(res.data);
+    //         return res;
+    //     })
+    // }
     // const getRandomQuote = () => {
     //     return quoteAxios.get('/api/quotes')
     //     .then(res => {
@@ -35,8 +35,9 @@ function QuoteProvider(props) {
     return (
         <QuoteContext.Provider 
             value={{
-                quotes, ...unstable_renderSubtreeIntoContainer,
-                getAllQuotes, getCharacterQuotes, getRandomQuote
+                quotes, ...useState,
+                getAllQuotes 
+                //getCharacterQuotes, getRandomQuote
             }}>
 
             { props.children }

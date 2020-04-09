@@ -10,5 +10,6 @@ ReactDOM.render(
       <App />
     </Router>
   </QuoteProvider>,
-  document.getElementById('root'));
+  document.getElementById('root')
+  );
 

@@ -125,8 +125,9 @@
     width: 200px;
     display: relative;
     text-decoration: none;
-    background-color: $black;
-    border: 7px $yellow solid;
+    // background-color: $black;
+    background-image: linear-gradient(to bottom right, $black, $grey, $black);
+    border: 5px $yellow solid;
     box-shadow: 3px 3px 7px $ltgrey;
 }
 .homeLogo {
@@ -175,7 +176,9 @@
 .skew1 {
     width: 210px;
     height: 100px;
-    background-color: $ltyellow;
+    // background-color: $ltyellow;
+    background-image: linear-gradient(-45deg, $yellow, $ltyellow, $yellow);
+
     opacity: 0;
     position: absolute;
     top: 55px;
@@ -186,11 +189,11 @@
     // display: ;
     opacity: .99;
     box-sizing: border-box;
-    border-top: 10px $yellow solid;
-    border-bottom: 10px $yellow solid;
-    -ms-transform: skewY(4deg);
-    -webkit-transform: skewY(4deg);
-    transform: skewY(4deg);
+    border-top: 5px $yellow solid;
+    border-bottom: 5px $yellow solid;
+    -ms-transform: skewY(8deg);
+    -webkit-transform: skewY(8deg);
+    transform: skewY(8deg);
     }
 }
 .unskew1 {
@@ -217,8 +220,8 @@
     top: 15px;
     left: 0px;
     right: 0px;
-    -ms-transform: skewY(-4deg);
-    -webkit-transform: skewY(-4deg);
-    transform: skewY(-4deg);
+    -ms-transform: skewY(-8deg);
+    -webkit-transform: skewY(-8deg);
+    transform: skewY(-8deg);
     }
 }

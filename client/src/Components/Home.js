@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-import Quiz from './Quiz'
-
 import hero from '../Images/sc-s6-hero.jpg'
 import logo from '../Images/SC-logo.png'
 
@@ -19,7 +17,7 @@ function Home(props) {
                         </div>
                     </Link>
                     <div className='homeCards'>
-                        <img src={logo} alt='Schitts Creek Logo'       className='homeLogo' />
+                        <img src={logo} alt='Schitts Creek Logo' className='homeLogo' />
                         <p className='homeText'>
                         Quiz </p>
                     </div>
