@@ -23,7 +23,7 @@
 }
 .navLinks {
     top: 0x;
-    font-family: $primaryHeaderFont;
+    font-family: $primaryFont;
     font-size: 16px;
     color: $white;
     font-weight: 300;
@@ -79,7 +79,7 @@
 }
 .footerLinks {
     top: 0x;
-    font-family: $primaryHeaderFont;
+    font-family: $primaryFont;
     font-size: 16px;
     color: $white !important;
     font-weight: 300;
@@ -141,7 +141,7 @@
     border-bottom: 3px black solid;
 }
 .homeText {
-    font-family: $primaryHeaderFont;
+    font-family: $primaryFont;
     font-size: 24px;
     text-decoration: none;
     text-align: center;
@@ -150,7 +150,7 @@
     // margin: 5px auto;
 }
 .homeText2 {
-    font-family: $primaryHeaderFont;
+    font-family: $primaryFont;
     font-size: 24px;
     text-decoration: none;
     text-align: center;
@@ -197,7 +197,7 @@
     }
 }
 .unskew1 {
-    font-family: $primaryHeaderFont;
+    font-family: $primaryFont;
     font-weight: 500;
     // font-style: italic;
     font-size: 20px;

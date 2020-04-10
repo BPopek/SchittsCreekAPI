@@ -57,15 +57,18 @@ quoteRouter.get('/character/:character', (req, res, next) => {
 })
     ///////////////////////////
 
-//    const specificCharacter = req.params.character
-//    Quote.find(specificCharacter, (err, quotes) => {
-//         if (err) {
-//             res.status(500);
-//             return res.send(err);
-//         } else if(!quotes){
-//             res.status(404)
-//         }
-//         return res.send(specificCharacter);
+    // quoteRouter.get('/', (req, res, next) => {
+    //     Quote.find(req.params.character, (err, charQuotes) => {
+    //         if(err){
+    //             res.status(500);
+    //             return next(err);
+    //         } else if(!charQuotes) {
+    //             res.status(404)
+    //             return next(new Error('Character not found'))
+    //         }
+    //         return res.send(charQuotes)
+    //     })
+    // })
 
 ///////////////////////////
 

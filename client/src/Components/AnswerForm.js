@@ -1,17 +1,18 @@
 import React from 'react';
 
-function QuoteForm(props) {
+function AnswerForm(props) {
     
     const handleChange = e => {
         e.preventDefault()
         const { name, value } = e.target;
         if(value === props.character) {
-            return 'correct'
+            return 'correct' 
+
         }
     }
 
     return (
-        <div className='quoteContainer'>            
+        <div className='AnswerFormContainer'>            
             <form className='form'>
                 <button className='answerButton' type='button' value='Johnny' onClick={handleChange}>Johnny</button>
                 <button className='answerButton' type='button' value='Moira' onClick={handleChange}>Moira</button>
@@ -27,4 +28,4 @@ function QuoteForm(props) {
         </div>
     ) 
 } 
-export default QuoteForm;
+export default AnswerForm;

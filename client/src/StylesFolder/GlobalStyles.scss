@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
 
-$primaryHeaderFont: 'Roboto', sans-serif;
+$primaryFont: 'Roboto', sans-serif;
+
+@font-face {
+    font-family: 'Frontage-Regular';
+    src: local('Frontage-Regular'), url(../Images/Frontage-Regular.ttf) format('truetype')
+}
+$funfont: 'Frontage-Regular';
 
 $yellow: #F1C713;
 $ltyellow: rgb(250, 226, 120);
