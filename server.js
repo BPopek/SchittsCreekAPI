@@ -16,8 +16,8 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "client", "build")));
 
-app.use("/quotes", require("./routes/quoteRouter.js"));
-app.use("/quotes/character", require("./routes/quoteRouter.js"));
+app.use("/api/quotes", require("./routes/quoteRouter.js"));
+app.use("api/quotes/character", require("./routes/quoteRouter.js"));
 
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/quotesDB",

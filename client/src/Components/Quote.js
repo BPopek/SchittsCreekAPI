@@ -1,35 +1,65 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { QuoteContext } from './QuoteProvider'
 
-function Quote() {
+export default function Quote(props) {
 
-    const { quotes, setQuotes, characterQuotes, setCharacterQuotes, randomQuote, setRandomQuote } = useContext(QuoteContext)
+    const { quotes, setQuotes, getAllQuotes, characterQuotes, setCharacterQuotes, randomQuote, setRandomQuote } = useContext(QuoteContext)
 
-    const specificCharObj = quotes.filter((char) => {
-        if(char === quotes.character) {
+    useEffect(() => {
+        getAllQuotes()
+    }, [])
+
+
+
+    const specificCharObj = quotes.filter((quote, char) => {
+        let characterQuotes = []
+        // console.log({characterQuotes})
+        if(char === quote.character) {
             characterQuotes.push(quotes)}
-            console.log({characterQuotes})
             return (
-                <div>{characterQuotes}</div>
+                <div className='charQuote'
+                key={quote._id}>
+                    {characterQuotes.quoteText}
+                    {/* {characterQuotes} */}
+                    </div>
             )
         }, {})
 
        
-    const randomNumber = Math.floor(Math.random() * Math.floor(quotes.length))
-    const getRandomQuote = quotes.map(quotes => {
-        console.log(quotes[0].props.children)
-        return (
-            <div>{quotes[randomNumber].quoteText}</div>
-        )
+    // const randomNumber = Math.floor(Math.random() * Math.floor(quotes.length))
+    // const getRandomQuote = quotes.find((quote, i) => {
+    //     // console.log(randomNumber)
+    //     if (quote[i] === randomNumber) {
+    //         // console.log(quotes)
+    //         return (
+    //             <>
+    //             <div className='randomDiv'
+    //                 key={quote._id}>
+    //                 {quotes.quoteText}
+    //                 </div>
+    //             {/* <h3>{quotes}</h3> */}
+    //             </>
+    //         )        
+    //     } else {
+    //         console.log('no')
+    //     }
+    // })
+    let currentRandomQuote = []
+    const randomQuote2 = (quotes[Math.floor(Math.random() * quotes.length)]).push(currentRandomQuote)
+    const mappedRandom = currentRandomQuote.map(quote => {
+        return <div className='randomQuote' 
+                    key={quote._id}>
+            <p>{quote.quoteText}</p>
+        </div>
     })
-    
+
+    console.log(randomQuote2)
+    console.log(mappedRandom)
+
     return (
         <div className='quoteContainer'>
-            
-            <div>{getRandomQuote}</div>
-            <div>{specificCharObj} {quotes.quoteText}</div>
+            {mappedRandom}
         </div>
     ) 
 } 
 
-export default Quote;

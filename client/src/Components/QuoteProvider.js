@@ -9,7 +9,7 @@ function QuoteProvider(props) {
 
     const getAllQuotes = () => {
         // console.log('getting jobs')
-        return quoteAxios.get('/quotesDB/quotes')
+        return quoteAxios.get('/api/quotes')
         .then(res => {
             setQuotes(res.data);
             return res;
@@ -36,11 +36,12 @@ function QuoteProvider(props) {
     return (
         <QuoteContext.Provider 
             value={{
-                quotes, ...useState,
-                getAllQuotes, getCharacterQuotes 
+                ...useState, 
+                quotes,
+                getAllQuotes, 
+                getCharacterQuotes
                 //getRandomQuote
             }}>
-
             { props.children }
             </QuoteContext.Provider>
     )
