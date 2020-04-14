@@ -9,7 +9,7 @@ function Footer(props) {
         <div className='footer'>
             <p className='footerLinks'><a href="mailto:betsypopek@gmail.com"    
                 >Suggest Quote</a></p>    
-            <a href="https://www.cbc.ca/schittscreek/" className='footerLinks'>Visit Schitt's Creek Website</a> 
+            <a href="https://www.cbc.ca/schittscreek/" className='footerLinks'>Official Website</a> 
         </div>    
     )
 }

@@ -3,18 +3,21 @@ import React, { useContext, useState } from 'react';
 // import AnswerForm from './AnswerForm'
 import RandomQuote from './RandomQuote'
 
-import logo from '../Images/SC-logo.png'
+import logoStacked from '../Images/SC-logo.png'
+import logo from '../Images/SC-logo-wide-shadow.png';
+
 
 
 function Quiz(props) {
     
     return (
         <div className='quizContainer'>
-            <h1 className='quizWelcome'>Welcome to the 
+            <h1 className='quizWelcome'>
+                {/* Welcome to the 
+                    <br />  */}
+                <img src={logo} alt='Schitts Creek Logo' className='quizLogo' />    
                     <br /> 
-                <img src={logo} alt='Schitts Creek Logo' className='homeLogo' />    
-                    <br /> 
-                Quote Quiz!
+                Quote Quiz
             </h1>
             <RandomQuote />
             {/* <AnswerForm /> */}

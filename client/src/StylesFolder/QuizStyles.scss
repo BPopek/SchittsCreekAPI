@@ -1,57 +1,200 @@
 @import 'GlobalStyles.scss';
+.quizLogo {
+    width: 300px;
+    height: auto;
+    margin: 10px auto;
+    @media (min-width: 700px) {
+        width: 450px;
 
+    }
+}
+.playButton {
+    margin: 70px auto 10px;
+    padding: 10px 10px 5px;
+    background-color: $yellow;
+    font-family: $funfont;
+    font-size: 34px;
+    width: 200px;
+    line-height: 1.4;
+    letter-spacing: -4px;
+    border-right: 10px solid $grey;
+    border-left: 10px solid $ltyellow;
+    border-top: 5px solid $ltyellow;
+    border-bottom: 5px solid $grey;
+    @media (min-width: 700px) {
+        
+    }
+}
 .quizContainer {
-    margin: 100px auto 50px;
+    margin: 70px auto 0px;
     text-align: center;
     padding: 0px 30px;
     position: relative;
     height: auto;
+    @media (min-width: 700px) {
+        margin: 100px auto 70px;
+
+    }
 }
 .quizWelcome {
     font-family: $funfont;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 30px;
     width: auto;
     text-align: center;
-    margin: 25px auto;
+    margin: 5px auto;
     letter-spacing: -5px;
+    @media (min-width: 700px) {
+        font-size: 40px;
+        margin: 25px auto;
+
+    }
 }
 .quoteContainer {
-    height: 100px;
+    height: auto;
     // background-color: blue;
     font-family: $primaryFont;
     font-weight: 200;
     font-size: 40px;
+    margin: 5px;
+    display: block;
+    @media (min-width: 700px) {
+        
+    }
 }
 .quoteFormContainer {
     margin: 25px auto 75px;
+    @media (min-width: 700px) {
+        
+    }
 }
 .quizWho {
     font-family: $primaryFont;
     font-weight: 300;
-    font-size: 40px;
+    font-size: 24px;
     width: auto;
-    color: $grey;
+    color: $purple;
     text-align: center;
-    margin: 25px auto;
+    margin: 35px auto 5px;
+    @media (min-width: 700px) {
+        
+    }
 }
 .randomQuote {
     font-family: $primaryFont;
-    font-weight: 100;
-    font-size: 30px;
+    font-weight: 300;
+    font-size: 20px;
     font-style: italic;
-    width: auto;
-    color: $black;
+    display:inline-block;
+    width: 250px;
+    color: $grey;
     text-align: center;
-    margin: 25px auto 50px;
+    margin: 5px auto ;
+    padding: 5px 10px;
+    position: relative;  
+    height: auto;
+    @media (min-width: 700px) {
+        font-size: 26px;
+        padding: 10px 15px;
+        width: 550px;
+    }
+}
+.quoteBrackets {
+    display:inline-block;
+    width: 300px;
+    text-align: center;
+    margin: 5px auto;
+    background-color: #dedede;
+    padding: 5px 10px;
+    border: $grey 5px solid;
+    position:relative;
+    height: auto;
+    &:before {
+        background-color: #dedede;
+        width: 300px;
+        bottom: -5px;
+        content: "";
+        left: 15px;
+        position: absolute;
+        right: 15px;
+        top: -5px;
+        // -ms-transform: skewX(30deg);
+        // -webkit-transform: skewX(30deg);
+        // transform: skewX(30deg);
+    }
+    > * {
+        position: relative;
+        z-index: 1;
+    }
+      @media (min-width: 700px) {
+        width: 600px;
+        &:before {
+            width: 600px;
+        }
+
+    }
 }
 .answerContainer {
-    margin: 50px auto 75px;
+    margin: 35px auto 25px;
+    width: 300px;
+    @media (min-width: 700px) {
+        width: 550px;
+    }
+    @media (min-width: 1000px) {
+        width: 850px;
+    }
+}
+.answer {
+    margin: 35px auto 10px;
+    display: block;
+    font-family: $funfont;
+    font-size: 24px;
+    color: $purple;
+    width: 200px;
+    @media (min-width: 700px) {
+        font-size: 34px;
+        width: 500px;
+    }
 }
 .answerButton {
-    margin: 10px;
-    padding: 10px 15px 5px;
+    margin: 5px 15px;
+    padding: 10px 10px 5px;
     background-color: $yellow;
     font-family: $funfont;
-    font-size: 20px;
+    font-size: 14px;
+    &:focus {
+        background-color: $purple;
+        color: $white;
+        outline: none;
+
+    }
+    @media (min-width: 700px) {
+        
+    }
+
+
+}
+.nextButton {
+    margin: 0px auto 10px;
+    padding: 10px 10px 5px;
+    background-color: $ltgrey;
+    font-family: $funfont;
+    font-size: 14px;
+    @media (min-width: 700px) {
+        
+    }
+}
+.tryAgain {
+    margin: 15px auto 10px;
+    display: block;
+    font-family: $funfont;
+    font-size: 16px;
+    width: 200px;
+    line-height: 1.3;
+    color: $purple;
+    @media (min-width: 700px) {
+        font-size: 24px;
+        width: 500px;
+
+    }
 }

@@ -6,7 +6,7 @@ const QuoteContext = React.createContext();
 
 function QuoteProvider(props) {
     const [ quotes, setQuotes, characterQuotes, setCharacterQuotes ] = useState([])
-
+    
     const getAllQuotes = () => {
         // console.log('getting jobs')
         return quoteAxios.get('/api/quotes')

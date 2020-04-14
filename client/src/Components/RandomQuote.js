@@ -4,90 +4,117 @@ import { QuoteContext } from './QuoteProvider'
 export default function RandomQuote(props) {
 
     const { quotes, setQuotes, getAllQuotes, characterQuotes, setCharacterQuotes  } = useContext(QuoteContext)
-    const [ randomQuote, setRandomQuote ] = useState({
+
+    const [ currentRandomQuote, setCurrentRandomQuote ] = useState({
         character: '',
         quoteText: '',
         season: '',
         episodeName: '',
     })
-    
+
+    const [ nextRandomQuote, setNextRandomQuote ] = useState({
+        character: '',
+        quoteText: '',
+        season: '',
+        episodeName: '',
+    })
+
     useEffect(() => {
         getAllQuotes()
-        // chooseRandomQuote()
-
     }, [])
-    //I think the top one makes more sense though you will still want a function created that maybe fires innuser click that updates the randomQuote state so a re render occurs.  But only if you need that kind of functionality
-    
-    const handleChange = e => {
+    //you will still want a function created that maybe fires in nuser click that updates the randomQuote state so a rerender occurs.  But only if you need that kind of functionality
+    const [ togglePlay, setTogglePlay ] = useState(true)
+    const toggledPlay = (e) => {
+        // e.preventDefault()
+        setTogglePlay(false)
+    }
+    const [ toggled, setToggled ] = useState(false)
+    const toggledAnswer = (e) => {
+        // e.preventDefault()
+        setToggled(prev => {
+            return !prev
+        })
+    }
+    const [ toggledWrongAnswer, setToggledWrongAnswer ] = useState(true)
+    const toggledWrong = (e) => {
+        // e.preventDefault()
+        setToggledWrongAnswer(prev => {
+            return !prev
+        })
+    }
+    const randomIndex = Math.floor(Math.random() * quotes.length)
+    const currentQuote = (e) => {
+        setCurrentRandomQuote(quotes[randomIndex] || {})
+    }
+    const handleChangeCurrentQuote = e => {
+        // e.preventDefault()
+        currentQuote()    
+        toggledPlay()
+    }
+    const handleChangeNext = e => {
+        e.preventDefault()
+        currentQuote()    
+        toggledAnswer()
+        setToggledWrongAnswer(true)
+    }
+    const handleChangeAnswer = e => {
         e.preventDefault()
         const { name, value } = e.target;
         if(value === currentRandomQuote.character) {
-            return alert('correct')
-            
-            .then(() => {
-                nextQuote()
-            })
+            setToggled(prev => {
+                return !prev
+            }) && handleChangeNext() 
         } else {
-            alert('wrong guess')
-        }       
+            setToggledWrongAnswer(false)
+        }      
     }
-    const nextQuote = () => {
-        // e.preventDefault()
-        const randomIndex = Math.floor(Math.random() * quotes.length)
-        const nextRandomQuote = quotes[randomIndex] || {}
-        return nextRandomQuote
-    }
-    const randomIndex = Math.floor(Math.random() * quotes.length)
-    const currentRandomQuote = quotes[randomIndex] || {}
+
     
-    console.log(currentRandomQuote)
     return (
         <>
-            <div className='quoteContainer'>
-                <h1 className='quizWho'>WHO SAID:</h1>
-                <h3 className='randomQuote'>{currentRandomQuote.quoteText}</h3>
+        { togglePlay 
+            ?
+            <div>
+                {/* <div>Ready to Play?</div> */}
+                <button className='playButton' type='button' onClick={handleChangeCurrentQuote} >Start the Game</button>
             </div>
-            <div className='answerContainer'>            
-                <button className='answerButton' type='button' value='Johnny' onClick={handleChange}>Johnny</button>
-                <button className='answerButton' type='button' value='Moira' onClick={handleChange}>Moira</button>
-                <button className='answerButton' type='button' value='David' onClick={handleChange}>David</button>
-                <button className='answerButton' type='button' value='Alexis' onClick={handleChange}>Alexis</button>
-                <button className='answerButton' type='button' value='Stevie' onClick={handleChange}>Stevie</button>
-                <button className='answerButton' type='button' value='Roland' onClick={handleChange}>Roland</button>
-                <button className='answerButton' type='button' value='Jocelyn' onClick={handleChange}>Jocelyn</button>
-                <button className='answerButton' type='button' value='Ted' onClick={handleChange}>Ted</button>
-                <button className='answerButton' type='button' value='Patrick' onClick={handleChange}>Patrick</button>
-                <button className='answerButton' type='button' value='Twyla' onClick={handleChange}>Twyla</button>
-            </div>
+            :
+            <>
+                <div className='quoteContainer' togglePlay={false}>
+                    { toggled ?
+                        <div>
+                            <h1 className='answer'>correct, it was {currentRandomQuote.character}!</h1>
+                            <button className='nextButton' type='button' onClick={handleChangeNext} >NEXT QUESTION</button>
+                        </div>
+                        :
+                        <>
+                            <h1 className='quizWho'>WHICH CHARACTER SAID:</h1>
+                            <div className='quoteBrackets'> 
+                                <h3 className='randomQuote'>"{currentRandomQuote.quoteText}"</h3>
+                                { toggledWrongAnswer ?
+                                    <> </>
+                                    :
+                                    <h4 className='tryAgain'>Wrong answer, try again</h4>
+                                }
+                            </div>
+                        </>
+                    }
+                </div>
+                <div className='answerContainer'>            
+                    <button className='answerButton' type='button' value='Johnny' onClick={handleChangeAnswer}>Johnny</button>
+                    <button className='answerButton' type='button' value='Moira' onClick={handleChangeAnswer}>Moira</button>
+                    <button className='answerButton' type='button' value='David' onClick={handleChangeAnswer}>David</button>
+                    <button className='answerButton' type='button' value='Alexis' onClick={handleChangeAnswer}>Alexis</button>
+                    <button className='answerButton' type='button' value='Ted' onClick={handleChangeAnswer}>Ted</button>
+                    <button className='answerButton' type='button' value='Stevie' onClick={handleChangeAnswer}>Stevie</button>
+                    <button className='answerButton' type='button' value='Roland' onClick={handleChangeAnswer}>Roland</button>
+                    <button className='answerButton' type='button' value='Jocelyn' onClick={handleChangeAnswer}>Jocelyn</button>
+                    <button className='answerButton' type='button' value='Patrick' onClick={handleChangeAnswer}>Patrick</button>
+                    <button className='answerButton' type='button' value='Twyla' onClick={handleChangeAnswer}>Twyla</button>
+                    {/* <button className='answerButton' type='button' value='Ronnie' onClick={handleChangeAnswer}>Ronnie</button> */}
+                </div>
+            </>
+        }  
         </>
     ) 
 } 
-
-    // const randomNumber = Math.floor(Math.random() * Math.floor(quotes.length))
-    // const getRandomQuote = quotes.find((quote, i) => {
-    //     // console.log(randomNumber)
-    //     if (quote[i] === randomNumber) {
-    //         // console.log(quotes)
-    //         return (
-    //             <>
-    //             <div className='randomDiv'
-    //                 key={quote._id}>
-    //                 {quotes.quoteText}
-    //                 </div>
-    //             {/* <h3>{quotes}</h3> */}
-    //             </>
-    //         )        
-    //     } else {
-    //         console.log('no')
-    //     }
-    // })
-
-///////////////////////////////////////////////
-
-    // const randomQuote2 = quotes[Math.floor(Math.random() * quotes.length)] 
-    // const mappedRandom = randomQuote2.map(quote => {
-    //     return <div className='randomQuote' 
-    //                 key={quote._id}>
-    //         <p>{quote.quoteText}</p>
-    //     </div>
-    // })
