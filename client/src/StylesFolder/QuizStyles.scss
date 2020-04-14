@@ -1,17 +1,52 @@
 @import 'GlobalStyles.scss';
 
 .quizContainer {
-    margin: 100px auto 25px;
+    margin: 100px auto 50px;
     text-align: center;
-    padding: 0px 50px;
+    padding: 0px 30px;
     position: relative;
-    h1 {
-        font-family: $primaryFont;
-        font-weight: 400;
-        width: 300px;
-        text-align: center;
-        margin: 25px auto;
-    }
+    height: auto;
+}
+.quizWelcome {
+    font-family: $funfont;
+    font-weight: 400;
+    font-size: 40px;
+    width: auto;
+    text-align: center;
+    margin: 25px auto;
+    letter-spacing: -5px;
+}
+.quoteContainer {
+    height: 100px;
+    // background-color: blue;
+    font-family: $primaryFont;
+    font-weight: 200;
+    font-size: 40px;
+}
+.quoteFormContainer {
+    margin: 25px auto 75px;
+}
+.quizWho {
+    font-family: $primaryFont;
+    font-weight: 300;
+    font-size: 40px;
+    width: auto;
+    color: $grey;
+    text-align: center;
+    margin: 25px auto;
+}
+.randomQuote {
+    font-family: $primaryFont;
+    font-weight: 100;
+    font-size: 30px;
+    font-style: italic;
+    width: auto;
+    color: $black;
+    text-align: center;
+    margin: 25px auto 50px;
+}
+.answerContainer {
+    margin: 50px auto 75px;
 }
 .answerButton {
     margin: 10px;
@@ -19,11 +54,4 @@
     background-color: $yellow;
     font-family: $funfont;
     font-size: 20px;
-}
-.quoteContainer {
-    height: 100px;
-    background-color: blue;
-}
-.quoteFormContainer {
-    margin: 25px auto 75px;
 }

@@ -8,7 +8,7 @@ function Navbar(props) {
 
     return (
         <div className='nav'>
-            <Link exact to='/'><img src={logo} alt='Schitts Creek Logo' className='navbarLogo' /></Link>
+            <Link exact='true' to='/'><img src={logo} alt='Schitts Creek Logo' className='navbarLogo' /></Link>
     
             <Link to='/quiz' className='navLinks'>Quiz</Link>
             <Link to='/characters' className='navLinks'>Characters</Link>

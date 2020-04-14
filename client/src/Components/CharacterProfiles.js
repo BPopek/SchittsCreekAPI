@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom'
+import { QuoteContext } from './QuoteProvider'
+import CharacterQuotes from './CharacterQuotes'
+
 import johnny from '../Images/johnny.jpg';
 import moira from '../Images/moira.jpg';
 import alexis from '../Images/alexis.jpg';
@@ -11,16 +14,58 @@ import stevie from '../Images/stevie.jpg';
 import twyla from '../Images/twyla.jpg';
 import ted from '../Images/ted.jpg';
 
-function CharacterProfiles() {
+function CharacterProfiles(props) {
+    // useEffect(() => {
+    //     getCharacterQuotes()
+    // }, [])
 
+    const { getCharacterQuotes  } = useContext(QuoteContext)
+
+    const [ toggled, setToggled ] = useState(true)
+    const [ character, setCharacter ] = useState('')
+
+    const { charName } = props
+
+    const toggledName = (e) => {
+        setToggled(prev => {
+            e.preventDefault()
+            const { value } = e.target;
+            setCharacter(prevCharacter => ({
+                ...prevCharacter,
+                 value}))
+            .then(() => {
+                return !prev
+            })
+        })
+        // .catch(err => console.error(err.response.data.message))
+    }
+   
     return (
         <div className='characterContainer'>
-            <div className='frame'>
-                <img className='charPhoto' src={johnny} alt='Johnny Rose'></img>
+            <div className='character'>
+                <div className='frame'>
+                    <img className='charPhoto' src={johnny} alt='Johnny Rose'></img>
+                </div>
+                <h3>Johnny Rose</h3>
+                <p>As the former CEO of the nation’s second-largest chain of video rental stores, Johnny feels right at home at the helm of the Rosebud Motel with his business partner, Stevie. And as the motel receives increasing recognition and acclaim, Johnny is starting to feel like his old self: filled with purpose and pride. Johnny continues to cherish and support his loved ones in every way, even if it means taking out a line of credit to enable Moira’s spending habits. Of course, Johnny still has his sights set on leaving Schitt’s Creek, but he’s in no rush; as a man of principles, he’s willing to put in the time to build back his business and name.</p>
+                { toggled ?
+                    <button className='charQuoteButtonToggle' 
+                            type='button'
+                            value='Johnny'
+                            onClick={toggledName}>
+                            SHOW AVAILABLE QUOTES</button>
+                    :
+                    <>
+                    <button className='charQuoteButtonToggle' 
+                            type='button'
+                            value='Johnny'
+                            onClick={toggledName}>
+                            HIDE AVAILABLE QUOTES</button>
+                    <h1 className='charQuotes'>JOHNNY's QUOTES</h1>
+                    <CharacterQuotes char='Johnny' />
+                    </>
+                }
             </div>
-            <h3>Johnny Rose</h3>
-            <p>As the former CEO of the nation’s second-largest chain of video rental stores, Johnny feels right at home at the helm of the Rosebud Motel with his business partner, Stevie. And as the motel receives increasing recognition and acclaim, Johnny is starting to feel like his old self: filled with purpose and pride. Johnny continues to cherish and support his loved ones in every way, even if it means taking out a line of credit to enable Moira’s spending habits. Of course, Johnny still has his sights set on leaving Schitt’s Creek, but he’s in no rush; as a man of principles, he’s willing to put in the time to build back his business and name.</p>
-
             <div className='frame'>
                 <img className='charPhoto' src={moira} alt='Moira Rose'></img>
             </div>

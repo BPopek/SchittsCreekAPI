@@ -5,7 +5,7 @@ const quoteAxios = axios.create()
 const QuoteContext = React.createContext();
 
 function QuoteProvider(props) {
-    const [ quotes, setQuotes, characterQuotes, setCharacterQuotes, randomQuote, setRandomQuote ] = useState([])
+    const [ quotes, setQuotes, characterQuotes, setCharacterQuotes ] = useState([])
 
     const getAllQuotes = () => {
         // console.log('getting jobs')
@@ -16,8 +16,8 @@ function QuoteProvider(props) {
         })
         .catch(err => console.log(err))
     }
-
-    const getCharacterQuotes = () => {
+    const { char } = props
+    const getCharacterQuotes = (char) => {
         return quoteAxios.get('/api/quotes/character')
         .then(res => {
             setCharacterQuotes(res.data);
@@ -25,13 +25,6 @@ function QuoteProvider(props) {
         })
         .catch(err => console.log(err))
     }
-    // const getRandomQuote = () => {
-    //     return quoteAxios.get('/api/quotes')
-    //     .then(res => {
-    //         setRandomQuote(res.data);
-    //         return res;
-    //     })   
-    // }
 
     return (
         <QuoteContext.Provider 
@@ -40,7 +33,6 @@ function QuoteProvider(props) {
                 quotes,
                 getAllQuotes, 
                 getCharacterQuotes
-                //getRandomQuote
             }}>
             { props.children }
             </QuoteContext.Provider>

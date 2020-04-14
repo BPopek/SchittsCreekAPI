@@ -26,7 +26,6 @@
         font-weight: 100;
         color: $grey;
         line-height: 1.4;
-        margin-bottom: 50px;
         @media (min-width: 1000px) {
             font-size: 20px;
         }
@@ -76,4 +75,28 @@
     width: 500px;
     margin: 20px;
     
+}
+.charQuoteButtonToggle {
+  width: 350px;
+  margin: 20px auto 25px;
+  padding: 10px 15px 5px;
+  background-color: $ltyellow;
+  font-family: $funfont;
+  font-size: 16px;
+  border: none;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.25);
+}
+.character {
+  text-align: center;
+}
+.charQuotes {
+  font-family: $primaryFont;
+  font-size: 16px;
+  font-weight: 100;
+  color: $grey;
+  line-height: 1.4;
+  margin-bottom: 25px;
+  @media (min-width: 1000px) {
+      font-size: 20px;
+  }
 }
