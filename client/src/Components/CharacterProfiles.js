@@ -14,30 +14,28 @@ import stevie from '../Images/stevie.jpg';
 import twyla from '../Images/twyla.jpg';
 import ted from '../Images/ted.jpg';
 
+
 function CharacterProfiles(props) {
-    // useEffect(() => {
-    //     getCharacterQuotes()
-    // }, [])
+    useEffect(() => {
+        // getCharacterQuotes(character)
+        getAllQuotes()
+    }, [])
 
-    const { getCharacterQuotes  } = useContext(QuoteContext)
-
-    const [ toggled, setToggled ] = useState(true)
+    const { getCharacterQuotes, quotes, getAllQuotes } = useContext(QuoteContext)
     const [ character, setCharacter ] = useState('')
 
-    const { charName } = props
-
-    const toggledName = (e) => {
+    const { char } = props
+    
+    const [ toggled, setToggled ] = useState(true)
+    const toggledName = (value) => {
         setToggled(prev => {
-            e.preventDefault()
-            const { value } = e.target;
-            setCharacter(prevCharacter => ({
-                ...prevCharacter,
-                 value}))
-            .then(() => {
+            // e.preventDefault()
+            // const { value } = e.target;
+            if (value === quotes.character){
+            setCharacter(prev => {
                 return !prev
-            })
+            })}
         })
-        // .catch(err => console.error(err.response.data.message))
     }
    
     return (
@@ -48,11 +46,11 @@ function CharacterProfiles(props) {
                 </div>
                 <h3>Johnny Rose</h3>
                 <p>As the former CEO of the nation’s second-largest chain of video rental stores, Johnny feels right at home at the helm of the Rosebud Motel with his business partner, Stevie. And as the motel receives increasing recognition and acclaim, Johnny is starting to feel like his old self: filled with purpose and pride. Johnny continues to cherish and support his loved ones in every way, even if it means taking out a line of credit to enable Moira’s spending habits. Of course, Johnny still has his sights set on leaving Schitt’s Creek, but he’s in no rush; as a man of principles, he’s willing to put in the time to build back his business and name.</p>
-                { toggled ?
+                {/* { toggled ?
                     <button className='charQuoteButtonToggle' 
                             type='button'
-                            value='Johnny'
-                            onClick={toggledName}>
+                            value={'Johnny'}
+                            onClick={(e) => toggledName('value')}>
                             SHOW AVAILABLE QUOTES</button>
                     :
                     <>
@@ -64,7 +62,7 @@ function CharacterProfiles(props) {
                     <h1 className='charQuotes'>JOHNNY's QUOTES</h1>
                     <CharacterQuotes char='Johnny' />
                     </>
-                }
+                } */}
             </div>
             <div className='frame'>
                 <img className='charPhoto' src={moira} alt='Moira Rose'></img>

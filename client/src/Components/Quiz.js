@@ -1,9 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
+// import React, { useContext, useState } from 'react';
+
 // import { QuoteContext } from '.QuoteProvider';
 // import AnswerForm from './AnswerForm'
 import RandomQuote from './RandomQuote'
 
-import logoStacked from '../Images/SC-logo.png'
+// import logoStacked from '../Images/SC-logo.png'
 import logo from '../Images/SC-logo-wide-shadow.png';
 
 

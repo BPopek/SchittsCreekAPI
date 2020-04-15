@@ -1,25 +1,54 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { QuoteContext } from './QuoteProvider'
 
 export default function CharacterQuote(props) {
 
-    const { quotes, setQuotes, getAllQuotes, characterQuotes, setCharacterQuotes  } = useContext(QuoteContext)
+    const { quotes, getAllQuotes, setCharacterQuotes } = useContext(QuoteContext)
 
-    const specificCharObj = quotes.filter((quote, char) => {
-        let characterQuotes = []
-        console.log({characterQuotes})
-        if(char === quote.character) {
-            characterQuotes.push(quotes)}
-            return (
-                <div className='charQuote'
-                key={quote._id}>
-                    {characterQuotes.quoteText}
-                    </div>
-            )}, {})
+//     useEffect(() => {
+//         getCharacterQuotes(); 
+//     }, [])
+
+//     const { char } = props
+
+//     const specificCharObj = quotes.filter(quote => {
+//         let characterQuotes = []
+//         // console.log({characterQuotes})
+             
+//         if(char === quote.character) {
+//             characterQuotes.push(quotes)}
+//             return (
+//                 <div className='charQuote'
+//                 //key={quote._id}
+//                 >
+//                     {characterQuotes.quoteText}
+//                     </div>
+//             )}, {})
             
-            return (
-                <div>
-                    {specificCharObj}
-                </div>
-            )
+//             return (
+//                 <div>
+//                     {specificCharObj}
+//                 </div>
+//             )
+// }
+
+
+        useEffect(() => {
+            getAllQuotes()
+        }, [])
+
+        const specificCharQuotes = (character) => {
+            // e.preventDefault()
+            // const { name, value } = e.target;
+            if(character === quotes.character) {
+                setCharacterQuotes(prev => {
+                    return !prev
+                }) 
+        }
+        return (
+            <div>
+                {specificCharQuotes}
+            </div>
+        )
+    }
 }

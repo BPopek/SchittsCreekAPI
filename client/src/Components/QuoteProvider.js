@@ -6,6 +6,7 @@ const QuoteContext = React.createContext();
 
 function QuoteProvider(props) {
     const [ quotes, setQuotes, characterQuotes, setCharacterQuotes ] = useState([])
+
     
     const getAllQuotes = () => {
         // console.log('getting jobs')
@@ -18,7 +19,7 @@ function QuoteProvider(props) {
     }
     const { char } = props
     const getCharacterQuotes = (char) => {
-        return quoteAxios.get('/api/quotes/character')
+        return quoteAxios.get(`/api/quotes/character/${char}`)
         .then(res => {
             setCharacterQuotes(res.data);
             return res;
@@ -26,13 +27,20 @@ function QuoteProvider(props) {
         .catch(err => console.log(err))
     }
 
+    const [ needStart, setNeedStart ] = useState(true)
+    const handleStart = () => {
+        setNeedStart(false)
+    }
+
     return (
         <QuoteContext.Provider 
             value={{
                 ...useState, 
                 quotes,
+                needStart,
                 getAllQuotes, 
-                getCharacterQuotes
+                getCharacterQuotes,
+                handleStart,
             }}>
             { props.children }
             </QuoteContext.Provider>

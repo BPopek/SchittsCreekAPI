@@ -3,7 +3,7 @@ import { QuoteContext } from './QuoteProvider'
 
 export default function RandomQuote(props) {
 
-    const { quotes, setQuotes, getAllQuotes, characterQuotes, setCharacterQuotes  } = useContext(QuoteContext)
+    const { quotes,  getAllQuotes,  needStart, handleStart } = useContext(QuoteContext)
 
     const [ currentRandomQuote, setCurrentRandomQuote ] = useState({
         character: '',
@@ -12,23 +12,19 @@ export default function RandomQuote(props) {
         episodeName: '',
     })
 
-    const [ nextRandomQuote, setNextRandomQuote ] = useState({
-        character: '',
-        quoteText: '',
-        season: '',
-        episodeName: '',
-    })
+    // const [ nextRandomQuote, setNextRandomQuote ] = useState({
+    //     character: '',
+    //     quoteText: '',
+    //     season: '',
+    //     episodeName: '',
+    // })
 
     useEffect(() => {
         getAllQuotes()
     }, [])
     //you will still want a function created that maybe fires in nuser click that updates the randomQuote state so a rerender occurs.  But only if you need that kind of functionality
-    const [ togglePlay, setTogglePlay ] = useState(true)
-    const toggledPlay = (e) => {
-        // e.preventDefault()
-        setTogglePlay(false)
-    }
-    const [ toggled, setToggled ] = useState(false)
+
+     const [ toggled, setToggled ] = useState(false)
     const toggledAnswer = (e) => {
         // e.preventDefault()
         setToggled(prev => {
@@ -42,14 +38,22 @@ export default function RandomQuote(props) {
             return !prev
         })
     }
+    
+    const [ togglePlay, setTogglePlay ] = useState('start')
+    const toggledPlay = (e) => {
+        setTogglePlay('play')
+        handleStart()
+    }
     const randomIndex = Math.floor(Math.random() * quotes.length)
     const currentQuote = (e) => {
         setCurrentRandomQuote(quotes[randomIndex] || {})
     }
-    const handleChangeCurrentQuote = e => {
+    const handleChangeCurrentQuote = (e, idName) => {
         // e.preventDefault()
         currentQuote()    
-        toggledPlay()
+        toggledPlay();
+        // let foundDiv = document.getElementById('hide1')
+        // foundDiv.classList.add('hidden')
     }
     const handleChangeNext = e => {
         e.preventDefault()
@@ -72,14 +76,14 @@ export default function RandomQuote(props) {
     
     return (
         <>
-        { togglePlay 
+        {  needStart
             ?
             <div>
                 {/* <div>Ready to Play?</div> */}
-                <button className='playButton' type='button' onClick={handleChangeCurrentQuote} >Start the Game</button>
+                <button id='hide1' className='playButton' type='button' value='play' onClick={handleChangeCurrentQuote} >Start the Game</button>
             </div>
             :
-            <>
+            <>  
                 <div className='quoteContainer' togglePlay={false}>
                     { toggled ?
                         <div>

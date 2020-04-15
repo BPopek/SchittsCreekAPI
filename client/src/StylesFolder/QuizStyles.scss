@@ -25,6 +25,9 @@
         
     }
 }
+.hidden {
+    display: none
+}
 .quizContainer {
     margin: 70px auto 0px;
     text-align: center;
@@ -118,9 +121,6 @@
         position: absolute;
         right: 15px;
         top: -5px;
-        // -ms-transform: skewX(30deg);
-        // -webkit-transform: skewX(30deg);
-        // transform: skewX(30deg);
     }
     > * {
         position: relative;
@@ -131,7 +131,6 @@
         &:before {
             width: 600px;
         }
-
     }
 }
 .answerContainer {
