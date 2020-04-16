@@ -25,7 +25,7 @@
 .navLinks {
     top: 0x;
     font-family: $primaryFont;
-    font-size: 16px;
+    font-size: 14px;
     color: $white;
     font-weight: 300;
     letter-spacing: 2px;
@@ -41,7 +41,7 @@
     }
     @media (min-width: 500px) {
         font-size: 18px !important;
-        padding: 0px 10px;
+        padding: 0px 15px;
     }
     @media (min-width: 700px) {
         padding: 0px 30px;
@@ -53,13 +53,18 @@
     }
 }
 .navbarLogo {
-    height: 50px;
+    height: 30px;
     width: auto;
     position: absolute;
-    left: 20px;
-    top: 0px;
+    left: 10px;
+    top: 9px;
+    @media (min-width: 400px) {
+        height: 50px;
+        left: 20px;
+        top: 0px;
+    }
     @media (min-width: 700px) {
-        height: 75px;
+        height: 72px;
         left: 50px;
     }
 }
@@ -87,7 +92,7 @@
 .footerLinks {
     top: 0;
     font-family: $primaryFont;
-    font-size: 16px;
+    font-size: 14px;
     color: $white !important;
     font-weight: 300;
     letter-spacing: 2px;
@@ -95,20 +100,45 @@
     text-decoration: none !important;
     line-height: 50px;
     z-index: 1;
-    padding: 0px 15px;
+    padding: 0px 5px;
     display: flex;
     justify-self: space-around;
     &:hover {
         color: $yellow;
     }
+    @media (min-width: 400px) {
+        padding: 0px 15px;
+    }
     @media (min-width: 500px) {
         font-size: 18px !important;
+        padding: 0px 25px;
     }
     @media (min-width: 700px) {
         padding: 0px 30px;
     }
     @media (min-width: 1000px) {
         padding: 0px 50px;
+    }
+    a {
+        color: $white;
+        text-decoration: none;  
+    }
+}
+.footerLegal {
+    top: 0;
+    left: 5px;
+    font-family: $primaryFont;
+    font-size: 10px;
+    color: $ltgrey !important;
+    font-weight: 300;
+    letter-spacing: 2px;
+    position: absolute;
+    text-decoration: none !important;
+    line-height: 50px;
+    z-index: 1;
+    padding: 0px 15px;
+    &:hover {
+        color: $yellow;
     }
     a {
         color: $white;
@@ -160,42 +190,41 @@
     text-align: center;
     margin: 40px auto 0px;
     border-bottom: 5px $black solid;
-    height: 200px;
+    height: 150px;
     position: relative;
-    background-size: cover;
+    background-size: 100%;
     background-image: url('../Images/sc-s6-hero.jpg');
-    background-color: none;
+    background-color: $black;
     background-position: center top;
     background-repeat: no-repeat;
     @media (min-width: 500px) {
         height: 250px;
+        background-size: cover;
     }
     @media (min-width: 700px) {
         height: 300px;
     }
-    @media (min-width: 700px) {
-        height: 350px;
-    }
     @media (min-width: 900px) {
         height: 400px;
+        background-image: url('../Images/sc-s6-hero2.jpg');
     }
     @media (min-width: 1100px) {
-        height: 450px;
-        border-left: 20px $black solid;
-        border-right: 20px $black solid;
+        // height: 450px;
+        // border-left: 20px $black solid;
+        // border-right: 20px $black solid;
         box-sizing: border-box;
     }
     @media (min-width: 1400px) {
-        height: 500px;
-        border-left: 40px $black solid;
-        border-right: 40px $black solid;
+        height: 425px;
+        border-left: 100px $black solid;
+        border-right: 100px $black solid;
         box-sizing: border-box;
     }
-    @media (min-width: 1400px) {
-        border-left: 50px $black solid;
-        border-right: 50px $black solid;
-        box-sizing: border-box;
-    }
+    // @media (min-width: 1400px) {
+    //     border-left: 50px $black solid;
+    //     border-right: 50px $black solid;
+    //     box-sizing: border-box;
+    // }
 
 }
 .homeText {
@@ -220,7 +249,7 @@
 .quizSign {
     width: auto;
     height: 200px;
-    margin: 40px 20px 20px;
+    margin: 40px 40px 20px;
     position: relative;
     &:hover {
         -webkit-animation: whoopsie 1500ms 150ms linear both;
@@ -230,14 +259,15 @@
         }
     @media (min-width: 700px) {
         height: 225px;
+        margin: 50px 50px;
     }
     @media (min-width: 900px) {
         height: 250px;
-        margin: 50px 40px ;
+        margin: 60px 60px ;
     }
     @media (min-width: 1200px) {
         height: 275px;
-        margin: 50px 80px ;
+        margin: 60px 80px ;
     }
 }
 @keyframes whoopsie {
@@ -248,66 +278,75 @@
     10%{
         -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
-    }
-    20%{
-        -webkit-transform: rotate(3deg);
-            transform: rotate(3deg);
-    }
+            z-index: 2;
+        }
+    15%{
+        -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+            z-index: 2;
+        }
     50%{
-        -webkit-transform: rotate(3.5deg);
-            transform: rotate(3.5deg);
-    }
+        -webkit-transform: rotate(5.5deg);
+            transform: rotate(5.5deg);
+            z-index: 2;
+        }
     65%{
         -webkit-transform: rotate(50deg);
             transform: rotate(50deg);
-    }
+            z-index: 2;
+        }
     80%{
         -webkit-transform: rotate(35deg);
             transform: rotate(35deg);
-    }
+            z-index: 2;
+        }
     90%{
         -webkit-transform: rotate(30deg);
             transform: rotate(30deg);
-    }
+            z-index: 2;
+        }
     100%{
-        -webkit-transform: rotate(33deg);
-            transform: rotate(33deg);
-    }
+        -webkit-transform: rotate(35deg);
+            transform: rotate(35deg);
+            z-index: 2;
+        }
+}
+.signContainer {
+    position: relative;
+}
+.nail1 {
+  width: 7px;
+  height: 7px;
+  background-color: $ltgrey;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: .5px .5px 1px $grey;
+  left: 310px;
+  top: 125px;
+  z-index: 1;
 }
 .charSign {
     width: auto;
     height: 100px;
-    margin: 20px 20px 10px;
+    margin: 40px 40px 20px;
     position: relative;
     @media (min-width: 700px) {
-        margin: 30px 20px 10px;
+        margin: 50px 50px;
     }
     
     @media (min-width: 900px) {
-        margin: 50px 40px ;
+        margin: 60px 60px ;
         height: 125px;
     }
     @media (min-width: 1200px) {
         height: 175px;
-        margin: 50px 80px ;
+        margin: 60px 80px ;
     }
     &:hover {
         -webkit-animation: swing-out-bottom-fwd 2s 50ms cubic-bezier(0.600, -0.280, 0.735, 0.045) infinite alternate both;
         animation: swing-out-bottom-fwd 2s 50ms cubic-bezier(0.600, -0.280, 0.735, 0.045) infinite alternate both;
     }
 }
-/* ----------------------------------------------
- * Generated by Animista on 2020-4-15 14:49:12
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation swing-out-bottom-fwd
- * ----------------------------------------
- */
  @-webkit-keyframes swing-out-bottom-fwd {
     0% {
       -webkit-transform: rotateX(0);
@@ -316,19 +355,16 @@
               transform-origin: bottom;
       opacity: 1;
     }
-    // 5% {
-    //     -webkit-transform: rotateX(-5deg);
-    //             transform: rotateX(-5deg);
-    //     -webkit-transform-origin: bottom;
-    //             transform-origin: bottom;
-    //     opacity: 1;
-    //   }
     80% {
-        opacity: .9;
-      }
+    -webkit-transform: rotateX(-88deg);
+            transform: rotateX(-88deg);
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+    opacity: 0.9;
+    }
     100% {
-      -webkit-transform: rotateX(-90deg);
-              transform: rotateX(-90deg);
+      -webkit-transform: rotateX(-88deg);
+              transform: rotateX(-88deg);
       -webkit-transform-origin: bottom;
               transform-origin: bottom;
       opacity: 0.5;
@@ -342,88 +378,114 @@
               transform-origin: bottom;
       opacity: 1;
     }
-    // 5% {
-    //     -webkit-transform: rotateX(-5deg);
-    //             transform: rotateX(-5deg);
-    //     -webkit-transform-origin: bottom;
-    //             transform-origin: bottom;
-    //     opacity: 1;
-    //   }
     80% {
-        opacity: .9;
-      }
+        -webkit-transform: rotateX(-88deg);
+                transform: rotateX(-88deg);
+        -webkit-transform-origin: bottom;
+                transform-origin: bottom;
+        opacity: 0.9;
+    }
     100% {
-      -webkit-transform: rotateX(-90deg);
-              transform: rotateX(-90deg);
+      -webkit-transform: rotateX(-88deg);
+              transform: rotateX(-88deg);
       -webkit-transform-origin: bottom;
               transform-origin: bottom;
       opacity: 0.5;
     }
   }
-  
-.skew1Container {
-    display: flex;
-    position: relative;
-    width: 211px;
-    height: 161px;
-    margin: 25px auto;
-}
-.skew2Container {
-    display: flex;
-    position: relative;
-    width: 211px;
-    height: 161px;
-    margin: 25px auto;
-}
-.skew1 {
-    width: 210px;
-    height: 100px;
-    // background-color: $ltyellow;
-    background-image: linear-gradient(-45deg, $yellow, $ltyellow, $yellow);
-
-    opacity: 0;
-    position: absolute;
-    top: 55px;
-    left: 0px;
-    right: 0px;
-
-    &:hover {
-    // display: ;
-    opacity: .99;
-    box-sizing: border-box;
-    border-top: 5px $yellow solid;
-    border-bottom: 5px $yellow solid;
-    -ms-transform: skewY(8deg);
-    -webkit-transform: skewY(8deg);
-    transform: skewY(8deg);
+  .legalContainer {
+      margin: 100px auto;
+      padding: 20px 50px;
+      @media (min-width: 700px) {
+        padding: 30px 100px;
     }
-}
-.unskew1 {
-    font-family: $primaryFont;
-    font-weight: 500;
-    // font-style: italic;
-    font-size: 20px;
-    width: 210px;
-    height: 100px;
-    opacity: 0;
-    // color: red;
-    position: absolute;
-    top: 15px;
-    left: 0px;
-    right: 0px;
-    margin: 0;
-    padding: 0;
 
-    &:hover {
-    color: $grey;
-    opacity: 100;
-    position: absolute;
-    // display: inline;
-    top: 15px;
-    left: 0px;
-    right: 0px;
-    -ms-transform: skewY(-8deg);
-    -webkit-transform: skewY(-8deg);
-    transform: skewY(-8deg);
+      h1 {
+          font-family: $primaryFont;
+          color: $black;
+          border-bottom: 3px solid $yellow;
+          font-weight: 300;
+          line-height: 1.4;
+          text-align: center;
+      }
+      p {
+        font-family: $primaryFont;
+        color: $grey;
+        line-height: 1.4;
+        font-size: 15px;
+        margin: 20px auto;
     }
-}
+    li {
+        font-family: $primaryFont;
+        color: $grey;
+        line-height: 1.4;
+        font-size: 15px;
+        margin: 10px auto;
+    }
+  }
+// .skew1Container {
+//     display: flex;
+//     position: relative;
+//     width: 211px;
+//     height: 161px;
+//     margin: 25px auto;
+// }
+// .skew2Container {
+//     display: flex;
+//     position: relative;
+//     width: 211px;
+//     height: 161px;
+//     margin: 25px auto;
+// // }
+// .skew1 {
+//     width: 210px;
+//     height: 100px;
+//     // background-color: $ltyellow;
+//     background-image: linear-gradient(-45deg, $yellow, $ltyellow, $yellow);
+
+//     opacity: 0;
+//     position: absolute;
+//     top: 55px;
+//     left: 0px;
+//     right: 0px;
+
+//     &:hover {
+//     // display: ;
+//     opacity: .99;
+//     box-sizing: border-box;
+//     border-top: 5px $yellow solid;
+//     border-bottom: 5px $yellow solid;
+//     -ms-transform: skewY(8deg);
+//     -webkit-transform: skewY(8deg);
+//     transform: skewY(8deg);
+//     }
+// }
+// .unskew1 {
+//     font-family: $primaryFont;
+//     font-weight: 500;
+//     // font-style: italic;
+//     font-size: 20px;
+//     width: 210px;
+//     height: 100px;
+//     opacity: 0;
+//     // color: red;
+//     position: absolute;
+//     top: 15px;
+//     left: 0px;
+//     right: 0px;
+//     margin: 0;
+//     padding: 0;
+
+//     &:hover {
+//     color: $grey;
+//     opacity: 100;
+//     position: absolute;
+//     // display: inline;
+//     top: 15px;
+//     left: 0px;
+//     right: 0px;
+//     -ms-transform: skewY(-8deg);
+//     -webkit-transform: skewY(-8deg);
+//     transform: skewY(-8deg);
+//     }
+// }

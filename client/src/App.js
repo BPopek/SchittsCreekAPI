@@ -6,6 +6,7 @@ import Home from './Components/Home';
 import Quiz from './Components/Quiz';
 import CharacterProfiles from './Components/CharacterProfiles';
 import Footer from './Components/Footer';
+import legal from './Components/legal'
 
 import './StylesFolder/GlobalStyles.scss';
 import './StylesFolder/NavHomeFooterStyles.scss';
@@ -20,6 +21,8 @@ function App() {
         <Route exact path='/' component={Home} ></Route>
         <Route path='/quiz' component={Quiz} ></Route>
         <Route path='/characters' component={CharacterProfiles} ></Route>
+        <Route path='/legal-disclaimer' component={legal} ></Route>
+
       </Switch>
       <Footer />
     </div>

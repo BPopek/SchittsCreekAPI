@@ -1,17 +1,18 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 // import { Link, withRouter } from 'react-router-dom'
 
 
 // import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll'
 
-function Footer(props) {
+function Footer() {
 
     return (
         <div className='footer'>
-            <p className='footerLinks'><a href="mailto:betsypopek@gmail.com"    
+            <p className='footerLinks'><a href="mailto:schittscreekquotes@gmail.com"    
                 >Suggest Quote</a></p>    
             <a href="https://www.cbc.ca/schittscreek/" className='footerLinks'>Official Website</a> 
+            <Link to='/legal-disclaimer' className='footerLegal'>Legal</Link>
         </div>    
     )
 }

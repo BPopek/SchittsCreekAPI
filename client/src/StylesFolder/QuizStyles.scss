@@ -5,11 +5,10 @@
     margin: 10px auto;
     @media (min-width: 700px) {
         width: 450px;
-
     }
 }
 .playButton {
-    margin: 70px auto 10px;
+    margin: 20px auto 10px;
     padding: 10px 10px 5px;
     background-color: $yellow;
     font-family: $funfont;
@@ -22,7 +21,28 @@
     border-top: 5px solid $ltyellow;
     border-bottom: 5px solid $grey;
     @media (min-width: 700px) {
-        
+        margin: 40px auto 10px;
+    }
+}
+.readyPlay {
+    h1 {
+        font-family: $funfont;
+        font-size: 30px;
+        color: $purple;
+        margin: 60px auto 5px;
+        letter-spacing: -4px;
+        @media (min-width: 700px) {
+            font-size: 40px;
+        }
+    }
+    h2 {
+        font-family: $primaryFont;
+        color: $grey;
+        font-size: 20px;
+        font-weight: 300;
+        @media (min-width: 700px) {
+            font-size: 30px;
+        }
     }
 }
 .hidden {
@@ -147,11 +167,12 @@
     margin: 35px auto 10px;
     display: block;
     font-family: $funfont;
-    font-size: 24px;
+    font-size: 20px;
     color: $purple;
     width: 200px;
+    letter-spacing: -6px;
     @media (min-width: 700px) {
-        font-size: 34px;
+        font-size: 30px;
         width: 500px;
     }
 }
@@ -165,14 +186,45 @@
         background-color: $purple;
         color: $white;
         outline: none;
-
     }
     @media (min-width: 700px) {
         
     }
-
-
 }
+.quizCharPhoto {
+    width: 300px;
+    display: block;
+    margin: 20px auto;
+    box-shadow: 3px 3px 10px $grey;
+    -webkit-animation: swirl 0.6s ease-out both;
+	        animation: swirl 0.6s ease-out both;
+}
+ @-webkit-keyframes swirl {
+    0% {
+      -webkit-transform: rotate(-540deg) scale(0);
+              transform: rotate(-540deg) scale(0);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotate(0) scale(1);
+              transform: rotate(0) scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes swirl {
+    0% {
+      -webkit-transform: rotate(-540deg) scale(0);
+              transform: rotate(-540deg) scale(0);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotate(0) scale(1);
+              transform: rotate(0) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  
 .nextButton {
     margin: 0px auto 10px;
     padding: 10px 10px 5px;
@@ -191,9 +243,63 @@
     width: 200px;
     line-height: 1.3;
     color: $purple;
+    -webkit-animation: shake 2s infinite ease-in;
+    animation: shake 2s infinite ease-in;
     @media (min-width: 700px) {
         font-size: 24px;
         width: 500px;
-
     }
 }
+ @-webkit-keyframes shake {
+    0%, 100% {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+      }
+      5%, 15%, 25%, 35% {
+        -webkit-transform: translateX(-8px);
+                transform: translateX(-8px);
+      }
+      10%, 20%, 30% {
+        -webkit-transform: translateX(8px);
+                transform: translateX(8px);
+      }
+      40% {
+        -webkit-transform: translateX(8px);
+                transform: translateX(8px);
+      }
+      45% {
+        -webkit-transform: translateX(-8px);
+                transform: translateX(-8px);
+      }
+      50% {
+          -webkit-transform: translateX(0);
+                  transform: translateX(0);
+        }
+  }
+  @keyframes shake {
+    0%, 100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+    5%, 15%, 25%, 35% {
+      -webkit-transform: translateX(-8px);
+              transform: translateX(-8px);
+    }
+    10%, 20%, 30% {
+      -webkit-transform: translateX(8px);
+              transform: translateX(8px);
+    }
+    40% {
+      -webkit-transform: translateX(8px);
+              transform: translateX(8px);
+    }
+    45% {
+      -webkit-transform: translateX(-8px);
+              transform: translateX(-8px);
+    }
+    50% {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+      }
+  }
+  

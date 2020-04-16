@@ -14,8 +14,9 @@ function Home(props) {
             <div  alt='Schitts Creek Cast' className='homeImage' ></div>
 
             <div className='homeContainer'>
-                    <Link to="/quiz">
+                    <Link to="/quiz" className='signContainer'>
                         <img src={signQuiz} alt='Schitts Creek Sign' className='quizSign' />
+                        {/* <div className='nail1'></div> */}
                     </Link>
                     <Link to="/characters"> 
                         <img src={charSign} alt='Character Profiles Logo' className='charSign' />
