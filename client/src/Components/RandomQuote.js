@@ -111,8 +111,8 @@ export default function RandomQuote(props) {
                     <button className='answerButton' type='button' value='Moira' onClick={handleChangeAnswer}>Moira</button>
                     <button className='answerButton' type='button' value='David' onClick={handleChangeAnswer}>David</button>
                     <button className='answerButton' type='button' value='Alexis' onClick={handleChangeAnswer}>Alexis</button>
-                    <button className='answerButton' type='button' value='Ted' onClick={handleChangeAnswer}>Ted</button>
                     <button className='answerButton' type='button' value='Stevie' onClick={handleChangeAnswer}>Stevie</button>
+                    <button className='answerButton' type='button' value='Ted' onClick={handleChangeAnswer}>Ted</button>
                     <button className='answerButton' type='button' value='Roland' onClick={handleChangeAnswer}>Roland</button>
                     <button className='answerButton' type='button' value='Jocelyn' onClick={handleChangeAnswer}>Jocelyn</button>
                     <button className='answerButton' type='button' value='Patrick' onClick={handleChangeAnswer}>Patrick</button>

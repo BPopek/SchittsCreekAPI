@@ -1,32 +1,30 @@
 @import 'GlobalStyles.scss';
 .quizLogo {
-    width: 300px;
+    width: 250px;
     height: auto;
-    margin: 10px auto;
+    margin: 10px auto 0px;
+    @media (min-width: 400px) {
+        width: 300px;
+    }
     @media (min-width: 700px) {
         width: 450px;
     }
 }
 .playButton {
     margin: 40px auto 10px;
-    padding: 10px 10px 5px;
-    // background-color: $yellow;
+    padding: 10px;
     background-image: linear-gradient(to bottom left, $yellow, $ltyellow, $dkyellow);
     font-family: $funfont;
-    font-size: 34px;
-    width: 200px;
-    height: 200px;
+    font-size: 32px;
+    width: 180px;
+    height: 180px;
     line-height: 1.2;
     letter-spacing: -6px;
     position: relative;
-    // border-right: 2px solid $ltyellow;
-    // border-left: 2px solid $ltyellow;
-    // border-top: 1px solid $lteryellow;
-    // border-bottom: 2px solid $dkyellow;
     border-radius: 50%;
     border: none;
-    @media (min-width: 700px) {
-        margin: 40px auto 10px;
+    @media (min-width: 400px) {
+        margin: 60px auto 10px;
     }
     &:active {
         background-color: $yellow;
@@ -36,10 +34,6 @@
              outline: none;
 
     }
-    // &:focus {
-    //     background-color: $yellow;
-    //     outline: none;
-    // }
     &:before {
         border-radius: 100%;
         background-image: linear-gradient(to bottom right, $yellow, $ltyellow, $dkyellow);
@@ -58,10 +52,14 @@
 .readyPlay {
     h1 {
         font-family: $funfont;
-        font-size: 30px;
+        font-size: 26px;
         color: $purple;
-        margin: 50px auto 5px;
-        letter-spacing: -4px;
+        margin: 30px auto 5px;
+        letter-spacing: -5.5px;
+        @media (min-width: 350px) {
+            font-size: 30px;
+            margin: 50px auto 5px;
+        }
         @media (min-width: 500px) {
             margin: 100px auto 5px;
         }
@@ -74,6 +72,10 @@
         color: $grey;
         font-size: 20px;
         font-weight: 300;
+        text-transform: uppercase;
+        @media (min-width: 350px) {
+            font-size: 20px;
+        }
         @media (min-width: 700px) {
             font-size: 30px;
         }
@@ -83,14 +85,16 @@
     display: none
 }
 .quizContainer {
-    margin: 70px auto 0px;
+    margin: 70px auto 50px;
     text-align: center;
     padding: 0px 30px;
     position: relative;
     height: auto;
+    @media (min-width: 400px) {
+        margin: 80px auto 70px;
+    }
     @media (min-width: 700px) {
         margin: 100px auto 70px;
-
     }
 }
 .quizWelcome {
@@ -104,7 +108,6 @@
     @media (min-width: 700px) {
         font-size: 40px;
         margin: 25px auto;
-
     }
 }
 .quoteContainer {
@@ -114,41 +117,40 @@
     font-size: 40px;
     margin: 40px 5px;
     display: block;
-    @media (min-width: 700px) {
-        
-    }
 }
 .quoteFormContainer {
     margin: 25px auto 75px;
-    @media (min-width: 700px) {
-        
-    }
 }
 .quizWho {
     font-family: $primaryFont;
     font-weight: 300;
-    font-size: 24px;
+    font-size: 20px;
     width: auto;
     color: $purple;
     text-align: center;
     margin: 35px auto 5px;
-    @media (min-width: 700px) {
-        
+    @media (min-width: 400px) {
+        font-size: 24px;
     }
 }
 .randomQuote {
     font-family: $primaryFont;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 18px;
     font-style: italic;
-    display:inline-block;
-    width: 250px;
+    display: block;
+    width: 200px;
     color: $grey;
     text-align: center;
     margin: 5px auto ;
     padding: 5px 10px;
     position: relative;  
     height: auto;
+    @media (min-width: 400px) {
+        font-size: 20px;
+        padding: 5px 10px;
+        width: 250px;
+    }
     @media (min-width: 700px) {
         font-size: 26px;
         padding: 10px 15px;
@@ -157,7 +159,7 @@
 }
 .quoteBrackets {
     display:inline-block;
-    width: 300px;
+    width: 225px;
     text-align: center;
     margin: 5px auto;
     background-color: #dedede;
@@ -167,7 +169,7 @@
     height: auto;
     &:before {
         background-color: #dedede;
-        width: 300px;
+        width: 225px;
         bottom: -5px;
         content: "";
         left: 15px;
@@ -179,6 +181,12 @@
         position: relative;
         z-index: 1;
     }
+    @media (min-width: 400px) {
+        width: 300px;
+        &:before {
+            width: 300px;
+        }
+    }
       @media (min-width: 700px) {
         width: 600px;
         &:before {
@@ -188,17 +196,20 @@
 }
 .answerContainer {
     margin: 15px auto 25px;
-    width: 300px;
+    width: 255px;
+    @media (min-width: 400px) {
+        width: 350px;
+    }
     @media (min-width: 700px) {
-        width: 550px;
+        width: 500px;
         margin: 20px auto 25px;
     }
     @media (min-width: 1000px) {
-        width: 850px;
+        width: 600px;
     }
 }
 .answer {
-    margin: 35px auto 10px;
+    margin: 25px auto 10px;
     display: block;
     font-family: $funfont;
     font-size: 20px;
@@ -215,7 +226,7 @@
     }
 }
 .answerButton {
-    margin: 5px 15px;
+    margin: 5px 7.5px;
     padding: 10px 10px 5px;
     background-color: $yellow;
     font-family: $funfont;

@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin: 60px 50px 50px;
+    margin: 60px auto 50px;
     padding: 25px;
     text-align: auto;
     @media (min-width: 1000px) {
@@ -14,6 +14,7 @@
         font-family: $primaryFont;
         margin: 20px auto 10px;
         font-size: 18px;
+        display: block;
         @media (min-width: 1000px) {
             margin: 30px auto 15px;
             font-size: 22px;
@@ -27,6 +28,8 @@
         color: $grey;
         line-height: 1.4;
         text-align: left;
+        display: block;
+        padding: 0px 25px;
         @media (min-width: 1000px) {
             font-size: 20px;
         }
@@ -73,8 +76,14 @@
 }
 .charPhoto {
     height: auto;
-    width: 250px;
+    width: 175px;
     margin: 20px;
+    @media (min-width: 350px) {
+      width: 200px;
+    }
+    @media (min-width: 500px) {
+      width: 250px;
+    }
     @media (min-width: 700px) {
       width: 350px;
     }
@@ -84,19 +93,22 @@
 }
 .charQuoteButtonToggle {
   width: 250px;
-  margin: 20px auto 15px;
+  margin: 10px auto 15px;
   padding: 10px 15px 5px;
   background-color: $ltyellow;
   font-family: $funfont;
   font-size: 14px;
   letter-spacing: -2.5px;
   border: none;
+  display: block;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.25);
+  @media (min-width: 700px) {
+    margin: 20px auto 25px;
+  }
   @media (min-width: 1000px) {
     width: 350px;
-    margin: 20px auto 25px;
     font-size: 16px;
-}
+  }
 }
 .character {
   text-align: center;
