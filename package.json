@@ -23,6 +23,7 @@
     "mkdirp": "^1.0.4",
     "mongoose": "^5.9.7",
     "morgan": "^1.10.0",
+    "request": "^2.88.2",
     "sass": "^1.26.3"
   },
   "engines": {
