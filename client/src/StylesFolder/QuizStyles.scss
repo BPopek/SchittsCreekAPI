@@ -115,7 +115,7 @@
     font-family: $primaryFont;
     font-weight: 200;
     font-size: 40px;
-    margin: 40px 5px;
+    margin: 40px 5px 10px;
     display: block;
 }
 .quoteFormContainer {
@@ -202,7 +202,7 @@
     }
     @media (min-width: 700px) {
         width: 500px;
-        margin: 20px auto 25px;
+        // margin: 20px auto 25px;
     }
     @media (min-width: 1000px) {
         width: 600px;
