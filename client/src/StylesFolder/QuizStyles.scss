@@ -241,6 +241,7 @@
     width: 200px;
     display: block;
     margin: 10px auto;
+    background-image: linear-gradient(to bottom right, $grey, $ltgrey, $grey);
     box-shadow: 3px 3px 10px $grey;
     -webkit-animation: swirl 0.6s ease-out both;
             animation: swirl 0.6s ease-out both;
