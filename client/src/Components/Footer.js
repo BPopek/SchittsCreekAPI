@@ -13,6 +13,7 @@ function Footer() {
                 >Suggest Quote</a></p>    
             <a href="https://www.cbc.ca/schittscreek/" className='footerLinks'>Official Website</a> 
             <Link to='/legal-disclaimer' className='footerLegal'>Legal</Link>
+            <p className='legal1'>THIS IS NOT AN OFFICIAL SCHITT'S CREEK WEBSITE. THIS WAS CREATED TO PROVIDE A FUN TRIVIA GAME TO HELP REMINISCE ABOUT THE MAGIC THAT IS SCHITT'S CREEK.</p>
         </div>    
     )
 }

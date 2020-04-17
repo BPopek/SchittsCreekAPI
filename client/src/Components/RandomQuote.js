@@ -24,7 +24,7 @@ export default function RandomQuote(props) {
         getAllQuotes()
     }, [])
 
-     const [ toggled, setToggled ] = useState(false)
+    const [ toggled, setToggled ] = useState(false)
     const toggledAnswer = (e) => {
         setToggled(prev => {
             return !prev
@@ -89,7 +89,7 @@ export default function RandomQuote(props) {
                     { toggled ?
                         <div>
                             <h1 className='answer'>Correct, it was {currentRandomQuote.character}!</h1>
-                            <img src={require (`../Images/${(currentRandomQuote.character)}2.png`)} alt='Character Photo' className='quizCharPhoto'/>
+                            <img src={require (`../Images/${(currentRandomQuote.character)}2.png`)} alt='Character' className='quizCharPhoto'/>
                             <button className='nextButton' type='button' onClick={handleChangeNext} >NEXT QUESTION</button>
                         </div>
                         :

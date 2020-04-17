@@ -43,7 +43,7 @@
   box-shadow: 0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25);
   box-sizing: border-box;
   display: inline-block;
-  margin: 70px auto 0px;
+  margin: 30px auto 0px;
   width: auto;
   height: auto;
   position: relative;
@@ -80,30 +80,85 @@
     }
     @media (min-width: 900px) {
       width: 500px;
-    }
-    
+    } 
 }
 .charQuoteButtonToggle {
-  width: 350px;
-  margin: 20px auto 25px;
+  width: 250px;
+  margin: 20px auto 15px;
   padding: 10px 15px 5px;
   background-color: $ltyellow;
   font-family: $funfont;
-  font-size: 16px;
+  font-size: 14px;
+  letter-spacing: -2.5px;
   border: none;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.25);
+  @media (min-width: 1000px) {
+    width: 350px;
+    margin: 20px auto 25px;
+    font-size: 16px;
+}
 }
 .character {
   text-align: center;
 }
+.charQuotesLabel {
+  font-family: $funfont;
+  font-size: 16px;
+  font-weight: 300;
+  color: $purple;
+  line-height: 1.4;
+  @media (min-width: 1000px) {
+      font-size: 22px;
+  }
+}
+.labelHR {
+  border: 1px solid $purple;
+  margin: 0 auto 15px;
+  width: 214px;
+  @media (min-width: 1000px) {
+    width: 290px;
+  }
+}
 .charQuotes {
   font-family: $primaryFont;
   font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
+  color: $purple;
+  line-height: 1.4;
+  margin: 5px auto 5px;
+  width: 300px;
+  text-align: center;
+  @media (min-width: 700px) {
+    font-size: 18px;
+    width: 500px;
+  }
+  @media (min-width: 1000px) {
+      font-size: 20px;
+      width: 600px;
+  }
+}
+.charQuotesSeason {
+  font-family: $primaryFont;
+  font-size: 14px;
   font-weight: 100;
   color: $grey;
   line-height: 1.4;
-  margin-bottom: 25px;
+  margin-bottom: 2px;
+  text-align: center;
   @media (min-width: 1000px) {
-      font-size: 20px;
+      font-size: 18px;
+  }
+}
+.charQuotesEpisode {
+  font-family: $primaryFont;
+  font-size: 14px;
+  font-weight: 100;
+  color: $grey;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  text-align: center;
+  @media (min-width: 1000px) {
+      font-size: 18px;
   }
 }
