@@ -18,3 +18,7 @@
 .env.test.local
 .env.production.local
 
+.env
+*.orig
+.idea/
+.vscode/
