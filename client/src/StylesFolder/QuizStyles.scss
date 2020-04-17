@@ -10,18 +10,49 @@
 .playButton {
     margin: 40px auto 10px;
     padding: 10px 10px 5px;
-    background-color: $yellow;
+    // background-color: $yellow;
+    background-image: linear-gradient(to bottom left, $yellow, $ltyellow, $dkyellow);
     font-family: $funfont;
     font-size: 34px;
     width: 200px;
-    line-height: 1.4;
-    letter-spacing: -4px;
-    border-right: 10px solid $grey;
-    border-left: 10px solid $ltyellow;
-    border-top: 5px solid $ltyellow;
-    border-bottom: 5px solid $grey;
+    height: 200px;
+    line-height: 1.2;
+    letter-spacing: -6px;
+    position: relative;
+    // border-right: 2px solid $ltyellow;
+    // border-left: 2px solid $ltyellow;
+    // border-top: 1px solid $lteryellow;
+    // border-bottom: 2px solid $dkyellow;
+    border-radius: 50%;
+    border: none;
     @media (min-width: 700px) {
         margin: 40px auto 10px;
+    }
+    &:active {
+        background-color: $yellow;
+        -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+        -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+             box-shadow: inset 0px 0px 5px #c1c1c1;
+             outline: none;
+
+    }
+    // &:focus {
+    //     background-color: $yellow;
+    //     outline: none;
+    // }
+    &:before {
+        border-radius: 100%;
+        background-image: linear-gradient(to bottom right, $yellow, $ltyellow, $dkyellow);
+        padding: 5px;
+        z-index:-1;
+        top: -5px;
+        left: -5px;
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        border: none;
+        box-shadow: 3px 3px 10px $ltgrey;
     }
 }
 .readyPlay {
@@ -78,7 +109,6 @@
 }
 .quoteContainer {
     height: auto;
-    // background-color: blue;
     font-family: $primaryFont;
     font-weight: 200;
     font-size: 40px;
