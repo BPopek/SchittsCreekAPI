@@ -29,8 +29,11 @@
         font-family: $funfont;
         font-size: 30px;
         color: $purple;
-        margin: 100px auto 5px;
+        margin: 50px auto 5px;
         letter-spacing: -4px;
+        @media (min-width: 500px) {
+            margin: 100px auto 5px;
+        }
         @media (min-width: 700px) {
             font-size: 40px;
         }
