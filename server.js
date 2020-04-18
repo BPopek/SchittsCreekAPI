@@ -11,7 +11,7 @@ const history = require('connect-history-api-fallback')
 
 // app.set('port', PORT);
 // app.set('env', NODE_ENV);
-app.use(history())
+// app.use(history())
 
 const staticFileMiddleware = express.static('assets');
 app.use(staticFileMiddleware);
