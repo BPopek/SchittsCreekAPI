@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const path = require('path');
 const PORT = process.env.PORT || 7250;
+const history = require('connect-history-api-fallback')
 // const NODE_ENV = process.env.NODE_ENV || 'development';
 
 // app.set('port', PORT);
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "client", "build")));
+app.use(history())
 
 app.use("/api/quotes", require("./routes/quoteRouter.js"));
 app.use("api/quotes/character", require("./routes/quoteRouter.js"));
@@ -37,12 +39,10 @@ app.use(function(req, res) {
     res.status(404).send({url: req.originalUrl + ' not found'})
   });
 
-// app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-// });
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "public/index.html"));
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
+
 
 app.use((err, req, res, next) => {
     if (err.name === "UnauthorizedError") {
