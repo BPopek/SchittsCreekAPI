@@ -11,16 +11,24 @@ const history = require('connect-history-api-fallback')
 
 // app.set('port', PORT);
 // app.set('env', NODE_ENV);
+app.use(history())
+
+const staticFileMiddleware = express.static('assets');
+app.use(staticFileMiddleware);
+app.use(history({
+  disableDotRule: true,
+  verbose: true
+}));
+app.use(staticFileMiddleware);
 
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "client", "build")));
-app.use(history())
+
 
 app.use("/api/quotes", require("./routes/quoteRouter.js"));
 app.use("api/quotes/character", require("./routes/quoteRouter.js"));
-
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/quotesDB",
     { 
