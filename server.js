@@ -6,26 +6,15 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const path = require('path');
 const PORT = process.env.PORT || 7250;
-const history = require('connect-history-api-fallback')
 // const NODE_ENV = process.env.NODE_ENV || 'development';
 
 // app.set('port', PORT);
 // app.set('env', NODE_ENV);
-// app.use(history())
-
-const staticFileMiddleware = express.static('assets');
-app.use(staticFileMiddleware);
-app.use(history({
-  disableDotRule: true,
-  verbose: true
-}));
-app.use(staticFileMiddleware);
 
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "client", "build")));
-
 
 app.use("/api/quotes", require("./routes/quoteRouter.js"));
 app.use("api/quotes/character", require("./routes/quoteRouter.js"));
