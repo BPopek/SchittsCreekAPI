@@ -23,8 +23,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/quotesDB"
     { 
         useNewUrlParser: true, 
         useUnifiedTopology: true, 
-        useCreateIndex: true
-        // useFindandModify: false 
+        useCreateIndex: true,
+        useFindandModify: false 
     },
     (err) => {
         if (err) throw err;
@@ -36,22 +36,22 @@ app.use(function(req, res) {
     res.status(404).send({url: req.originalUrl + ' not found'})
   });
 
-// app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "client", "build", "public/index.html"), 
-//     function(err) {
-//         if (err) {
-//             res.status(500).send(err)
-//         }
-//     });
-// });
-
-app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "public/index.html"), function(err) {
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "public/index.html"), 
+    function(err) {
         if (err) {
             res.status(500).send(err)
         }
     });
 });
+
+// app.get("*", function(req, res) {
+//     res.sendFile(path.join(__dirname, "public/index.html"), function(err) {
+//         if (err) {
+//             res.status(500).send(err)
+//         }
+//     });
+// });
 
 
 app.use((err, req, res, next) => {
