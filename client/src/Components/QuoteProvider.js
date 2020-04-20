@@ -5,7 +5,8 @@ const quoteAxios = axios.create()
 const QuoteContext = React.createContext();
 
 function QuoteProvider(props) {
-    const [ quotes, setQuotes, characterQuotes, setCharacterQuotes ] = useState([])
+    const [ quotes, setQuotes ] = useState([])
+    // const [ quotes, setQuotes, characterQuotes, setCharacterQuotes ] = useState([])
     
     const getAllQuotes = () => {
         return quoteAxios.get('/api/quotes')

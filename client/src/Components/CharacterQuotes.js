@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { QuoteContext } from './QuoteProvider'
 
 export default function CharacterQuote(props) {
@@ -16,7 +16,7 @@ export default function CharacterQuote(props) {
     // })
 
     const filteredQuotes = quotes.filter(function(quote) {
-        if (quote.character == props.character) {
+        if (quote.character === props.character) {
             return (
                 <>
                     <h1>{quote.quoteText}</h1>

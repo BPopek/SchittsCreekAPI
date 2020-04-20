@@ -21,7 +21,7 @@ function CharacterProfiles(props) {
     }, [])
 
     const { quotes, getAllQuotes } = useContext(QuoteContext)
-    const [ setCharacter ] = useState('')
+    // const [ setCharacter ] = useState('')
     
     // const [ toggled, setToggled ] = useState(true)
 

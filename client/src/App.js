@@ -22,7 +22,6 @@ function App() {
         <Route path='/quiz' component={Quiz} ></Route>
         <Route path='/characters' component={CharacterProfiles} ></Route>
         <Route path='/legal-disclaimer' component={legal} ></Route>
-
       </Switch>
       <Footer />
     </div>
