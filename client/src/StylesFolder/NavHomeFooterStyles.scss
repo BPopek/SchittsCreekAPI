@@ -237,25 +237,25 @@
     @media (min-width: 700px) {
         height: 300px;
     }
-    @media (min-width: 900px) and (min-height: 900px) {
-        max-height: 350px !important;
-    }
     @media (min-width: 900px) {
-        height: 400px;
+        height: 350px;
         background-image: url('../Images/sc-s6-hero2.jpg');
     }
-
-    @media (min-width: 1100px) and (min-height: 900px) {
-        max-height: 350px !important;
+    @media (min-width: 900px) and (min-height: 900px) {
+        height: 400px !important;
     }
+    
     @media (min-width: 1100px) {
-        // height: 450px;
+        height: 450px;
         // border-left: 20px $black solid;
         // border-right: 20px $black solid;
         box-sizing: border-box;
     }
+    @media (min-width: 1100px) and (max-height: 900px) {
+        height: 350px !important;
+    }
     @media (min-width: 1400px) {
-        height: 425px;
+        height: 425px !important;
         border-left: 100px $black solid;
         border-right: 100px $black solid;
         box-sizing: border-box;
