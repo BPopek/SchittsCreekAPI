@@ -89,7 +89,6 @@
         padding-right: 50px;
     }
 }
-
 .footerLinks {
     top: 0;
     font-family: $primaryFont;
@@ -131,21 +130,25 @@
 }
 .footerLegal {
     position: fixed;
-    bottom: 1px;
+    bottom: .5px;
     left: 0px;
     right: 0px;
     margin: auto;
-    width: 800px;
+    width: auto;
     font-family: $primaryFont;
-    font-size: 8px;
+    font-size: 7.5px;
     color: $ltgrey !important;
     font-weight: 300;
     letter-spacing: 0.8px;
     text-align: center;
     text-decoration: none !important;
-    // line-height: 40px;
     z-index: 1;
-    // padding: 0px 5px;
+    @media (min-width: 400px) {
+        font-size: 8px;
+    }
+    @media (min-width: 700px) {
+        width: 700px;
+    }
     &:hover {
         color: $yellow;
     }

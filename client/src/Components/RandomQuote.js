@@ -13,6 +13,13 @@ export default function RandomQuote(props) {
         episodeName: '',
     })
 
+    const [ totalNumberQuestions, setTotalNumberQuestions] = useState(0)
+    const [ score, setScore ] = useState(0)
+    const [ points, setPoints ] = useState(10)
+    const [ answerCount, setAnswerCount ] = useState(0)
+    const [ totalPoints, setTotalPoints ] = useState(0)
+    const [ correctFirstGuess, setCorrectFirstGuess ] = useState(0) 
+
     // const [ nextRandomQuote, setNextRandomQuote ] = useState({
     //     character: '',
     //     quoteText: '',
@@ -36,7 +43,6 @@ export default function RandomQuote(props) {
             return !prev
         })
     }
-    
     const [ togglePlay, setTogglePlay ] = useState('start')
     const toggledPlay = (e) => {
         setTogglePlay('play')
@@ -55,18 +61,35 @@ export default function RandomQuote(props) {
         currentQuote()    
         toggledAnswer()
         setToggledWrongAnswer(true)
+        setAnswerCount(0)
     }
-
     const handleChangeAnswer = e => {
         e.preventDefault()
         const { name, value } = e.target;
         if(value === currentRandomQuote.character) {
             setToggled(prev => {
                 return !prev
-            }) && handleChangeNext()
+            }) 
+            setTotalNumberQuestions(totalNumberQuestions + 1)
+            && handleChangeNext() 
+            if (answerCount === 0) {
+                setScore(score + points) 
+                setCorrectFirstGuess(correctFirstGuess + 1)
+            } else if (answerCount === 1) {
+                setScore(score + (points / 2)) 
+            } else {
+                setScore(score)
+            }            
         } else {
             setToggledWrongAnswer(false)
+            setAnswerCount(answerCount + 1)
         }      
+    }
+    const [ scoreToggle, setScoreToggle ]  = useState(true)
+    const toggleScore = () => {
+        setScoreToggle(prev => {
+            return !prev
+            })
     }
     const getId = () => {
         const id = shortid.generate()
@@ -118,6 +141,22 @@ export default function RandomQuote(props) {
                     <button className='answerButton' type='button' value='Patrick' onClick={handleChangeAnswer}>Patrick</button>
                     <button className='answerButton' type='button' value='Twyla' onClick={handleChangeAnswer}>Twyla</button>
                     {/* <button className='answerButton' type='button' value='Ronnie' onClick={handleChangeAnswer}>Ronnie</button> */}
+                </div>
+                <div className='scoreboard'>
+                    { scoreToggle ? 
+                        <div>
+                            <h1>SCOREBOARD</h1>
+                            <h5 onClick={toggleScore}> ⊶ </h5>
+                        </div>
+                        :
+                        <div>
+                            <h1>SCOREBOARD</h1>
+                            <h5 onClick={toggleScore}> ⊷ </h5>
+                            <h2>SCORE:  <p>{score} POINTS</p></h2>
+                            <h3>CORRECT ON FIRST TRY: <p>{correctFirstGuess}</p></h3>
+                            <h3>TOTAL QUESTIONS: <p>{totalNumberQuestions}</p></h3>
+                        </div>
+                    }
                 </div>
             </>
         }  

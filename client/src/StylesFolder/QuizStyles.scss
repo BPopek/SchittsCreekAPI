@@ -1,4 +1,5 @@
 @import 'GlobalStyles.scss';
+
 .quizLogo {
     width: 250px;
     height: auto;
@@ -6,8 +7,11 @@
     @media (min-width: 400px) {
         width: 300px;
     }
+    @media (min-width: 550px) {
+        width: 350px;
+    }
     @media (min-width: 700px) {
-        width: 450px;
+        width: 400px;
     }
 }
 .playButton {
@@ -54,14 +58,14 @@
         font-family: $funfont;
         font-size: 26px;
         color: $purple;
-        margin: 30px auto 5px;
+        margin: 40px auto 20px;
         letter-spacing: -5.5px;
         @media (min-width: 350px) {
             font-size: 30px;
             margin: 50px auto 5px;
         }
         @media (min-width: 500px) {
-            margin: 100px auto 5px;
+            margin: 75px auto 5px;
         }
         @media (min-width: 700px) {
             font-size: 40px;
@@ -85,7 +89,7 @@
     display: none
 }
 .quizContainer {
-    margin: 70px auto 50px;
+    margin: 70px auto 70px;
     text-align: center;
     padding: 0px 30px;
     position: relative;
@@ -115,7 +119,7 @@
     font-family: $primaryFont;
     font-weight: 200;
     font-size: 40px;
-    margin: 40px 5px 10px;
+    margin: 20px 5px 10px;
     display: block;
 }
 .quoteFormContainer {
@@ -128,7 +132,7 @@
     width: auto;
     color: $purple;
     text-align: center;
-    margin: 35px auto 5px;
+    margin: 25px auto 5px;
     @media (min-width: 400px) {
         font-size: 24px;
     }
@@ -151,10 +155,17 @@
         padding: 5px 10px;
         width: 250px;
     }
+    @media (min-width: 550px) {
+        font-size: 20px;
+        width: 400px;
+    }
     @media (min-width: 700px) {
-        font-size: 26px;
+        font-size: 24px;
         padding: 10px 15px;
         width: 550px;
+    }
+    @media (min-width: 1000px) {
+        width: 650px;
     }
 }
 .quoteBrackets {
@@ -187,10 +198,22 @@
             width: 300px;
         }
     }
-      @media (min-width: 700px) {
+    @media (min-width: 550px) {
+        width: 450px;
+        &:before {
+            width: 450px;
+        }
+    }
+    @media (min-width: 700px) {
         width: 600px;
         &:before {
             width: 600px;
+        }
+    }
+    @media (min-width: 1000px) {
+        width: 700px;
+        &:before {
+            width: 700px;
         }
     }
 }
@@ -230,11 +253,15 @@
     padding: 10px 10px 5px;
     background-color: $yellow;
     font-family: $funfont;
-    font-size: 14px;
+    font-size: 12px;
     &:focus {
         background-color: $purple;
         color: $white;
         outline: none;
+    }
+    @media (min-width: 500px) {
+        font-size: 14px;
+
     }
 }
 .quizCharPhoto {
@@ -347,4 +374,83 @@
                 transform: translateX(0);
       }
   }
-  
+  .scoreboard {
+    color: $white;
+    margin-bottom: 50px;
+    margin: auto;
+    padding-bottom: 5px;
+    width: 250px;
+    background-color: #dedede;
+    border-bottom: 5px $purple solid;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    
+    @media (min-width: 700px) {
+        width: 600px;
+    }
+    @media (min-width: 1200px) {
+        margin-top: 50px;
+    }
+    
+    h1 {
+        font-family: $funfont;
+        font-size: 18px;
+        padding: 14px 15px 10px 15px;
+        letter-spacing: -3px;
+        background: $purple;
+        @media (min-width: 700px) {
+            font-size: 24px;
+        }
+    }
+    h2 {
+        font-family: $primaryFont;
+        font-size: 16px;
+        color: $black;
+        padding: 10px 10px 8px;
+        @media (min-width: 700px) {
+            font-size: 20px;
+        }
+    }
+    h3 {
+        font-family: $primaryFont;
+        font-size: 14px;
+        color: $black;
+        padding: 1px 10px;
+        @media (min-width: 700px) {
+            display: inline;
+            font-size: 18px;
+        }
+    }
+    p {
+        color: $purple;
+        display: inline;
+    }
+    h5 {
+        position: absolute;
+        width: 10px;
+        height: 15px;
+        left: 88%;
+        top: 0px;
+        font-size: 32px;
+        background-color: rgba(245, 245, 245, 0);
+        color: $white;
+        border: none;
+        z-index: 0;
+        outline: none;
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
+        @media (min-width: 700px) {
+            width: 15px;
+            height: 20px;
+            left: 93%;
+            top: -7px;
+            font-size: 46px;
+        }
+    }
+    div {
+        position: relative;
+    }
+  }
