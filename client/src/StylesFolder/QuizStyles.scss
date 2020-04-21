@@ -89,16 +89,16 @@
     display: none
 }
 .quizContainer {
-    margin: 70px auto 70px;
+    margin: 60px auto 70px;
     text-align: center;
     padding: 0px 30px;
     position: relative;
     height: auto;
     @media (min-width: 400px) {
-        margin: 80px auto 70px;
+        margin: 70px auto 70px;
     }
     @media (min-width: 700px) {
-        margin: 100px auto 70px;
+        margin: 80px auto 70px;
     }
 }
 .quizWelcome {
@@ -112,6 +112,7 @@
     @media (min-width: 700px) {
         font-size: 40px;
         margin: 25px auto;
+        letter-spacing: -8px;
     }
 }
 .quoteContainer {
@@ -221,32 +222,43 @@
     margin: 15px auto 25px;
     width: 255px;
     @media (min-width: 400px) {
-        width: 350px;
+        width: 325px;
     }
     @media (min-width: 700px) {
-        width: 500px;
-        // margin: 20px auto 25px;
-    }
-    @media (min-width: 1000px) {
         width: 600px;
     }
+    // @media (min-width: 1000px) {
+    //     width: 600px;
+    // }
 }
 .answer {
-    margin: 25px auto 10px;
-    display: block;
-    font-family: $funfont;
-    font-size: 20px;
-    color: $purple;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 200px;
-    letter-spacing: -4px;
+    margin: auto;
+    padding-top: 5px;
+    text-align: center;
+    font-family: $funfont;
+    font-size: 14px;
+    color: $white;
+    background: $purple;
+    letter-spacing: -3.5px;
+    z-index: 3;
     @media (min-width: 500px) {
-        width: 350px;
+        width: 300px;
+        font-size: 16px;
     }
     @media (min-width: 700px) {
-        font-size: 30px;
-        width: 500px;
-        letter-spacing: -6px;
+        font-size: 20px;
+        // width: 500px;
+        letter-spacing: -4px;
     }
+}
+.answerDiv {
+    position: relative;
+
 }
 .answerButton {
     margin: 5px 7.5px;
@@ -385,7 +397,9 @@
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    
+    @media (min-width: 500px) {
+        width: 400px;
+    }
     @media (min-width: 700px) {
         width: 600px;
     }
@@ -400,7 +414,7 @@
         letter-spacing: -3px;
         background: $purple;
         @media (min-width: 700px) {
-            font-size: 24px;
+            font-size: 22px;
         }
     }
     h2 {
@@ -409,7 +423,7 @@
         color: $black;
         padding: 10px 10px 8px;
         @media (min-width: 700px) {
-            font-size: 20px;
+            font-size: 18px;
         }
     }
     h3 {
@@ -417,9 +431,11 @@
         font-size: 14px;
         color: $black;
         padding: 1px 10px;
-        @media (min-width: 700px) {
+        @media (min-width: 500px) {
             display: inline;
-            font-size: 18px;
+        }
+        @media (min-width: 700px) {
+            font-size: 16px;
         }
     }
     p {
@@ -441,6 +457,13 @@
         cursor: pointer;
         &:focus {
             outline: none;
+        }
+        @media (min-width: 500px) {
+            width: 13px;
+            height: 18px;
+            left: 90%;
+            top: -5px;
+            font-size: 40px;
         }
         @media (min-width: 700px) {
             width: 15px;

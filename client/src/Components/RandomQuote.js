@@ -111,8 +111,10 @@ export default function RandomQuote(props) {
                 <div className='quoteContainer' toggleplay='false'>
                     { toggled ?
                         <div>
-                            <h1 className='answer'>Correct, it was {currentRandomQuote.character}!</h1>
-                            <img src={require (`../Images/${(currentRandomQuote.character)}2.png`)} alt='Character' className='quizCharPhoto'/>
+                            <div className='answerDiv'>
+                                <h1 className='answer'>Yes, it was {currentRandomQuote.character}!</h1>
+                                <img src={require (`../Images/${(currentRandomQuote.character)}2.png`)} alt='Character' className='quizCharPhoto'/>
+                            </div>
                             <button className='nextButton' type='button' onClick={handleChangeNext} >NEXT QUESTION</button>
                         </div>
                         :
