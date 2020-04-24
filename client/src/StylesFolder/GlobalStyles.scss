@@ -18,6 +18,12 @@ $white: whitesmoke;
 $grey: #444444;
 $ltgrey: #9e9e9e;
 $purple: purple;
+$ltpurple: rgb(172, 0, 172);
+$dkpurple: rgb(92, 1, 92);
+
+$red: rgb(214, 1, 1);
+$ltred: rgb(253, 48, 48);
+$dkred: rgb(165, 1, 1);
 
 
 * {
@@ -29,4 +35,5 @@ body {
 }
 html {
     overflow-y: scroll;
+    width: 100%;
 }

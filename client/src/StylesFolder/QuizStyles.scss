@@ -15,14 +15,15 @@
     }
 }
 .playButton {
-    margin: 40px auto 10px;
+    margin: 30px auto 10px;
     padding: 10px;
-    background-image: linear-gradient(to bottom left, $yellow, $ltyellow, $dkyellow);
+    background-image: linear-gradient(to bottom left, $purple, $ltpurple, $dkpurple);
     font-family: $funfont;
-    font-size: 32px;
-    width: 180px;
-    height: 180px;
-    line-height: 1.2;
+    font-size: 28px;
+    width: 150px;
+    height: 150px;
+    color: $white;
+    line-height: 1.1;
     letter-spacing: -6px;
     position: relative;
     border-radius: 50%;
@@ -31,7 +32,7 @@
         margin: 60px auto 10px;
     }
     &:active {
-        background-color: $yellow;
+        background-color: $purple;
         -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
         -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
              box-shadow: inset 0px 0px 5px #c1c1c1;
@@ -40,7 +41,7 @@
     }
     &:before {
         border-radius: 100%;
-        background-image: linear-gradient(to bottom right, $yellow, $ltyellow, $dkyellow);
+        background-image: linear-gradient(to bottom right, $purple, $ltpurple, $dkpurple);
         padding: 5px;
         z-index:-1;
         top: -5px;
@@ -58,30 +59,17 @@
         font-family: $funfont;
         font-size: 26px;
         color: $purple;
-        margin: 40px auto 20px;
+        margin: 30px auto 0px;
         letter-spacing: -5.5px;
         @media (min-width: 350px) {
             font-size: 30px;
-            margin: 50px auto 5px;
+            margin: 40px auto 10px;
         }
         @media (min-width: 500px) {
-            margin: 75px auto 5px;
+            margin: 55px auto 10px;
         }
         @media (min-width: 700px) {
             font-size: 40px;
-        }
-    }
-    h2 {
-        font-family: $primaryFont;
-        color: $grey;
-        font-size: 20px;
-        font-weight: 300;
-        text-transform: uppercase;
-        @media (min-width: 350px) {
-            font-size: 20px;
-        }
-        @media (min-width: 700px) {
-            font-size: 30px;
         }
     }
 }
@@ -93,12 +81,22 @@
     text-align: center;
     padding: 0px 30px;
     position: relative;
-    height: auto;
+    // height: auto;
+    width: 250px;
     @media (min-width: 400px) {
         margin: 70px auto 70px;
+        width: 300px;
+    }
+    @media (min-width: 500px) {
+        width: 400px;
     }
     @media (min-width: 700px) {
         margin: 80px auto 70px;
+        width: 600px;
+    }
+    @media (min-width: 1000px) {
+        margin: 80px auto 70px;
+        width: 800px;
     }
 }
 .quizWelcome {
@@ -111,29 +109,176 @@
     letter-spacing: -5px;
     @media (min-width: 700px) {
         font-size: 40px;
-        margin: 25px auto;
+        margin: 25px auto 5px;
         letter-spacing: -8px;
     }
 }
-.quoteContainer {
+.chooseSeasons {
+        font-family: $primaryFont;
+        color: $grey;
+        font-size: 16px;
+        font-weight: 300;
+        margin: 10px auto 5px;
+        text-transform: uppercase;
+        width: auto;
+        @media (min-width: 500px) {
+            font-size: 18px;
+            width: 350px;
+        }
+        @media (min-width: 700px) {
+            font-size: 20px;
+            width: 380px;
+            margin-top: 10px;
+        }
+}
+.seasonButtonDivIntro {
+    width: auto;
+    margin: auto;
+    padding: 0;
+    @media (min-width: 700px) {
+        width: 460px;
+    }
+}
+.seasonNotSelected {
+    margin: 3px 2px;
+    padding: 10px 10px 5px;
+    background-color: $yellow;
+    font-family: $funfont;
+    font-size: 10px; 
+    @media (min-width: 700px) {
+        font-size: 12px; 
+    }
+    &:focus {
+        outline: none;
+    }
+}
+.seasonSelected {
+    margin: 3px 2px;
+    padding: 10px 10px 5px;
+    background-color: $purple;
+    font-family: $funfont;
+    font-size: 10px;
+    @media (min-width: 700px) {
+        font-size: 12px; 
+    }
+    &:focus {
+        outline: none;
+    }
+}
+.seasonButtonDivGame {
+    width: auto;
+    margin: auto;
     height: auto;
+    @media (min-width: 700px) {
+        width: 550px;
+    }
+}
+.changeSeasons {
+    font-family: $primaryFont;
+    color: $black;
+    background-color: $yellow;
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    margin: auto;
+    text-transform: uppercase;
+    width: 150px;
+    padding: 5px;
+    box-shadow: 3px 3px 6px $ltgrey;
+
+    @media (min-width: 500px) {
+        width: 350px;
+    }
+    @media (min-width: 700px) {
+        font-size: 18px;
+        width: 225px;
+    }
+}
+.changeSeasons2 {
+    font-family: $primaryFont;
+    color: $black;
+    background-color: $ltyellow;
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    margin: auto;
+    text-transform: uppercase;
+    width: 150px;
+    padding: 5px;
+    box-shadow: 3px 3px 6px $ltgrey;
+
+    @media (min-width: 500px) {
+        width: 350px;
+    }
+    @media (min-width: 700px) {
+        font-size: 18px;
+        width: 225px;
+    }
+}
+.seasonNotSelectedGame {
+    margin: 0px 2px;
+    padding: 10px 10px 5px;
+    background-color: $yellow;
+    font-family: $funfont;
+    font-size: 10px; 
+    @media (min-width: 700px) {
+        font-size: 12px; 
+    }
+    &:focus {
+        outline: none;
+    }
+}
+.seasonSelectedGame {
+    margin: 0px 2px;
+    padding: 10px 10px 5px;
+    background-color: $purple;
+    font-family: $funfont;
+    font-size: 10px;
+    @media (min-width: 700px) {
+        font-size: 12px; 
+    }
+    &:focus {
+        outline: none;
+    }
+}
+.whichSeasons {
+    font-family: $funfont;
+    font-weight: 400;
+    font-size: 16px;
+    color: $purple !important;
+    width: auto;
+    text-align: center;
+    margin: 15px auto 2px;
+    letter-spacing: -2px;
+    // @media (min-width: 700px) {
+    //     font-size: 40px;
+    //     margin: 25px auto;
+    //     letter-spacing: -px;
+    // }
+}
+.quoteContainer {
+    // height: auto;
     font-family: $primaryFont;
     font-weight: 200;
     font-size: 40px;
     margin: 20px 5px 10px;
     display: block;
+    @media (min-width: 500px) {
+        margin: 10px 5px 10px;
+    }
 }
 .quoteFormContainer {
     margin: 25px auto 75px;
 }
 .quizWho {
-    font-family: $primaryFont;
+    font-family: $funfont;
     font-weight: 300;
     font-size: 20px;
     width: auto;
     color: $purple;
+    letter-spacing: -5px;
     text-align: center;
-    margin: 25px auto 5px;
+    margin: 35px auto 0px;
     @media (min-width: 400px) {
         font-size: 24px;
     }
@@ -156,9 +301,9 @@
         padding: 5px 10px;
         width: 250px;
     }
-    @media (min-width: 550px) {
+    @media (min-width: 500px) {
         font-size: 20px;
-        width: 400px;
+        width: 350px;
     }
     @media (min-width: 700px) {
         font-size: 24px;
@@ -194,27 +339,27 @@
         z-index: 1;
     }
     @media (min-width: 400px) {
-        width: 300px;
+        width: 275px;
         &:before {
-            width: 300px;
+            width: 275px;
         }
     }
-    @media (min-width: 550px) {
-        width: 450px;
+    @media (min-width: 500px) {
+        width: 375px;
         &:before {
-            width: 450px;
+            width: 375px;
         }
     }
     @media (min-width: 700px) {
-        width: 600px;
+        width: 575px;
         &:before {
-            width: 600px;
+            width: 575px;
         }
     }
     @media (min-width: 1000px) {
-        width: 700px;
+        width: 675px;
         &:before {
-            width: 700px;
+            width: 675px;
         }
     }
 }
@@ -227,9 +372,6 @@
     @media (min-width: 700px) {
         width: 600px;
     }
-    // @media (min-width: 1000px) {
-    //     width: 600px;
-    // }
 }
 .answer {
     position: absolute;
@@ -273,7 +415,6 @@
     }
     @media (min-width: 500px) {
         font-size: 14px;
-
     }
 }
 .quizCharPhoto {

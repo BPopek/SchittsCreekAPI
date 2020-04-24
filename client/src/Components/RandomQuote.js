@@ -29,6 +29,7 @@ export default function RandomQuote(props) {
 
     useEffect(() => {
         getAllQuotes()
+        // quotesbySeason()
     }, [])
 
     const [ toggled, setToggled ] = useState(false)
@@ -48,13 +49,126 @@ export default function RandomQuote(props) {
         setTogglePlay('play')
         handleStart()
     }
-    const randomIndex = Math.floor(Math.random() * quotes.length)
+    /////////////////////  SEASON TOGGLE   /////////////////////  
+    const [ season1, setSeason1 ] = useState(false)
+    const [ backgroundButtonColor1, setBackgroundButtonColor1 ] = useState(false)
+    const handleChangeSeason1 = (e) => {
+        setSeason1(prev => {
+            return !prev
+        }) 
+        setBackgroundButtonColor1(prev => {
+            return !prev
+        }) 
+    } 
+    const [ season2, setSeason2 ] = useState(false)
+    const [ backgroundButtonColor2, setBackgroundButtonColor2 ] = useState(false)
+    const handleChangeSeason2 = (e) => {
+        setSeason2(prev => {
+            return !prev
+        })
+        setBackgroundButtonColor2(prev => {
+            return !prev
+        }) 
+    }
+    const [ season3, setSeason3 ] = useState(false)
+    const [ backgroundButtonColor3, setBackgroundButtonColor3 ] = useState(false)
+    const handleChangeSeason3 = (e) => {
+        setSeason3(prev => {
+            return !prev
+        })
+        setBackgroundButtonColor3(prev => {
+            return !prev
+        }) 
+    }
+    const [ season4, setSeason4 ] = useState(false)
+    const [ backgroundButtonColor4, setBackgroundButtonColor4 ] = useState(false)
+    const handleChangeSeason4 = (e) => {
+        setSeason4(prev => {
+            return !prev
+        })
+        setBackgroundButtonColor4(prev => {
+            return !prev
+        }) 
+    }
+    const [ season5, setSeason5 ] = useState(false)
+    const [ backgroundButtonColor5, setBackgroundButtonColor5 ] = useState(false)
+    const handleChangeSeason5 = (e) => {
+        setSeason5(prev => {
+            return !prev
+        })
+        setBackgroundButtonColor5(prev => {
+            return !prev
+        }) 
+    }
+    const [ season6, setSeason6 ] = useState(false)
+    const [ backgroundButtonColor6, setBackgroundButtonColor6 ] = useState(false)
+
+    const handleChangeSeason6 = (e) => {
+        setSeason6(prev => {
+            return !prev
+        })
+        setBackgroundButtonColor6(prev => {
+            return !prev
+        }) 
+    }
+    const [ seasonAll, setSeasonAll ] = useState(false)
+    const [ backgroundButtonColorAll, setBackgroundButtonColorAll ] = useState(false)
+
+    const handleChangeSeasonAll = (e) => {
+        setSeasonAll(prev => {
+            return !prev
+        })
+        setBackgroundButtonColorAll(prev => {
+            return !prev
+        }) 
+    }
+    //////////  RANDOM QUOTE FOR ALL OF QUOTES ARRAY (NOT BY SEASON) ///////////////  
+    // const randomIndex = Math.floor(Math.random() * quotes.length)
+    // const currentQuote = (e) => {
+    //     setCurrentRandomQuote(quotes[randomIndex] || quotes[69])
+    // }
+           
     const currentQuote = (e) => {
+        let quotesFilteredBySeason = []
+        if (season1 === true) {
+            quotes.filter(function(quote) {
+                if (quote.season === 1)
+                quotesFilteredBySeason.push(quote)
+            })
+        } else if (season1 === true && season2 === true) {
+            quotes.filter(function(quote) {
+                if (quote.season === 1 || quote.season === 2)
+                quotesFilteredBySeason.push(quote)
+            })
+        } else if (season3 === true) {
+            quotes.filter(function(quote) {
+                if (quote.season === 3)
+                quotesFilteredBySeason.push(quote)
+            })
+        } else if (season4 === true) {
+            quotes.filter(function(quote) {
+                if (quote.season === 4)
+                quotesFilteredBySeason.push(quote)
+            })
+        } else if (season5 === true) {
+            quotes.filter(function(quote) {
+                if (quote.season === 5)
+                quotesFilteredBySeason.push(quote)
+            })
+        } else if (season6 === true) {
+            quotes.filter(function(quote) {
+                if (quote.season === 6)
+                quotesFilteredBySeason.push(quote)
+            })
+        }
+        const randomIndex = Math.floor(Math.random() * quotesFilteredBySeason.length)
+        setCurrentRandomQuote(quotesFilteredBySeason[randomIndex] || quotesFilteredBySeason[3])
         setCurrentRandomQuote(quotes[randomIndex] || quotes[69])
     }
+    //////////////////////////////////////////////////
     const handleChangeCurrentQuote = (e, idName) => {
         currentQuote()    
-        toggledPlay();
+        toggledPlay()
     }
     const handleChangeNext = e => {
         e.preventDefault()
@@ -96,6 +210,12 @@ export default function RandomQuote(props) {
         console.log(id)
         return id
     }
+    const [ seasonToggle, setseasonToggle ]  = useState(true)
+    const toggleSeason = () => {
+        setseasonToggle(prev => {
+            return !prev
+            })
+    }
     
     return (
         <>
@@ -103,7 +223,60 @@ export default function RandomQuote(props) {
             ?
             <div className='readyPlay'>
                 <h1>Ready to Play?</h1>
-                <h2>Match the Character to each quote</h2>
+                <h2 className='chooseSeasons'>Choose your seasons, then match the character to each quote</h2>
+                <div className='seasonButtonDivIntro'>
+                    {/* <h3 className='whichSeasons'>WHICH SEASONS WOULD YOU LIKE INCLUDED?</h3> */}
+                    <button 
+                        className={(backgroundButtonColor1 === false) ? 'seasonNotSelected' : 'seasonSelected'}  
+                        type='button' 
+                        value='Season1' 
+                        onClick={handleChangeSeason1}>
+                        Season 1
+                    </button>
+                    <button 
+                        className={(backgroundButtonColor2 === false) ? 'seasonNotSelected' : 'seasonSelected'}  
+                        type='button' 
+                        value='Season2' 
+                        onClick={handleChangeSeason2}>
+                        Season 2
+                    </button>
+                    <button 
+                        className={(backgroundButtonColor3 === false) ? 'seasonNotSelected' : 'seasonSelected'}  
+                        type='button' 
+                        value='Season3' 
+                        onClick={handleChangeSeason3}>
+                        Season 3
+                    </button>
+                    <button 
+                        className={(backgroundButtonColor4 === false) ? 'seasonNotSelected' : 'seasonSelected'}  
+                        type='button' 
+                        value='Season4'    
+                        onClick={handleChangeSeason4}>
+                        Season 4
+                    </button>
+                    <button 
+                        className={(backgroundButtonColor5 === false) ? 'seasonNotSelected' : 'seasonSelected'}  
+                        type='button' 
+                        value='Season5'    
+                        onClick={handleChangeSeason5}>
+                        Season 5
+                    </button>
+                    <button                      
+                        className={(backgroundButtonColor6 === false) ? 'seasonNotSelected' : 'seasonSelected'}  
+                        type='button' 
+                        value='Season6' 
+                        onClick={handleChangeSeason6}>
+                        Season 6
+                    </button>
+                    <button                      
+                        className={(backgroundButtonColorAll === false) ? 'seasonNotSelected' : 'seasonSelected'}  
+                        type='button' 
+                        value='SeasonAll' 
+                        onClick={handleChangeSeasonAll}
+                        >
+                        SELECT ALL
+                    </button>
+                </div>
                 <button id='hide1' className='playButton' type='button' value='play' onClick={handleChangeCurrentQuote} >Start the Game</button>
             </div>
             :
@@ -119,6 +292,74 @@ export default function RandomQuote(props) {
                         </div>
                         :
                         <>
+                            { seasonToggle ? 
+                            <>
+                                <div className='seasonButtonDivGame'>
+                                    <h2 className='changeSeasons' onClick={toggleSeason}>Change Seasons
+                                        {/* <p> ⊶</p> */}
+                                        </h2>
+                                </div>
+                                </>
+                                :
+                                <>
+                                <div className='seasonButtonDivGame'>
+                                    <h2 className='changeSeasons2' onClick={toggleSeason}>Change Seasons
+                                        {/* <p> ⊷</p> */}
+                                        </h2>
+                                    <button 
+                                        className={(backgroundButtonColor1 === false) ? 'seasonNotSelectedGame' : 'seasonSelectedGame'}  
+                                        type='button' 
+                                        value='Season1' 
+                                        onClick={handleChangeSeason1}>
+                                        Season 1
+                                    </button>
+                                    <button 
+                                        className={(backgroundButtonColor2 === false) ? 'seasonNotSelectedGame' : 'seasonSelectedGame'}  
+                                        type='button' 
+                                        value='Season2' 
+                                        onClick={handleChangeSeason2}>
+                                        Season 2
+                                    </button>
+                                    <button 
+                                        className={(backgroundButtonColor3 === false) ? 'seasonNotSelectedGame' : 'seasonSelectedGame'}  
+                                        type='button' 
+                                        value='Season3' 
+                                        onClick={handleChangeSeason3}>
+                                        Season 3
+                                    </button>
+                                    <button 
+                                        className={(backgroundButtonColor4 === false) ? 'seasonNotSelectedGame' : 'seasonSelectedGame'}  
+                                        type='button' 
+                                        value='Season4'    
+                                        onClick={handleChangeSeason4}>
+                                        Season 4
+                                    </button>
+                                    <button 
+                                        className={(backgroundButtonColor5 === false) ? 'seasonNotSelectedGame' : 'seasonSelectedGame'}  
+                                        type='button' 
+                                        value='Season5'    
+                                        onClick={handleChangeSeason5}>
+                                        Season 5
+                                    </button>
+                                    <button                      
+                                        className={(backgroundButtonColor6 === false) ? 'seasonNotSelectedGame' : 'seasonSelectedGame'}  
+                                        type='button' 
+                                        value='Season6' 
+                                        onClick={handleChangeSeason6}>
+                                        Season 6
+                                    </button>
+                                    <button                      
+                                        className={(backgroundButtonColorAll === false) ? 'seasonNotSelectedGame' : 'seasonSelectedGame'}  
+                                        type='button' 
+                                        value='SeasonAll' 
+                                        onClick={handleChangeSeasonAll}
+                                        >
+                                        SELECT ALL
+                                    </button>
+                                    <button className='seasonNotSelectedGame' type='button' onClick={handleChangeNext} >UPDATE SELECTION</button>
+                                </div>
+                                </>
+                            }
                             <h1 className='quizWho'>WHICH CHARACTER SAID:</h1>
                             <div className='quoteBrackets'> 
                                 <h3 className='randomQuote'>"{currentRandomQuote.quoteText}"</h3>

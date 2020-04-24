@@ -27,7 +27,6 @@ export default function CharacterQuote(props) {
     })
 
     const sortedQuotes = filteredQuotes.sort(function(a, b) {
-        // console.log(a, b)
         return a.season - b.season
     })
     
