@@ -54,7 +54,6 @@
         -webkit-box-shadow: $lgshadow;
         -moz-box-shadow: $lgshadow;
             box-shadow: $lgshadow;
-    
     }
 }
 .readyPlay {
@@ -82,12 +81,12 @@
 .quizContainer {
     margin: 60px auto 70px;
     text-align: center;
-    padding: 0px 20px;
+    // padding: 0px 20px;
     position: relative;
     width: 275px;
     @media (min-width: 400px) {
         margin: 70px auto 70px;
-        padding: 0px 30px;
+        // padding: 0px 30px;
         width: 300px;
     }
     @media (min-width: 500px) {
@@ -143,42 +142,45 @@
     }
 }
 .seasonButtonDivGame {
-    width: 300px;
-    margin: auto;
-    padding: 0px 5px 5px;
+    width: 250px;
+    margin: 0 auto;
+    padding: 0px 0px 8px;
     box-sizing: border-box;
+    outline: none;
 
-    @media (min-width: 700px) {
-        // width: 550px;
+    @media (min-width: 400px) {
+        width: 300px;
     }
 }
 .seasonButtonDivGameActive {
     width: 250px;
-    margin: auto;
+    margin: 0 auto;
     background-color: white;
-    padding: 0px 0px 10px;
+    padding: 0px 0px 8px;
+    box-sizing: border-box;
     -webkit-box-shadow: $innershadow;
     -moz-box-shadow: $innershadow;
         box-shadow: $innershadow;
     outline: none;
 
-    @media (min-width: 700px) {
-        // width: 550px;
+    @media (min-width: 400px) {
+        width: 300px;
     }
 }
 .seasonNotSelected {
     margin: 3px 2px;
     padding: 10px 10px 5px;
-    background-color: $yellow;
+    background-color: $ltyellow;
     font-family: $funfont;
     font-size: 10px; 
     width: 115px;
     letter-spacing: -2px;
-    color: $black;
+    color: $medgrey;
     border: none;
     -webkit-box-shadow: $smshadow;
     -moz-box-shadow: $smshadow;
         box-shadow: $smshadow;
+
     @media (min-width: 700px) {
         font-size: 12px; 
         width: 135px;
@@ -190,12 +192,12 @@
 .seasonSelected {
     margin: 3px 2px;
     padding: 10px 10px 5px;
-    background-color: $purple;
+    background-color: $yellow;
     font-family: $funfont;
     font-size: 10px;
     width: 115px;
     letter-spacing: -2px;
-    color: $white;
+    color: $black;
     border: none;
     -webkit-box-shadow: $smshadow;
     -moz-box-shadow: $smshadow;
@@ -212,12 +214,12 @@
 .seasonNotSelectedAll {
     margin: 3px 2px;
     padding: 10px 10px 5px;
-    background-color: $yellow;
+    background-color: $ltyellow;
     font-family: $funfont;
     font-size: 10px; 
     width: 115px;
     letter-spacing: -2px;
-    color: $black;
+    color: $medgrey;
     border: none;
     display: inline-block;
     -webkit-box-shadow: $smshadow;
@@ -235,12 +237,12 @@
 .seasonSelectedAll {
     margin: 3px 2px;
     padding: 10px 10px 5px;
-    background-color: $purple;
+    background-color: $yellow;
     font-family: $funfont;
     font-size: 10px;
     width: 115px;
     letter-spacing: -2px;
-    color: $white;
+    color: $black;
     border: none;
     display: inline-block;
     -webkit-box-shadow: $smshadow;
@@ -262,12 +264,12 @@
 .seasonNotSelectedAllGame {
     margin: 3px 4px;
     padding: 10px 10px 5px;
-    background-color: $yellow;
+    background-color: $ltyellow;
     font-family: $funfont;
     font-size: 10px; 
     width: 100px;
     letter-spacing: -2px;
-    color: $black;
+    color: $medgrey;
     border: none;
     display: inline-block;
     -webkit-box-shadow: $smshadow;
@@ -285,12 +287,12 @@
 .seasonSelectedAllGame {
     margin: 3px 4px;
     padding: 10px 10px 5px;
-    background-color: $purple;
+    background-color: $yellow;
     font-family: $funfont;
     font-size: 10px;
     width: 100px;
     letter-spacing: -2px;
-    color: $white;
+    color: $black;
     border: none;
     display: inline-block;
     -webkit-box-shadow: $smshadow;
@@ -313,7 +315,7 @@
     font-size: 10px; 
     width: 115px;
     letter-spacing: -2px;
-    color: $grey;
+    color: $medgrey;
     border: none;
     display: inline-block;
     -webkit-box-shadow: $smshadow;
@@ -342,51 +344,6 @@
     -webkit-box-shadow: $smshadow;
     -moz-box-shadow: $smshadow;
         box-shadow: $smshadow;
-    @media (min-width: 700px) {
-        font-size: 12px; 
-        // width: 135px;
-    }
-    &:focus {
-        outline: none;
-    }
-}
-.seasonNotSelectedGame {
-    margin: 3px 5px;
-    padding: 10px 10px 5px;
-    background-color: $yellow;
-    font-family: $funfont;
-    font-size: 10px; 
-    width: auto;
-    min-width: 32px;
-    letter-spacing: -2px;
-    color: $black;
-    border: none;
-    -webkit-box-shadow: $smshadow;
-    -moz-box-shadow: $smshadow;
-        box-shadow: $smshadow;
-
-    @media (min-width: 700px) {
-        font-size: 12px; 
-    }
-    &:focus {
-        outline: none;
-    }
-}
-.seasonSelectedGame {
-    margin: 3px 5px;
-    padding: 10px 10px 5px;
-    background-color: $purple;
-    font-family: $funfont;
-    font-size: 10px;
-    width: auto;
-    min-width: 32px;
-    letter-spacing: -2px;
-    color: $white;
-    border: none;
-    -webkit-box-shadow: $smshadow;
-    -moz-box-shadow: $smshadow;
-        box-shadow: $smshadow;
-
     @media (min-width: 700px) {
         font-size: 12px; 
     }
@@ -418,47 +375,38 @@
     font-size: 12px;
     font-weight: 400;
     display: block;
+    margin: 0 auto;
+    position: relative;
     text-transform: uppercase;
     width: 250px;
+    height: 25px;
+    line-height: 8px;
     text-align: center;
     padding: 5px 0px 4px;
-    // margin: 0px auto 2px;
     letter-spacing: -3px;
     user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
     box-sizing: border-box;
-
-    @media (min-width: 700px) {
-        font-size: 14px;
-        // width: 150px;
+    @media (min-width: 400px) {
+        width: 300px;
     }
-    .updateSeasons{
-        display: inline !important;
-        margin-left: 30px;
+    @media (min-width: 700px) {
+        font-size: 13px !important;
     }
 }
-.changeSeasons2 {
-    font-family: $funfont;
-    color: $black;
-    background-color: $yellow;
-    font-size: 12px;
-    font-weight: 400;
-    display: block;
-    // margin: 0px auto 2px;
-    text-transform: uppercase;
-    width: 250px;
-    text-align: center;
-    padding: 5px 0px 4px;
-    letter-spacing: -3px;
-    user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-    box-sizing: border-box;
-
+.toggleSeasonMenu {
+    font-size: 32px !important;
+    // margin-left: 15px;
+    top: 5px;
+    text-align: right;
+    // display: inline;
+    position: relative;
+    @media (min-width: 500px) {
+        font-size: 36px !important;
+    }
     @media (min-width: 700px) {
-        font-size: 14px;
-        // width: 150px;
+        font-size: 40px !important;
     }
 }
 .seasonNotSelectedGame {
@@ -467,8 +415,15 @@
     background-color: $ltyellow;
     font-family: $funfont;
     font-size: 10px; 
+    width: auto;
+    min-width: 32px;
+    letter-spacing: -2px;
     display: inline-block;
-    color: $black;
+    color: $medgrey;
+    border: none;
+    -webkit-box-shadow: $smshadow;
+    -moz-box-shadow: $smshadow;
+        box-shadow: $smshadow;
 
     @media (min-width: 700px) {
         font-size: 12px; 
@@ -478,13 +433,17 @@
     }
 }
 .seasonSelectedGame {
-    margin: 0px 2px;
+    margin: 0px 3px;
     padding: 10px 10px 5px;
     background-color: $yellow;
     font-family: $funfont;
     font-size: 10px;
     display: inline-block;
     color: $black;
+    border: none;
+    -webkit-box-shadow: $smshadow;
+    -moz-box-shadow: $smshadow;
+        box-shadow: $smshadow;
 
     @media (min-width: 700px) {
         font-size: 12px; 
@@ -500,6 +459,8 @@
     font-size: 40px;
     margin: 20px 5px 10px;
     display: block;
+    position: relative;
+
     @media (min-width: 500px) {
         margin: 10px 5px 10px;
     }
@@ -513,19 +474,19 @@
     font-size: 18px;
     width: auto;
     color: $purple;
-    letter-spacing: -4px;
-    text-align: center;
-    margin: 35px auto 0px;
+    letter-spacing: -4.25px;
+    text-align: left;
+    margin: 20px auto 0px;
     @media (min-width: 500px) {
-        font-size: 24px;
+        font-size: 22px;
         margin: 25px auto 0px;
-        letter-spacing: -5px;
+        letter-spacing: -5.5px;
     }
 }
 .randomQuote {
     font-family: $primaryFont;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 16px;
     font-style: italic;
     display: block;
     width: 200px;
@@ -536,7 +497,7 @@
     position: relative;  
     height: auto;
     @media (min-width: 400px) {
-        font-size: 20px;
+        font-size: 18px;
         padding: 5px 10px;
         width: 250px;
     }
@@ -545,7 +506,7 @@
         width: 350px;
     }
     @media (min-width: 700px) {
-        font-size: 24px;
+        // font-size: 24px;
         padding: 10px 15px;
         width: 550px;
     }
@@ -557,7 +518,7 @@
     display:inline-block;
     width: 225px;
     text-align: center;
-    margin: 5px auto;
+    margin: 2px auto;
     background-color: #dedede;
     padding: 5px 10px;
     border: $grey 5px solid;
@@ -603,10 +564,10 @@
     }
 }
 .answerContainer {
-    margin: 15px auto 25px;
+    margin: 25px auto 25px;
     width: 245px;
-    @media (min-width: 400px) {
-        width: 300px;
+    @media (min-width: 500px) {
+        width: 400px;
     }
     @media (min-width: 700px) {
         width: 600px;
@@ -646,20 +607,24 @@
     }
 }
 .answerButton {
-    margin: 5px 7.5px;
+    margin: 3px 5px;
     padding: 10px 10px 5px;
     background-color: $yellow;
     font-family: $funfont;
-    font-size: 12px;
+    font-size: 11px;
     border: none;
+    letter-spacing: -1.5px;
+    -webkit-box-shadow: $smshadow;
+    -moz-box-shadow: $smshadow;
+        box-shadow: $smshadow;
 
+    @media (min-width: 500px) {
+        font-size: 14px;
+    }
     &:focus {
         background-color: $purple;
         color: $white;
         outline: none;
-    }
-    @media (min-width: 500px) {
-        font-size: 14px;
     }
 }
 .quizCharPhoto {

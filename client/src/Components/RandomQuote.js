@@ -17,7 +17,7 @@ export default function RandomQuote(props) {
     const [ score, setScore ] = useState(0)
     const [ points, setPoints ] = useState(10)
     const [ answerCount, setAnswerCount ] = useState(0)
-    const [ totalPoints, setTotalPoints ] = useState(0)
+    // const [ totalPoints, setTotalPoints ] = useState(0)
     const [ correctFirstGuess, setCorrectFirstGuess ] = useState(0) 
 
     // const [ nextRandomQuote, setNextRandomQuote ] = useState({
@@ -29,7 +29,6 @@ export default function RandomQuote(props) {
 
     useEffect(() => {
         getAllQuotes()
-        // quotesbySeason()
     }, [])
 
     const [ toggled, setToggled ] = useState(false)
@@ -115,27 +114,45 @@ export default function RandomQuote(props) {
     const [ backgroundButtonColorAll, setBackgroundButtonColorAll ] = useState(false)
 
     const handleChangeSeasonAll = (e) => {
-        setSeasonAll(prev => {
-            return !prev
-        })
-        setBackgroundButtonColorAll(prev => {
+        // setSeasonAll(prev => {
+        //     return !prev
+        // })
+        // setBackgroundButtonColorAll(prev => {
+        //     return !prev
+        // }) 
+        setSeason1(false ? true : prev => {
             return !prev
         }) 
         setBackgroundButtonColor1(false ? true : prev => {
             return !prev
         }) 
+        setSeason2(false ? true : prev => {
+            return !prev
+        }) 
         setBackgroundButtonColor2(false ? true : prev => {
+            return !prev
+        }) 
+        setSeason3(false ? true : prev => {
             return !prev
         }) 
         setBackgroundButtonColor3(false ? true : prev => {
             return !prev
         }) 
+        setSeason4(false ? true : prev => {
+            return !prev
+        }) 
         setBackgroundButtonColor4(false ? true : prev => {
+            return !prev
+        }) 
+        setSeason5(false ? true : prev => {
             return !prev
         }) 
         setBackgroundButtonColor5(false ? true : prev => {
             return !prev
         }) 
+        // setSeason6(false ? true : prev => {
+        //     return !prev
+        // }) 
         // setBackgroundButtonColor6(false ? true : prev => {
         //     return !prev
         // }) 
@@ -144,17 +161,22 @@ export default function RandomQuote(props) {
 
     const handleChangeSeasonAllClear = (e) => {
         setBackgroundButtonColor1(false) 
+        setSeason1(false)
         setBackgroundButtonColor2(false) 
+        setSeason2(false)
         setBackgroundButtonColor3(false) 
+        setSeason3(false)
         setBackgroundButtonColor4(false) 
+        setSeason4(false)
         setBackgroundButtonColor5(false) 
+        setSeason5(false)
         setBackgroundButtonColor6(false) 
+        setSeason6(false)
         setBackgroundButtonColorAll(false) 
     }
-
+////////////////// GET QUOTES BY SEASON FROM INITAL SELECTION
     const currentQuote = (e) => {
-        let quotesFilteredBySeason = []
-        // let seasons = [1, 2, 3, 4, 5, 6]
+        let quotesFilteredBySeason = [];
         if (season1 === true) {
             quotes.filter(function(quote) {
                 if (quote.season === 1)
@@ -185,12 +207,12 @@ export default function RandomQuote(props) {
                 quotesFilteredBySeason.push(quote)
             })
         }
-        if (season6 === true) {
-            quotes.filter(function(quote) {
-                if (quote.season === 6)
-                quotesFilteredBySeason.push(quote)
-            })
-        }
+        // if (season6 === true) {
+        //     quotes.filter(function(quote) {
+        //         if (quote.season === 6)
+        //         quotesFilteredBySeason.push(quote)
+        //     })
+        // }
         if (seasonAll === true) {
             quotes.filter(function(quote) {
                 quotesFilteredBySeason.push(quote)
@@ -198,36 +220,90 @@ export default function RandomQuote(props) {
         }
         let prevRandom = '';
         const randomIndex = Math.floor(Math.random() * quotesFilteredBySeason.length)
-        // setCurrentRandomQuote(quotesFilteredBySeason[randomIndex])
-            // prevRandom.push(randomIndex)
             if (randomIndex === prevRandom) {
                 randomIndex++
                 setCurrentRandomQuote(quotesFilteredBySeason[randomIndex] || quotesFilteredBySeason[17])
             } else {
                 setCurrentRandomQuote(quotesFilteredBySeason[randomIndex] || quotesFilteredBySeason[17])
             }
-            console.log(randomIndex)
-            console.log(prevRandom)
-            console.log(quotesFilteredBySeason)
-
     }
-        
+
     //////////  RANDOM QUOTE FOR ALL OF QUOTES ARRAY (NOT BY SEASON) ///////////////  
     // const randomIndex = Math.floor(Math.random() * quotes.length)
     // const currentQuote = (e) => {
     //     setCurrentRandomQuote(quotes[randomIndex] || quotes[69])
     // }
-
     //////////////////////////////////////////////////
+
+    ////////////////// UPDATE SEASON SELECTIONS - TOGGLE MENU ON QUIZ PAGE
     const handleChangeUpdateSeasons = e => {
         e.preventDefault()
-        currentQuote()    
+        currentQuoteChangeSeason()    
         toggleSeason()
+    }
+    ////////////////// GET QUOTES BY SEASON FROM UPDATED SELECTION ON QUIZ PAGE
+    const currentQuoteChangeSeason = (e) => {
+        setToggled(false)
+        let quotesFilteredBySeason = [];
+        if (season1 === true) {
+            quotes.filter(function(quote) {
+                if (quote.season === 1)
+                quotesFilteredBySeason.push(quote)
+            })
+        } 
+        if (season2 === true) {
+            quotes.filter(function(quote) {
+                if (quote.season === 2)
+                quotesFilteredBySeason.push(quote)
+            })
+        }
+        if (season3 === true) {
+            quotes.filter(function(quote) {
+                if (quote.season === 3)
+                quotesFilteredBySeason.push(quote)
+            })
+        }
+        if (season4 === true) {
+            quotes.filter(function(quote) {
+                if (quote.season === 4)
+                quotesFilteredBySeason.push(quote)
+            })
+        }
+        if (season5 === true) {
+            quotes.filter(function(quote) {
+                if (quote.season === 5)
+                quotesFilteredBySeason.push(quote)
+            })
+        } 
+        if (seasonAll === true) {
+            quotes.filter(function(quote) {
+                quotesFilteredBySeason.push(quote)
+            })
+        }
+        let prevRandom = '';
+        const randomIndex = Math.floor(Math.random() * quotesFilteredBySeason.length)
+            if (randomIndex === prevRandom) {
+                randomIndex++
+                setCurrentRandomQuote(quotesFilteredBySeason[randomIndex] || quotesFilteredBySeason[17])
+            } else {
+                setCurrentRandomQuote(quotesFilteredBySeason[randomIndex] || quotesFilteredBySeason[17])
+            }
     }
     const handleChangeCurrentQuote = (e, idName) => {
         currentQuote()    
         toggledPlay()
     }
+    /////////+++++++++++
+    // console.log(currentRandomQuote.character)
+    // console.log(currentRandomQuote.season)
+    // console.log(currentRandomQuote.quoteText)
+
+    // console.log('season 1 is ' + season1)
+    // console.log('season 2 is ' + season2)
+    // console.log('season 3 is ' + season3)
+    // console.log('season 4 is ' + season4)
+    // console.log('season 5 is ' + season5)
+
     const handleChangeNext = e => {
         e.preventDefault()
         currentQuote()    
@@ -354,14 +430,14 @@ export default function RandomQuote(props) {
                     { seasonToggle ? 
                         <>
                             <div className='seasonButtonDivGame'>
-                                <h2 className='changeSeasons' onClick={toggleSeason}>Change Seasons<span> ▼</span></h2>
+                                <h2 className='changeSeasons' onClick={toggleSeason}>Change Seasons<span className='toggleSeasonMenu'> ⊶ </span></h2>
                                 
                             </div>
                         </>
                         :
                         <>
                             <div className='seasonButtonDivGameActive'>
-                                <h2 className='changeSeasons2' onClick={toggleSeason}>Change Seasons
+                                <h2 className='changeSeasons' onClick={toggleSeason}>Change Seasons<span className='toggleSeasonMenu'> ⊷ </span>
                                 </h2>
                                 <div className='gameAllClearDiv'>
                                     <button 
@@ -411,7 +487,7 @@ export default function RandomQuote(props) {
                                 </div>
                                 <div className='gameAllClearDiv'>
                                     <button                      
-                                        className={(backgroundButtonColorAll === false) ? 'seasonNotSelectedAllGame' : 'seasonSelectedllGame'}  
+                                        className={(backgroundButtonColorAll === false) ? 'seasonNotSelectedAllGame' : 'seasonSelectedAllGame'}  
                                         type='button' 
                                         value='SeasonAll' 
                                         onClick={handleChangeSeasonAll}
