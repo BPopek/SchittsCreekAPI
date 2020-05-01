@@ -242,8 +242,11 @@ export default function RandomQuote(props) {
         toggleSeason()
     }
     ////////////////// GET QUOTES BY SEASON FROM UPDATED SELECTION ON QUIZ PAGE
-    const currentQuoteChangeSeason = (e) => {
+      const currentQuoteChangeSeason = (e) => {
         setToggled(false)
+        if (toggledWrongAnswer === false) {
+            setToggledWrongAnswer(true)
+        }
         let quotesFilteredBySeason = [];
         if (season1 === true) {
             quotes.filter(function(quote) {
