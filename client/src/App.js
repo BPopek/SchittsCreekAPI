@@ -12,6 +12,7 @@ import './StylesFolder/GlobalStyles.scss';
 import './StylesFolder/NavHomeFooterStyles.scss';
 import './StylesFolder/CharacterStyles.scss';
 import './StylesFolder/QuizStyles.scss';
+import './StylesFolder/ModalStyles.scss';
 
 function App() {
   return (

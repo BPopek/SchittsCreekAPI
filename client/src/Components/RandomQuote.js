@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { QuoteContext } from './QuoteProvider'
 import shortid from 'shortid'
+import ChooseSeasonModal from './ChooseSeasonModal'
 
 export default function RandomQuote(props) {
 
@@ -48,6 +49,11 @@ export default function RandomQuote(props) {
         setTogglePlay('play')
         handleStart()
     }
+
+    const [showModal, setShowModal] = useState(false);
+    const handleShow = () => setShowModal(true);
+    const handleClose = () => setShowModal(false);
+
     /////////////////////  SEASON TOGGLE   /////////////////////  
     const [ season1, setSeason1 ] = useState(false)
     const [ backgroundButtonColor1, setBackgroundButtonColor1 ] = useState(false)
@@ -218,6 +224,7 @@ export default function RandomQuote(props) {
                 quotesFilteredBySeason.push(quote)
             })
         }
+
         let prevRandom = '';
         const randomIndex = Math.floor(Math.random() * quotesFilteredBySeason.length)
             if (randomIndex === prevRandom) {
@@ -238,11 +245,15 @@ export default function RandomQuote(props) {
     ////////////////// UPDATE SEASON SELECTIONS - TOGGLE MENU ON QUIZ PAGE
     const handleChangeUpdateSeasons = e => {
         e.preventDefault()
-        currentQuoteChangeSeason()    
-        toggleSeason()
+        if (season1 === false && season2 === false && season3 === false && season4 === false && season5 === false) {
+            handleShow()
+        } else {
+            currentQuoteChangeSeason()    
+            toggleSeason()
+        }     
     }
     ////////////////// GET QUOTES BY SEASON FROM UPDATED SELECTION ON QUIZ PAGE
-      const currentQuoteChangeSeason = (e) => {
+      const currentQuoteChangeSeason = () => {
         setToggled(false)
         if (toggledWrongAnswer === false) {
             setToggledWrongAnswer(true)
@@ -283,6 +294,7 @@ export default function RandomQuote(props) {
                 quotesFilteredBySeason.push(quote)
             })
         }
+        
         let prevRandom = '';
         const randomIndex = Math.floor(Math.random() * quotesFilteredBySeason.length)
             if (randomIndex === prevRandom) {
@@ -292,11 +304,16 @@ export default function RandomQuote(props) {
                 setCurrentRandomQuote(quotesFilteredBySeason[randomIndex] || quotesFilteredBySeason[17])
             }
     }
+    
     const handleChangeCurrentQuote = (e, idName) => {
-        currentQuote()    
-        toggledPlay()
+        if (season1 === false && season2 === false && season3 === false && season4 === false && season5 === false) {
+            handleShow()
+        } else {
+            currentQuote()    
+            toggledPlay()
+        }
     }
-    /////////+++++++++++
+///////// CONSOLE LOGS
     // console.log(currentRandomQuote.character)
     // console.log(currentRandomQuote.season)
     // console.log(currentRandomQuote.quoteText)
@@ -424,8 +441,13 @@ export default function RandomQuote(props) {
                             CLEAR
                         </button>
                     </div>
+                    <ChooseSeasonModal showModal={showModal} handleClose={handleClose} >
+                        <h5 className='modalHead'>NO SEASONS SELECTED</h5> 
+                        <p className='modalBody'>Please select at least one season.</p>
+                    </ChooseSeasonModal>
                 </div>
                 <button id='hide1' className='playButton' type='button' value='play' onClick={handleChangeCurrentQuote} >Start the Game</button>
+                
             </div>
             :
             <>  
@@ -508,7 +530,10 @@ export default function RandomQuote(props) {
                                 </div>
                                 <button className='updateSeasons' type='button' onClick={handleChangeUpdateSeasons} >UPDATE SEASONS
                                 </button>
-                                
+                                <ChooseSeasonModal showModal={showModal} handleClose={handleClose} >
+                                    <h5 className='modalHead'>NO SEASONS SELECTED</h5> 
+                                    <p className='modalBody'>Please select at least one season.</p>
+                                </ChooseSeasonModal>
                             </div>
                         </>
                     } 

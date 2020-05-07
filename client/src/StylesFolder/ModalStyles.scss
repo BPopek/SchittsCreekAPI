@@ -1,0 +1,71 @@
+@import 'GlobalStyles.scss';
+
+.modal.content {
+    margin-top: 10px;
+}
+.btnQ {
+    margin: 3px auto;
+    padding: 10px 10px 5px;
+    background-color: $ltyellow;
+    font-family: $funfont;
+    font-size: 10px; 
+    width: 115px;
+    letter-spacing: -2px;
+    color: $medgrey;
+    text-align: center;
+    border: none;
+    -webkit-box-shadow: $smshadow;
+    -moz-box-shadow: $smshadow;
+        box-shadow: $smshadow;
+
+    @media (min-width: 700px) {
+        font-size: 12px; 
+        width: 135px;
+    }
+    &:focus {
+        outline: none;
+    }
+    &:hover {
+        background-color: $purple;
+    }
+}
+.modalHead {
+    font-family: $funfont;
+    color: $purple;
+    letter-spacing: -4px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 3px auto;
+    font-size: 18px; 
+    padding-bottom: 15px;
+    border-bottom: 1px $ltgrey solid;
+    @media (min-width: 700px) {
+        font-size: 22px; 
+    }
+}
+.modalBody {
+    font-family: $primaryFont;
+    text-align: center;
+    font-size: 16px; 
+    margin: 15px auto 5px;
+    padding-bottom: 15px;
+    border-bottom: 1px $ltgrey solid;
+}
+.closeX {
+    color: $grey;
+    top: 15px;
+    right: 10px;
+    font-weight: 500;
+    font-size: 18px; 
+    position: absolute;
+    &:focus {
+        outline: none;
+    }
+}
+div.modal-footer.footerQ {
+    border: none;
+    padding-top: 0 ;
+}
+.modal-body {
+    padding: none !important;
+}

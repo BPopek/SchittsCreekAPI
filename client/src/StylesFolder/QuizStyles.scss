@@ -16,7 +16,7 @@
 }
 .playButton {
     margin: 30px auto 10px;
-    padding: 10px;
+    padding: 10px 22px 10px 10px;
     background-image: linear-gradient(to bottom left, $purple, $ltpurple, $dkpurple);
     font-family: $funfont;
     font-size: 28px;
@@ -29,7 +29,10 @@
     border-radius: 50%;
     border: none;
     @media (min-width: 400px) {
-        margin: 60px auto 10px;
+        margin: 60px auto 10px ;
+    }
+    &:focus {
+        outline: none;
     }
     &:active {
         background-color: $purple;
@@ -55,6 +58,10 @@
         -moz-box-shadow: $lgshadow;
             box-shadow: $lgshadow;
     }
+    .text {
+        text-align: center;
+        margin: 30px 20px 10px 10px;
+    }
 }
 .readyPlay {
     h1 {
@@ -72,6 +79,8 @@
         }
         @media (min-width: 700px) {
             font-size: 40px;
+            letter-spacing: -8px;
+
         }
     }
 }
