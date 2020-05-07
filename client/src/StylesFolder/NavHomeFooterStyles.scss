@@ -215,36 +215,39 @@
 .homeContainer {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: auto;
     justify-content: space-around;
     margin: 0 auto 60px;
     align-items: center;
     align-content: center;
     text-align: center;
-    gap: 50px;
+    // gap: 50px;
+    
     @media (min-width: 700px) {
+        // width: 690px;
         flex-direction: row;
     }
     // @media (min-width: 1000px) {
     // }
 }
-.homeContainer1 {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    justify-content: space-around;
-    margin: 0 auto 100px;
-    align-items: center;
-    align-content: center;
-    text-align: center;
-    gap: 50px;
-    @media (min-width: 700px) {
-        flex-direction: row;
-    }
-}
+// .homeContainer1 {
+//     display: flex;
+//     flex-direction: column;
+//     width: 300px;
+//     justify-content: space-around;
+//     margin: 0 auto 100px;
+//     align-items: center;
+//     align-content: center;
+//     text-align: center;
+//     gap: 50px;
+//     @media (min-width: 700px) {
+//         flex-direction: row;
+//     }
+// }
 .main {
     display: relative;
     text-align: center;
+    margin-top: -10px;
 }
 .homeCards {
     margin: 25px auto ;
@@ -329,10 +332,42 @@
     padding: 20px 10px;
     margin: 20px auto;
 }
+.profileContainer {
+    margin: 10px auto 10px;
+   
+    @media (min-width: 700px) {
+        margin: 10px 40px;
+    }
+}
+.quizHomeContainer {
+    margin: 40px auto 20px;
+    position: relative;
+
+    @media (min-width: 900px) {
+        margin: 40px 40px 20px;
+    }
+}
+.readThe {
+    font-family: $funfont;
+    font-size: 24px;
+    letter-spacing: -4px;
+}
+.playThe {
+    width: 90%;
+    position: absolute;
+    z-index: 5;
+    left: -3px;
+    right: 0;
+    margin: auto;
+        
+    @media (min-width: 700px) {
+       width: 100%;
+    }
+}
 .quizSign {
     width: auto;
     height: 200px;
-    margin: 40px 40px 20px;
+    margin: 33px 40px 20px;
     position: relative;
     // &:hover {
     //     -webkit-animation: whoopsie 1500ms 150ms linear both;
@@ -342,15 +377,15 @@
     //     }
     @media (min-width: 700px) {
         height: 225px;
-        margin: 50px 50px;
+        margin: 33px auto;
     }
     @media (min-width: 900px) {
         height: 250px;
-        margin: 30px 60px ;
+        margin: 35px auto ;
     }
     @media (min-width: 1200px) {
         height: 275px;
-        margin: 40px 80px;
+        // margin: 33px auto;
     }
 }
 .quizAnimation {
@@ -406,18 +441,16 @@
 .charSign {
     width: auto;
     height: 100px;
-    margin: 40px 40px 20px;
+    margin: -5px 40px 40px;
     position: relative;
     @media (min-width: 700px) {
-        margin: 50px 50px;
+        margin: -8px auto 0px;
     }
     @media (min-width: 900px) {
-        margin: 60px 60px ;
         height: 125px;
     }
     @media (min-width: 1200px) {
         height: 175px;
-        margin: 60px 80px ;
     }
     // &:hover {
     //     -webkit-animation: swing-out-bottom-fwd 2s 50ms cubic-bezier(0.600, -0.280, 0.735, 0.045) infinite alternate both;
