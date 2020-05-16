@@ -15,15 +15,14 @@ const PORT = process.env.PORT || 7250;
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "client", "build")));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-app.use("/api/quotes", require("./routes/quoteRouter.js"));
-app.use("api/quotes/character", require("./routes/quoteRouter.js"));
+app.use('/api/quotes', require('./routes/quoteRouter.js'));
+app.use('api/quotes/character', require('./routes/quoteRouter.js'));
 
 app.use('/auth', require('./routes/auth'))
 
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/quotesDB",
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/quotesDB',
     { 
         useNewUrlParser: true, 
         useUnifiedTopology: true, 
@@ -32,7 +31,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/quotesDB"
     },
     (err) => {
         if (err) throw err;
-        console.log("Connected to the database");
+        console.log('Connected to the database');
     }
 );
 
@@ -41,7 +40,7 @@ app.use(function(req, res) {
   });
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "./client/public/index.html"), 
+    res.sendFile(path.join(__dirname, 'client', 'build', './client/public/index.html'), 
     function(err) {
         if (err) {
             res.status(500).send(err)
@@ -59,7 +58,7 @@ app.get("*", (req, res) => {
 
 
 app.use((err, req, res, next) => {
-    if (err.name === "UnauthorizedError") {
+    if (err.name === 'UnauthorizedError') {
         res.status(err.status)
     }
     return res.send({ message: err.message });

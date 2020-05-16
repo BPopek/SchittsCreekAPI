@@ -18,7 +18,7 @@ function QuoteProvider(props) {
     })
 
     const login = credentials => {
-        return axios.post('/auth.login', credentials)
+        return axios.post('/auth/login', credentials)
             .then(res => {
                 const { token, user } = res.data
                 localStorage.setItem('token', token)
@@ -59,9 +59,93 @@ function QuoteProvider(props) {
     //     .catch(err => console.log(err))
     // }
 
+    const addNewQuote = (newQuote) => {
+        // handleQuote()
+        return quoteAxios.post('/api/quotes', newQuote)
+        .then(res => {
+            getAllQuotes()
+            return res
+        })
+    }
+
+    const deleteQuote = (quoteId) => {
+        return quoteAxios.delete(`/api/quotes/${quoteId}`)
+        .then(res => {
+            setQuotes(prev => {
+                const updatedQuotes = prev.filter(quote => {
+                    return quote._id !== quoteId
+                })
+                return updatedQuotes
+            })
+            return res
+        })
+    }
+
     const [ needStart, setNeedStart ] = useState(true)
     const handleStart = () => {
         setNeedStart(false)
+    }
+
+    const [ toggledJohnny, setToggledJohnny ] = useState(true)
+    const [ toggledMoira, setToggledMoira] = useState(true)
+    const [ toggledDavid, setToggledDavid ] = useState(true)
+    const [ toggledAlexis, setToggledAlexis ] = useState(true)
+    const [ toggledStevie, setToggledStevie ] = useState(true)
+    const [ toggledRoland, setToggledRoland ] = useState(true)
+    const [ toggledJocelyn, setToggledJocelyn ] = useState(true)
+    const [ toggledPatrick, setToggledPatrick ] = useState(true)
+    const [ toggledTed, setToggledTed ] = useState(true)
+    const [ toggledTwyla, setToggledTwyla ] = useState(true)
+
+    const toggledNameJohnny = () => {
+        setToggledJohnny(prev => {
+                return !prev
+        })
+    }
+    const toggledNameMoira = () => {
+        setToggledMoira(prev => {
+                return !prev
+        })
+    }
+    const toggledNameDavid = () => {
+        setToggledDavid(prev => {
+                return !prev
+        })
+    }
+    const toggledNameAlexis = () => {
+        setToggledAlexis(prev => {
+                return !prev
+        })
+    }
+    const toggledNameStevie = () => {
+        setToggledStevie(prev => {
+                return !prev
+        })
+    }
+    const toggledNameRoland = () => {
+        setToggledRoland(prev => {
+                return !prev
+        })
+    }
+    const toggledNameJocelyn = () => {
+        setToggledJocelyn(prev => {
+                return !prev
+        })
+    }
+    const toggledNamePatrick = () => {
+        setToggledPatrick(prev => {
+                return !prev
+        })
+    }
+    const toggledNameTed = () => {
+        setToggledTed(prev => {
+                return !prev
+        })
+    }
+    const toggledNameTwyla = () => {
+        setToggledTwyla(prev => {
+                return !prev
+        })
     }
 
     return (
@@ -71,10 +155,42 @@ function QuoteProvider(props) {
                 quotes,
                 needStart,
                 getAllQuotes, 
+                addNewQuote,
+                deleteQuote,
                 //getCharacterQuotes,
                 handleStart,
                 login, 
-                logout
+                logout,
+                toggledJohnny,
+                setToggledJohnny,
+                toggledNameJohnny,
+                toggledMoira,
+                setToggledMoira,
+                toggledNameMoira,
+                toggledDavid,
+                setToggledDavid,
+                toggledNameDavid,
+                toggledAlexis,
+                setToggledAlexis,
+                toggledNameAlexis,
+                toggledStevie,
+                setToggledStevie,
+                toggledNameStevie,
+                toggledRoland,
+                setToggledRoland,
+                toggledNameRoland,
+                toggledJocelyn,
+                setToggledJocelyn,
+                toggledNameJocelyn,
+                toggledPatrick,
+                setToggledPatrick,
+                toggledNamePatrick,
+                toggledTed,
+                setToggledTed,
+                toggledNameTed,
+                toggledTwyla,
+                setToggledTwyla,
+                toggledNameTwyla,
             }}>
             { props.children }
             </QuoteContext.Provider>

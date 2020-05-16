@@ -20,7 +20,38 @@ function CharacterProfiles(props) {
         getAllQuotes()
     }, [])
 
-    const { quotes, getAllQuotes } = useContext(QuoteContext)
+    const { quotes, 
+        getAllQuotes, 
+        toggledJohnny,
+        setToggledJohnny,
+        toggledNameJohnny,
+        toggledMoira,
+        setToggledMoira,
+        toggledNameMoira,
+        toggledDavid,
+        setToggledDavid,
+        toggledNameDavid,
+        toggledAlexis,
+        setToggledAlexis,
+        toggledNameAlexis,
+        toggledStevie,
+        setToggledStevie,
+        toggledNameStevie,
+        toggledRoland,
+        setToggledRoland,
+        toggledNameRoland,
+        toggledJocelyn,
+        setToggledJocelyn,
+        toggledNameJocelyn,
+        toggledPatrick,
+        setToggledPatrick,
+        toggledNamePatrick,
+        toggledTed,
+        setToggledTed,
+        toggledNameTed,
+        toggledTwyla,
+        setToggledTwyla,
+        toggledNameTwyla, } = useContext(QuoteContext)
     // const [ setCharacter ] = useState('')
     
     // const [ toggled, setToggled ] = useState(true)
@@ -31,67 +62,6 @@ function CharacterProfiles(props) {
     //     })
     // }
 
-        const [ toggledJohnny, setToggledJohnny ] = useState(true)
-        const [ toggledMoira, setToggledMoira] = useState(true)
-        const [ toggledDavid, setToggledDavid ] = useState(true)
-        const [ toggledAlexis, setToggledAlexis ] = useState(true)
-        const [ toggledStevie, setToggledStevie ] = useState(true)
-        const [ toggledRoland, setToggledRoland ] = useState(true)
-        const [ toggledJocelyn, setToggledJocelyn ] = useState(true)
-        const [ toggledPatrick, setToggledPatrick ] = useState(true)
-        const [ toggledTed, setToggledTed ] = useState(true)
-        const [ toggledTwyla, setToggledTwyla ] = useState(true)
-
-        const toggledNameJohnny = () => {
-            setToggledJohnny(prev => {
-                    return !prev
-            })
-        }
-        const toggledNameMoira = () => {
-            setToggledMoira(prev => {
-                    return !prev
-            })
-        }
-        const toggledNameDavid = () => {
-            setToggledDavid(prev => {
-                    return !prev
-            })
-        }
-        const toggledNameAlexis = () => {
-            setToggledAlexis(prev => {
-                    return !prev
-            })
-        }
-        const toggledNameStevie = () => {
-            setToggledStevie(prev => {
-                    return !prev
-            })
-        }
-        const toggledNameRoland = () => {
-            setToggledRoland(prev => {
-                    return !prev
-            })
-        }
-        const toggledNameJocelyn = () => {
-            setToggledJocelyn(prev => {
-                    return !prev
-            })
-        }
-        const toggledNamePatrick = () => {
-            setToggledPatrick(prev => {
-                    return !prev
-            })
-        }
-        const toggledNameTed = () => {
-            setToggledTed(prev => {
-                    return !prev
-            })
-        }
-        const toggledNameTwyla = () => {
-            setToggledTwyla(prev => {
-                    return !prev
-            })
-        }
    
     return (
         <div className='characterContainer'>

@@ -1,4 +1,4 @@
-import React, { useState } from './node_modules/react';
+import React, { useState, useContext } from 'react';
 import { QuoteContext } from '../Components/QuoteProvider';
 
 import logo from '../Images/SC-logo-wide-shadow.png';
@@ -44,7 +44,7 @@ export default function Login() {
         <div className='loginForm'>
             <form onSubmit={handleSubmitLogin} className='form'>
                 <img src={logo} className='formlogo' alt='Schitts Creek Logo' />
-                <h1>ENTER LOG IN INFO:</h1>
+                <h1 className='loginHeader'>ENTER LOG IN INFO:</h1>
                 <div>
                     <input
                         onChange={handleChangeLogin}

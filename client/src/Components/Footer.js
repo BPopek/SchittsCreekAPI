@@ -17,6 +17,7 @@ function Footer() {
             <div className='legalCont'>
                 <Link to='/legal-disclaimer' className='footerLegal'>LEGAL: NOT AN OFFICIAL SCHITT'S CREEK WEBSITE, THIS IS SIMPLY A FUN TRIVIA GAME TO HELP REMINISCE ABOUT THE MAGIC THAT IS SCHITT'S CREEK.</Link>
             </div>
+            <Link to='/login' className='login'>✪</Link>
         </>
     )
 }

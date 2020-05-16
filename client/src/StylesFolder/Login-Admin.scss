@@ -1,0 +1,40 @@
+@import 'GlobalStyles.scss';
+.loginForm {
+    margin: 100px auto;
+    position: relative;
+    text-align: center;
+}
+.formlogo {
+    width: 300px;
+    margin: 20px auto;
+}
+.loginHeader {
+    font-family: $funfont;
+    font-size: 20px;
+}
+.loginInput {
+    margin: 5px;
+    padding: 2px;
+}
+.loginButton {
+    display: block;
+    margin: 5px auto 5px;
+    padding: 10px 10px 5px;
+    background-color: $yellow;
+    font-family: $funfont;
+    font-size: 11px;
+    border: none;
+    letter-spacing: -1.5px;
+    -webkit-box-shadow: $smshadow;
+    -moz-box-shadow: $smshadow;
+        box-shadow: $smshadow;
+
+    @media (min-width: 500px) {
+        font-size: 14px;
+    }
+    &:focus {
+        background-color: $purple;
+        color: $white;
+        outline: none;
+    }
+}
