@@ -60,7 +60,7 @@ function QuoteProvider(props) {
     // }
 
     const addNewQuote = (newQuote) => {
-        // handleQuote()
+        // handleQuote() only needed for modal on other
         return quoteAxios.post('/api/quotes', newQuote)
         .then(res => {
             getAllQuotes()
@@ -151,7 +151,7 @@ function QuoteProvider(props) {
     return (
         <QuoteContext.Provider 
             value={{
-                ...useState, 
+                ...userState, 
                 quotes,
                 needStart,
                 getAllQuotes, 

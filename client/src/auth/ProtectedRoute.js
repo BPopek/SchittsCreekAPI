@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { QuoteContext } from '../Components/QuoteProvider';
 
-export default function ProtectedRoute(props) {
+function ProtectedRoute(props) {
 
     const { token } = useContext(QuoteContext)
     const { component: Component, ...rest } = props
@@ -11,6 +11,8 @@ export default function ProtectedRoute(props) {
         token ? 
             <Route {...rest} component={Component} />
             :
-            <Redirect to='login' />
+            <Redirect to='/login' />
     )
 }
+
+export default ProtectedRoute;

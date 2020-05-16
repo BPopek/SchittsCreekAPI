@@ -14,7 +14,7 @@ export default function Login() {
     const handleChangeLogin = e => {
         const { name, value } = e.target
 
-        if(name === 'username') {
+        if( name === 'username' ) {
             setUsername(value)
         } else {
             setPassword(value)
@@ -29,13 +29,14 @@ export default function Login() {
 
     const handleSubmitLogin = e => {
         e.preventDefault();
+        console.log('should be logging in')
         login({ username, password })
             .then(() => {
 
             })
             .catch(err => {
                 console.dir(err)
-                setErrorMessage(err.res.data.message)
+                setErrorMessage(err.response.data.message)
             })
             clearInputs()
     }

@@ -29,10 +29,10 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home} ></Route>
         <Route path='/login' render={() => token ? <Redirect to='/scadmin' /> : <Login /> } />
-        <ProtectedRoute path='/scadmin' component={SCadmin}></ProtectedRoute>
         <Route path='/quiz' component={Quiz} ></Route>
         <Route path='/characters' component={CharacterProfiles} ></Route>
         <Route path='/legal-disclaimer' component={legal} ></Route>
+        <ProtectedRoute path='/scadmin' component={SCadmin}></ProtectedRoute>
       </Switch>
       <Footer />
     </div>
