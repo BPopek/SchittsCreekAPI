@@ -6,7 +6,9 @@ import Home from './Components/Home';
 import Quiz from './Components/Quiz';
 import CharacterProfiles from './Components/CharacterProfiles';
 import Footer from './Components/Footer';
-import legal from './Components/legal'
+import legal from './Components/legal';
+import login from './auth/Login';
+import SCadmin from './Components/SCadmin';
 
 import './StylesFolder/GlobalStyles.scss';
 import './StylesFolder/NavHomeFooterStyles.scss';
@@ -20,6 +22,8 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path='/' component={Home} ></Route>
+        <Route path='/login' render={() => token ? <Redirect to='scadmin' /> : <Login /> } />
+        <ProtectedRoute path='/scAdmin' component={SCadmin}></ProtectedRoute>
         <Route path='/quiz' component={Quiz} ></Route>
         <Route path='/characters' component={CharacterProfiles} ></Route>
         <Route path='/legal-disclaimer' component={legal} ></Route>

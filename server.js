@@ -4,6 +4,7 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const expressJwt = require('express-jwt');
 const path = require('path');
 const PORT = process.env.PORT || 7250;
 // const NODE_ENV = process.env.NODE_ENV || 'development';
@@ -18,6 +19,9 @@ app.use(express.static(path.join(__dirname, "client", "build")));
 
 app.use("/api/quotes", require("./routes/quoteRouter.js"));
 app.use("api/quotes/character", require("./routes/quoteRouter.js"));
+
+app.use('/auth', require('./routes/auth'))
+
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/quotesDB",
     { 
