@@ -10,7 +10,7 @@ import Footer from './Components/Footer';
 import legal from './Components/legal';
 import Login from './auth/Login';
 import ProtectedRoute from './auth/ProtectedRoute';
-import SCadmin from './Components/SCadmin';
+import SCadmin from './Components/adminComponents/SCadmin';
 
 import './StylesFolder/GlobalStyles.scss';
 import './StylesFolder/NavHomeFooterStyles.scss';

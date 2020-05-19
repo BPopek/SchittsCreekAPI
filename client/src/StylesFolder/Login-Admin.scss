@@ -139,76 +139,84 @@
     @media (min-width: 1200px) {
         width: 450px;
     }
-    h1 {
-        font-family: $primaryFont;
-        font-size: 20px;
-        color: $purple;
-    }
+    // h1 {
+    //     font-family: $primaryFont;
+    //     font-size: 20px;
+    //     color: $purple;
+    // }
 }
 .addQuoteInputCharacter {
     margin: 5px auto;
     padding: 10px 10px 5px;
     display: block;
-    width: 300px;
+    width: 270px;
+    position: relative;
+    left: -3px;
     outline: none;
     border: none;
     @media (min-width: 700px) {
-        width: 350px;
+        width: 320px;
     }
     @media (min-width: 1000px) {
-        width: 400px;
+        width: 370px;
     }
     @media (min-width: 1200px) {
-        width: 450px;
+        width: 420px;
     }
 }
 .addQuoteInputQuoteText {
     margin: 5px auto;
     padding: 10px 10px 5px;
     display: block;
-    width: 300px;
+    width: 270px;
+    position: relative;
+    left: -3px;
     outline: none;
     border: none;
     @media (min-width: 700px) {
-        width: 350px;
+        width: 320px;
     }
     @media (min-width: 1000px) {
-        width: 400px;
+        width: 370px;
     }
     @media (min-width: 1200px) {
-        width: 450px;
+        width: 420px;
     }
 }
 .addQuoteInputSeason {
     margin: 5px 5px 5px 0;
     padding: 10px 10px 5px;
-    width: 145px;
+    width: 130px;
+    position: relative;
+    left: -3px;
     outline: none;
     border: none;
     @media (min-width: 700px) {
-        width: 170px;
+        width: 155px;
     }
     @media (min-width: 1000px) {
-        width: 195px;
+        width: 180px;
     }
     @media (min-width: 1200px) {
-        width: 220px;
+        width: 205px;
     }
 }
 .addQuoteInputEpisode {
     margin: 5px 0px 5px 5px;
     padding: 10px 10px 5px;
-    width: 145px;
+    width: 130px;
+    position: relative;
+    left: -3px;
     outline: none;
     border: none;
     @media (min-width: 700px) {
-        width: 170px;
+        width: 155px;
     }
     @media (min-width: 1000px) {
-        width: 195px;
+        width: 180px;
     }
     @media (min-width: 1200px) {
-        width: 220px;
+        width: 205px;
     }
 }
 .addNewButtonSubmit {
@@ -231,6 +239,64 @@
     &:focus {
         background-color: $purple;
         color: $white;
+        outline: none;
+    }
+}
+.quoteButton {
+    position: relative;
+    display: inline-block;
+    top: -20px;
+    margin: 10px;
+    padding: 10px 10px 5px;
+    background-color: $purple;
+    font-family: $funfont;
+    color: $white;
+    font-size: 11px;
+    border: none;
+    letter-spacing: -1.5px;
+    -webkit-box-shadow: $smshadow;
+    -moz-box-shadow: $smshadow;
+        box-shadow: $smshadow;
+
+    @media (min-width: 500px) {
+        font-size: 14px;
+    }
+    &:focus {
+        background-color: $purple;
+        color: $white;
+        outline: none;
+    }
+}
+.showAdminButtons {
+    display: inline;
+}
+.hideAdminButtons {
+    display: none;
+}
+.addNewQuote {
+    width: 275px;
+    margin: 0px auto 5px;
+    padding: 10px 15px 5px;
+    background-color: $purple;
+    color: $white;
+    font-family: $funfont;
+    font-size: 14px;
+    display: block;
+    letter-spacing: -2.5px;
+    border: none;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.25);
+    @media (min-width: 700px) {
+      margin: 10px auto 10px;
+      width: 320px;
+    }
+    @media (min-width: 1000px) {
+      width: 370px;
+      font-size: 16px;
+    }
+    @media (min-width: 1200px) {
+        width: 420px;
+    }
+    &:focus {
         outline: none;
     }
 }

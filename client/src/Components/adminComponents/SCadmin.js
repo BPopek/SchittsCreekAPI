@@ -1,14 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { QuoteContext } from './QuoteProvider'
-import CharacterProfiles from './CharacterProfiles'
-import CharacterQuotes from './CharacterQuotes'
-
+import { QuoteContext } from '../QuoteProvider'
+import CharacterProfiles from '../CharacterProfiles'
+import CharacterQuotesAdmin from './CharacterQuotesAdmin'
+import AddQuoteForm from './AddQuoteForm'
 
 function SCadmin(props) {
 
     useEffect(() => {
         getAllQuotes()
     }, [])
+
+    // const { type, quote } = props
     
     const { quotes, getAllQuotes, addNewQuote, deleteQuote, login, logout,
         toggledJohnny,
@@ -42,45 +44,18 @@ function SCadmin(props) {
         setToggledTwyla,
         toggledNameTwyla, } = useContext(QuoteContext)
 
-    const [ newQuoteInfo, setNewQuoteInfo ] = useState({
-        character: '',
-        quoteText: '',
-        season: '',
-        episodeName: ''
-    })
-    const clearInputsNewQuote = () => {
-        setNewQuoteInfo({ 
-            character: '',
-            quoteText: '',
-            season: '',
-            episodeName: ''
-        })
-    }
-    const newQuote = () => {
-        console.log('newQuote is being called')
-        addNewQuote(newQuoteInfo)
-            .then(() => {
-                clearInputsNewQuote()
+        const [ toggled, setToggled ] = useState(true)
+        const toggle = e => {
+            setToggled(prev => {
+                return !prev
             })
-            .catch(err => console.error(err.response.data.message))
-    }
-
-    const handleSubmitAddNew = e => {
-        e.preventDefault();
-        clearInputsNewQuote();
-        newQuote()
-    }
-
-    const handleChangeAddNew = e => {
-        // let value = e.target.type === e.target.value
-        // let value = e.target.value
-
-        let { name, value } = e.target
-        setNewQuoteInfo(prevInfo => ({
-            ...prevInfo, 
-            [name]: value
-        }))
-    }
+        }
+        const [ toggledForm, setToggledForm ] = useState(true)
+        const toggleForm = e => {
+            setToggledForm(prev => {
+                return !prev
+            })
+        }
 
     return(
         <div className='admin'>
@@ -100,7 +75,7 @@ function SCadmin(props) {
                                     value='Johnny'
                                     onClick={toggledNameJohnny}>
                                     HIDE JOHNNY'S QUOTES</button>
-                            <CharacterQuotes character={'Johnny'} />
+                            <CharacterQuotesAdmin character={'Johnny'} />
                         </div>
                     }
                 </div>
@@ -118,7 +93,8 @@ function SCadmin(props) {
                                     value='Moira'
                                     onClick={toggledNameMoira}>
                                     HIDE MOIRA'S QUOTES</button>
-                            <CharacterQuotes character={'Moira'} />
+                            <CharacterQuotesAdmin character={'Moira'} 
+                            />
                         </div>
                     }
                 </div>
@@ -136,7 +112,7 @@ function SCadmin(props) {
                                     value='David'
                                     onClick={toggledNameDavid}>
                                     HIDE DAVID'S QUOTES</button>
-                            <CharacterQuotes character={'David'} />
+                            <CharacterQuotesAdmin character={'David'} />
                         </div>
                     }
                 </div>
@@ -154,7 +130,7 @@ function SCadmin(props) {
                                     value='Alexis'
                                     onClick={toggledNameAlexis}>
                                     HIDE ALEXIS'S QUOTES</button>
-                            <CharacterQuotes character={'Alexis'} />
+                            <CharacterQuotesAdmin character={'Alexis'} />
                         </div>
                     }
                 </div>
@@ -172,7 +148,7 @@ function SCadmin(props) {
                                     value='Stevie'
                                     onClick={toggledNameStevie}>
                                     HIDE STEVIE'S QUOTES</button>
-                            <CharacterQuotes character={'Stevie'} />
+                            <CharacterQuotesAdmin character={'Stevie'} />
                         </div>
                     }
                 </div>
@@ -190,7 +166,7 @@ function SCadmin(props) {
                                     value='Roland'
                                     onClick={toggledNameRoland}>
                                     HIDE ROLAND'S QUOTES</button>
-                            <CharacterQuotes character={'Roland'} />
+                            <CharacterQuotesAdmin character={'Roland'} />
                         </div>
                     }
                 </div>
@@ -208,7 +184,7 @@ function SCadmin(props) {
                                     value='Jocelyn'
                                     onClick={toggledNameJocelyn}>
                                     HIDE JOCELYN'S QUOTES</button>
-                            <CharacterQuotes character={'Jocelyn'} />
+                            <CharacterQuotesAdmin character={'Jocelyn'} />
                         </div>
                     }
                 </div>
@@ -226,7 +202,7 @@ function SCadmin(props) {
                                     value='Ted'
                                     onClick={toggledNameTed}>
                                     HIDE TED'S QUOTES</button>
-                            <CharacterQuotes character={'Ted'} />
+                            <CharacterQuotesAdmin character={'Ted'} />
                         </div>
                     }
                 </div>
@@ -244,7 +220,7 @@ function SCadmin(props) {
                                     value='Patrick'
                                     onClick={toggledNamePatrick}>
                                     HIDE PATRICK'S QUOTES</button>
-                            <CharacterQuotes character={'Patrick'} />
+                            <CharacterQuotesAdmin character={'Patrick'} />
                         </div>
                     }
                 </div>
@@ -262,50 +238,16 @@ function SCadmin(props) {
                                     value='Twyla'
                                     onClick={toggledNameTwyla}>
                                     HIDE TWYLA'S QUOTES</button>
-                            <CharacterQuotes character={'Twyla'} />
+                            <CharacterQuotesAdmin character={'Twyla'} type='adminQuote'/>
                         </div>
                     }
                 </div>
             </div>
-            <hr className='adminBreak'/>
-            <div className='addNewForm'>
-                <h1>ADD NEW QUOTE</h1>
-                <form className='newQuoteForm'  onSubmit={handleSubmitAddNew}>
-                    <input type='text'
-                        placeholder='character'
-                        name='character'
-                        id='character'
-                        className='addQuoteInputCharacter'
-                        value={newQuoteInfo.character}
-                        onChange={handleChangeAddNew}
-                    />
-                    <textarea type='text'
-                        placeholder='Enter Quote Text Here'
-                        name='quoteText'
-                        id='quoteText'
-                        className='addQuoteInputQuoteText'
-                        value={newQuoteInfo.quoteText}
-                        onChange={handleChangeAddNew}
-                    />
-                    <input type='text'
-                        placeholder='Season Number'
-                        name='season'
-                        id='season'
-                        className='addQuoteInputSeason'
-                        value={newQuoteInfo.season}
-                        onChange={handleChangeAddNew}
-                    />
-                    <input type='text'
-                        placeholder='Episode Name'
-                        name='episodeName'
-                        id='episodeName'
-                        className='addQuoteInputEpisode'
-                        value={newQuoteInfo.episodeName}
-                        onChange={handleChangeAddNew}
-                    />
-                    <button type='submit' className='addNewButtonSubmit'>SUBMIT NEW QUOTE</button>
-                </form>
-            </div>
+            {   toggledForm ?
+                <button className='addNewQuote' onClick={toggleForm}>ADD NEW QUOTE</button>
+                :
+                <AddQuoteForm addQuote={addNewQuote} button='Submit' type='add' toggle={toggleForm}/>
+            }
         </div>
     )
 }

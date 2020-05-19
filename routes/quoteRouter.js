@@ -91,13 +91,28 @@ quoteRouter.get('/character/:character', (req, res, next) => {
 // })
 
 //EDIT QUOTE
-quoteRouter.put('/:_id', (req, res) => {
-    const quoteID = req.params._id 
-    const quoteToUpdate = quotes.find(quote => quote._id === quoteID)
-    const quoteIndexToUpdate = quotes.findIndex(quote => quote._id === quoteID)
-    const updatedQuote = Object.assign(quoteToUpdate, req.body)
-    quotes.splice(quoteIndexToUpdate, 1, updatedQuote)
-    res.send(updatedQuote)
+// quoteRouter.put('/:_id', (req, res) => {
+//     const quoteID = req.params._id 
+//     const quoteToUpdate = quotes.find(quote => quote._id === quoteID)
+//     const quoteIndexToUpdate = quotes.findIndex(quote => quote._id === quoteID)
+//     const updatedQuote = Object.assign(quoteToUpdate, req.body)
+//     quotes.splice(quoteIndexToUpdate, 1, updatedQuote)
+//     res.send(updatedQuote)
+// })
+quoteRouter.put('/:quoteId', (req, res, next) => {
+    Quote.findOneAndUpdate(
+        { _id: req.params.quoteId},
+        req.body,
+        { new: true },
+        (err, quote) => {
+            if (err) {
+                console.log("Error");
+                res.status(500);
+                return next(err);
+            }
+            return res.send(quote);
+        }
+    );
 })
 
 //DELETE QUOTE

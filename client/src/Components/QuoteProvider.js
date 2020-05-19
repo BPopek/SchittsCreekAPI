@@ -67,6 +67,18 @@ function QuoteProvider(props) {
             return res
         })
     }
+    const editQuote = (quoteId, quote) => {
+        return quoteAxios.put(`/api/quotes/${quoteId}`, quote)
+        .then(res => {
+            setQuotes(prevQuotes => {
+                const updatedQuotes = prevQuotes.map(job => {
+                    return quote._id === res.data._id ? res.data : quote
+                })
+                setQuotes(updatedQuotes)
+            })
+            return res
+        })
+    }
 
     const deleteQuote = (quoteId) => {
         return quoteAxios.delete(`/api/quotes/${quoteId}`)
@@ -156,6 +168,7 @@ function QuoteProvider(props) {
                 needStart,
                 getAllQuotes, 
                 addNewQuote,
+                editQuote,
                 deleteQuote,
                 //getCharacterQuotes,
                 handleStart,
