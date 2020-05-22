@@ -6,9 +6,9 @@ import AddQuoteForm from './AddQuoteForm'
 
 function SCadmin(props) {
 
-    useEffect(() => {
-        getAllQuotes()
-    }, [])
+    // useEffect(() => {
+    //     getAllQuotes()
+    // }, [])
 
     // const { type, quote } = props
     

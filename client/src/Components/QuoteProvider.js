@@ -19,14 +19,14 @@ function QuoteProvider(props) {
 
     const login = credentials => {
         return axios.post('/auth/login', credentials)
-            .then(res => {
-                const { token, user } = res.data
+            .then(response => {
+                const { token, user } = response.data
                 localStorage.setItem('token', token)
                 localStorage.setItem('user', JSON.stringify(user))
                 setUserState(prev => ({
                     ...prev, user, token
                 }))
-                return res
+                return response
             }).catch(err => err)
     }
     const logout = () => {
@@ -43,9 +43,9 @@ function QuoteProvider(props) {
     
     const getAllQuotes = () => {
         return quoteAxios.get('/api/quotes')
-        .then(res => {
-            setQuotes(res.data);
-            return res;
+        .then(response => {
+            setQuotes(response.data);
+            return response;
         })
         .catch(err => console.log(err))
     }
@@ -62,34 +62,34 @@ function QuoteProvider(props) {
     const addNewQuote = (newQuote) => {
         // handleQuote() only needed for modal on other
         return quoteAxios.post('/api/quotes', newQuote)
-        .then(res => {
+        .then(response => {
             getAllQuotes()
-            return res
+            return response
         })
     }
     const editQuote = (quoteId, quote) => {
         return quoteAxios.put(`/api/quotes/${quoteId}`, quote)
-        .then(res => {
+        .then(response => {
             setQuotes(prevQuotes => {
-                const updatedQuotes = prevQuotes.map(job => {
-                    return quote._id === res.data._id ? res.data : quote
+                const updatedQuotes = prevQuotes.map(quote => {
+                    return quote._id === response.data._id ? response.data : quote
                 })
                 setQuotes(updatedQuotes)
             })
-            return res
+            return response
         })
     }
 
     const deleteQuote = (quoteId) => {
         return quoteAxios.delete(`/api/quotes/${quoteId}`)
-        .then(res => {
-            setQuotes(prev => {
-                const updatedQuotes = prev.filter(quote => {
+        .then(response => {
+            setQuotes(prevQuotes => {
+                const updatedQuotes = prevQuotes.filter(quote => {
                     return quote._id !== quoteId
                 })
-                return updatedQuotes
+                return (updatedQuotes)
             })
-            return res
+            return response
         })
     }
 

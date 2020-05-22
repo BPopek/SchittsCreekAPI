@@ -6,15 +6,15 @@ const Quote = require("../models/scModel.js");
 
 //POST NEW QUOTE
 const quotes = []
-quoteRouter.post('/', (req, res) => {
-    const newEntry = new Quote(req.body);    
-    newEntry.save((err, newEntry) => {
+quoteRouter.post('/', (req, res, next) => {
+    const quote = new Quote(req.body);    
+    quote.save(function(err, newQuote) {
         if (err) {
             res.status(500);
-            return res.send(err);
+            return next(err);
         }
     });
-    return res.status(201).send(newEntry);
+    return res.status(201).send(newQuote);
 })
 
 //GET ALL QUOTES
@@ -28,9 +28,22 @@ quoteRouter.get('/', (req, res) => {
     })
 })
 //GET ONE QUOTE BY ID ********
-quoteRouter.get('/:_id', (req, res) => {
-    const quoteID = req.params._id 
-    Quote.findById(quoteID, (err, quote) => {
+// quoteRouter.get('/:_id', (req, res) => {
+//     const quoteID = req.params._id 
+//     Quote.findById(quoteID, (err, quote) => {
+//         if(err){
+//             res.status(500);
+//             return res.send(err)
+//         } else if(!quote){
+//             res.status(404)
+//             return next(new Error('Quote not found with this ID'))
+//         } 
+//         return res.send(quote)
+//     })
+// })
+quoteRouter.get('/:quoteId', (req, res) => {
+    // const quoteId = req.params._id 
+    Quote.findById({ _id: req.params.quoteId }, (err, quote) => {
         if(err){
             res.status(500);
             return res.send(err)
@@ -43,18 +56,18 @@ quoteRouter.get('/:_id', (req, res) => {
 })
 
 ////////******** ALL QUOTES FOR CHARACTER
-quoteRouter.get('/character/:character', (req, res, next) => {
-    Quote.find( { character: req.params.character }, (err, charQuotes) => {
-        if(err){
-            res.status(500);
-            return next(err);
-        } else if(!charQuotes) {
-            res.status(404)
-            return next(new Error('Character not found'))
-        }
-        return res.send(charQuotes)
-    })
-})
+// quoteRouter.get('/character/:character', (req, res, next) => {
+//     Quote.find( { character: req.params.character }, (err, charQuotes) => {
+//         if(err){
+//             res.status(500);
+//             return next(err);
+//         } else if(!charQuotes) {
+//             res.status(404)
+//             return next(new Error('Character not found'))
+//         }
+//         return res.send(charQuotes)
+//     })
+// })
     ///////////////////////////
 
     // quoteRouter.get('/', (req, res, next) => {
@@ -82,13 +95,7 @@ quoteRouter.get('/character/:character', (req, res, next) => {
     // })
 // })
 
-
-
-//////////////////////////////////////////////
-//get random quote 
-// quoteRouter.get('/quotes/:_id', (req, res) => {
-//     const randomQuote = xxx
-// })
+///////////////////////////
 
 //EDIT QUOTE
 // quoteRouter.put('/:_id', (req, res) => {
@@ -99,9 +106,9 @@ quoteRouter.get('/character/:character', (req, res, next) => {
 //     quotes.splice(quoteIndexToUpdate, 1, updatedQuote)
 //     res.send(updatedQuote)
 // })
-quoteRouter.put('/:quoteId', (req, res, next) => {
+quoteRouter.put('/:_id', (req, res, next) => {
     Quote.findOneAndUpdate(
-        { _id: req.params.quoteId},
+        { _id: req.params.quoteId },
         req.body,
         { new: true },
         (err, quote) => {

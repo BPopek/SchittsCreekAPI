@@ -4,7 +4,6 @@ import { QuoteContext } from '../QuoteProvider';
 function AddQuoteForm(props) {
 
     const { addNewQuote, editQuote, getAllQuotes, quotes } = useContext(QuoteContext)
-    const { type, quote } = props
 
     const [ quoteInfo, setQuoteInfo ] = useState({
         character: '',
@@ -13,8 +12,9 @@ function AddQuoteForm(props) {
         episodeName: ''
     })
 
+    const { type, quote } = props
+
     useEffect(() => {
-        getAllQuotes()
         if(type === 'update'){
             setQuoteInfo(quote)
         }
@@ -25,33 +25,16 @@ function AddQuoteForm(props) {
     //     clearInputsNewQuote();
     //     newQuote()
     // }
-    const handleSubmit = e => {
-        e.preventDefault();
-        if (props.type === 'add'){
-            addNewQuote(quoteInfo)
-                .then(() => {
-                    clearInputsQuote()
-                    props.toggle()
-                })
-            .catch(err => console.error(err.res.data.message))
-        } else {
-            editQuote(props.quote._id, quoteInfo)
-            .then(() => {
-                props.toggle()
-            })
-            .catch(err => console.error(err.res.data.message))
-        }
-    }
-
-    const handleChange = e => {
+    const handleChange = (e) => {
         e.preventDefault()
-        const { name, value } = e.target
-        setQuoteInfo(prevInfo => ({
-            ...prevInfo, 
+        const { name, value } = e.target;
+        setQuoteInfo(prev => ({
+            ...prev, 
             [name]: value
         }))
     }
     
+
     const clearInputsQuote = () => {
         setQuoteInfo({ 
             character: '',
@@ -61,6 +44,27 @@ function AddQuoteForm(props) {
         })
     }
 
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        if (props.type === 'add'){
+            addNewQuote(quoteInfo)
+                .then(() => {
+                    clearInputsQuote();
+                    props.toggle();
+                })
+            .catch(err => console.error(err.response.data.message))
+        } else {
+            editQuote(props.quote._id, quoteInfo)
+            .then(() => {
+                props.toggle()
+            })
+            .catch(err => console.error(err.response.data.message))
+        }
+    }
+    console.log(quoteInfo)
+    console.log(quote)
+    
     const newQuote = () => {
         console.log('newQuote is being called')
         addNewQuote(quoteInfo)
@@ -74,39 +78,43 @@ function AddQuoteForm(props) {
         <div className='addNewForm'>
             <form className={props.type === 'add' ? 'newQuoteForm' : 'quoteEdit'}>
                 <h1 className='addNewQuote'>{props.type === 'add' ? 'ADD NEW QUOTE' : 'EDIT QUOTE'}</h1>
-                <input type='text'
-                    placeholder="Character's First Name"
+                <input 
                     name='character'
-                    id='character'
-                    className='addQuoteInputCharacter'
                     value={quoteInfo.character}
                     onChange={handleChange}
+                    type='text'
+                    placeholder="Character's First Name"
+                    //id='character'
+                    className='addQuoteInputCharacter'
                 />
-                <textarea type='text'
-                    placeholder='Enter Quote Text Here'
+                <textarea 
                     name='quoteText'
-                    id='quoteText'
-                    className='addQuoteInputQuoteText'
                     value={quoteInfo.quoteText}
                     onChange={handleChange}
+                    type='text'
+                    placeholder='Enter Quote Text Here'
+                    //id='quoteText'
+                    className='addQuoteInputQuoteText'
                 />
-                <input type='text'
-                    placeholder='Season Number'
+                <input 
                     name='season'
-                    id='season'
-                    className='addQuoteInputSeason'
                     value={quoteInfo.season}
                     onChange={handleChange}
+                    placeholder='Season Number'
+                    type='number'
+                    //id='season'
+                    className='addQuoteInputSeason'
                 />
-                <input type='text'
-                    placeholder='Episode Name'
+                <input 
                     name='episodeName'
-                    id='episodeName'
-                    className='addQuoteInputEpisode'
                     value={quoteInfo.episodeName}
                     onChange={handleChange}
+                    placeholder='Episode Name'
+                    type='text'
+                    //id='episodeName'
+                    className='addQuoteInputEpisode'
                 />
-                <button type='submit' className='addNewButtonSubmit' onClick={handleSubmit}>{props.button}</button>
+                <button className='addNewButtonSubmit' onClick={handleSubmit}>{props.button}</button>
             </form>
         </div>
     )

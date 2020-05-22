@@ -45,19 +45,12 @@ export default function CharacterQuote(props) {
             {sortedQuotes.map(quote => 
             <>
                 <div className='charQuoteMap'
-                    key={quote._id}>                
-                    <h1 className='charQuotes'>"{quote.quoteText}"</h1>
+                     key={quote._id}
+                    >                
+                    <h1 className='charQuotes' >"{quote.quoteText}"</h1>
                     <h4 className='charQuotesSeason'>Season: {quote.season}</h4>
                     <h4 className='charQuotesEpisode'>Episode: {quote.episodeName}</h4>
                 </div>
-                {/* <div className={props.type === 'adminQuote' ? 'showAdminButtons' : 'hideAdminButtons'}>
-                    <button onClick={() => {
-                        editQuote(props._id)
-                        toggle()
-                        }} 
-                        className='quoteButton'>Edit</button>
-                    <button onClick={() => deleteQuote(props._id)} className='quoteButton'>Delete</button>
-                </div> */}
             </>
             )}
         </div>
