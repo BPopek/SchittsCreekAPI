@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const quoteAxios = axios.create()
+const quoteAxios = axios.create();
 
 quoteAxios.interceptors.request.use((config) => {
-    const token = localStorage.getItem('token')
-    config.headers.Authorization = `Bearer ${token}`
-    return config
+    const token = localStorage.getItem('token');
+    config.headers.Authorization = `Bearer ${token}`;
+    return config;
 })
 
 const QuoteContext = React.createContext();
 
 function QuoteProvider(props) {
+    const [ quotes, setQuotes ] = useState([])
+
     const [ userState, setUserState ] = useState({
         user: JSON.parse(localStorage.getItem('user')) || {},
         token: localStorage.getItem('token') || ''
     })
-
     const login = credentials => {
         return axios.post('/auth/login', credentials)
             .then(response => {
@@ -38,9 +39,6 @@ function QuoteProvider(props) {
         })
     }
 
-    const [ quotes, setQuotes ] = useState([])
-    // const [ quotes, setQuotes, characterQuotes, setCharacterQuotes ] = useState([])
-    
     const getAllQuotes = () => {
         return quoteAxios.get('/api/quotes')
         .then(response => {
@@ -63,19 +61,21 @@ function QuoteProvider(props) {
         // handleQuote() only needed for modal on other
         return quoteAxios.post('/api/quotes', newQuote)
         .then(response => {
-            getAllQuotes()
-            return response
+            getAllQuotes();
+            return response;
         })
     }
     const editQuote = (quoteId, quote) => {
         return quoteAxios.put(`/api/quotes/${quoteId}`, quote)
         .then(response => {
+            // console.log(quotes)
             setQuotes(prevQuotes => {
                 const updatedQuotes = prevQuotes.map(quote => {
                     return quote._id === response.data._id ? response.data : quote
                 })
                 setQuotes(updatedQuotes)
             })
+            // console.log(response)
             return response
         })
     }
@@ -87,9 +87,9 @@ function QuoteProvider(props) {
                 const updatedQuotes = prevQuotes.filter(quote => {
                     return quote._id !== quoteId
                 })
-                return (updatedQuotes)
+                return (updatedQuotes);
             })
-            return response
+            return response;
         })
     }
 
@@ -163,8 +163,8 @@ function QuoteProvider(props) {
     return (
         <QuoteContext.Provider 
             value={{
-                ...userState, 
                 quotes,
+                ...userState, 
                 needStart,
                 getAllQuotes, 
                 addNewQuote,

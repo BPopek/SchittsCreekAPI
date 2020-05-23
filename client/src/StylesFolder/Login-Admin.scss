@@ -45,7 +45,7 @@
     // display: block;
     position: absolute;
     right: 25px;
-    top: 75px;
+    top: 85px;
     margin: 0px auto 5px;
     padding: 10px 10px 5px;
     background-color: $purple;
@@ -90,7 +90,7 @@
     flex-flow: row wrap;
     justify-content: center;
     align-content: center;
-    margin: 25px 0 0;
+    margin: 125px 0 0;
 }
 .specificChar {
     margin: 5px 15px 5px;
@@ -246,7 +246,7 @@
     position: relative;
     display: inline-block;
     top: -20px;
-    margin: 10px;
+    margin: 5px auto 0;
     padding: 10px 10px 5px;
     background-color: $purple;
     font-family: $funfont;
@@ -257,10 +257,6 @@
     -webkit-box-shadow: $smshadow;
     -moz-box-shadow: $smshadow;
         box-shadow: $smshadow;
-
-    @media (min-width: 500px) {
-        font-size: 14px;
-    }
     &:focus {
         background-color: $purple;
         color: $white;
@@ -300,3 +296,32 @@
         outline: none;
     }
 }
+.charQuotesAdmin {
+    font-family: $primaryFont;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: italic;
+    color: $purple;
+    line-height: 1.4;
+    margin: 5px auto 5px;
+    padding: 0px 15px;
+    text-align: center;    
+  }
+  .charQuotesSeasonAdmin {
+    font-family: $primaryFont;
+    font-size: 14px;
+    font-weight: 100;
+    color: $grey;
+    line-height: 1.4;
+    margin-bottom: 2px;
+    text-align: center;
+  }
+  .charQuotesEpisodeAdmin {
+    font-family: $primaryFont;
+    font-size: 14px;
+    font-weight: 100;
+    color: $grey;
+    line-height: 1.4;
+    margin-bottom: 25px;
+    text-align: center;
+  }

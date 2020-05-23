@@ -39,6 +39,11 @@
         background-color: $yellow;
         color: $black;
     }
+    &:hover {
+        color: $yellow;
+        text-decoration: none;
+        font-weight: 500;
+    }
     @media (min-width: 500px) {
         font-size: 18px !important;
         padding: 0px 15px;
@@ -93,7 +98,7 @@
     top: 0;
     font-family: $primaryFont;
     font-size: 14px;
-    color: $white !important;
+    color: $white ;
     font-weight: 300;
     letter-spacing: 2px;
     position: relative;
@@ -105,6 +110,8 @@
     justify-self: space-around;
     &:hover {
         color: $yellow;
+        text-decoration: none;
+        font-weight: 500;
     }
     @media (min-width: 400px) {
         padding: 0px 15px;
@@ -123,13 +130,16 @@
         color: $white;
         text-decoration: none;  
         letter-spacing: 2px;
+        &:hover {
+            color: $yellow;
+        }
     }
 }
 .footerLinks2 {
     top: 0;
     font-family: $primaryFont;
     font-size: 10px;
-    color: #757575 !important;
+    color: #757575;
     font-weight: 300;
     letter-spacing: 2px;
     position: relative;
@@ -142,7 +152,7 @@
     text-align: left;
     justify-content: start;
     &:hover {
-        color: $yellow;
+        color: $purple;
     }
     @media (min-width: 400px) {
         padding: 0px 15px;

@@ -213,12 +213,12 @@ export default function RandomQuote(props) {
                 quotesFilteredBySeason.push(quote)
             })
         }
-        // if (season6 === true) {
-        //     quotes.filter(function(quote) {
-        //         if (quote.season === 6)
-        //         quotesFilteredBySeason.push(quote)
-        //     })
-        // }
+        if (season6 === true) {
+            quotes.filter(function(quote) {
+                if (quote.season === 6)
+                quotesFilteredBySeason.push(quote)
+            })
+        }
         if (seasonAll === true) {
             quotes.filter(function(quote) {
                 quotesFilteredBySeason.push(quote)
@@ -245,7 +245,7 @@ export default function RandomQuote(props) {
     ////////////////// UPDATE SEASON SELECTIONS - TOGGLE MENU ON QUIZ PAGE
     const handleChangeUpdateSeasons = e => {
         e.preventDefault()
-        if (season1 === false && season2 === false && season3 === false && season4 === false && season5 === false) {
+        if (season1 === false && season2 === false && season3 === false && season4 === false && season5 === false && season6 === false) {
             handleShow()
         } else {
             currentQuoteChangeSeason()    
@@ -289,6 +289,12 @@ export default function RandomQuote(props) {
                 quotesFilteredBySeason.push(quote)
             })
         } 
+        if (season6 === true) {
+            quotes.filter(function(quote) {
+                if (quote.season === 6)
+                quotesFilteredBySeason.push(quote)
+            })
+        } 
         if (seasonAll === true) {
             quotes.filter(function(quote) {
                 quotesFilteredBySeason.push(quote)
@@ -306,7 +312,7 @@ export default function RandomQuote(props) {
     }
     
     const handleChangeCurrentQuote = (e, idName) => {
-        if (season1 === false && season2 === false && season3 === false && season4 === false && season5 === false) {
+        if (season1 === false && season2 === false && season3 === false && season4 === false && season5 === false && season6 === false) {
             handleShow()
         } else {
             currentQuote()    
@@ -415,11 +421,12 @@ export default function RandomQuote(props) {
                         Season 5
                     </button>
                     <button                      
-                        className={(backgroundButtonColor6 === false) ? 'disabled' : 'disabled'}  
+                        //className={(backgroundButtonColor6 === false) ? 'disabled' : 'disabled'}  
+                        className={(backgroundButtonColor6 === false) ? 'seasonNotSelected' : 'seasonSelected'} 
                         type='button' 
                         value='Season6' 
-                        disabled={true}
-                        //{/* onClick={handleChangeSeason6} */}
+                        //disabled={true}
+                        onClick={handleChangeSeason6}
                         >
                         Season 6
                     </button>
@@ -501,11 +508,12 @@ export default function RandomQuote(props) {
                                         5
                                     </button>
                                     <button                      
-                                        className={(backgroundButtonColor6 === false) ? 'disabledGame' : 'disabledGame'}  
+                                        //className={(backgroundButtonColor6 === false) ? 'disabledGame' : 'disabledGame'}  
+                                        className={(backgroundButtonColor6 === false) ? 'seasonNotSelectedGame' : 'seasonSelectedGame'}  
                                         type='button' 
                                         value='Season6' 
-                                        disabled={true}
-                                        //onClick={handleChangeSeason6}
+                                        //disabled={true}
+                                        onClick={handleChangeSeason6}
                                         >
                                         6
                                     </button>

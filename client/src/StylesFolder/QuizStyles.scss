@@ -548,7 +548,7 @@
     height: auto;
     &:before {
         background-color: #dedede;
-        width: 225px;
+        width: 185px;
         bottom: -5px;
         content: "";
         left: 15px;
@@ -563,25 +563,25 @@
     @media (min-width: 400px) {
         width: 275px;
         &:before {
-            width: 275px;
+            width: 235px;
         }
     }
     @media (min-width: 500px) {
         width: 375px;
         &:before {
-            width: 375px;
+            width: 335px;
         }
     }
     @media (min-width: 700px) {
         width: 575px;
         &:before {
-            width: 575px;
+            width: 535px;
         }
     }
     @media (min-width: 1000px) {
         width: 675px;
         &:before {
-            width: 675px;
+            width: 635px;
         }
     }
 }

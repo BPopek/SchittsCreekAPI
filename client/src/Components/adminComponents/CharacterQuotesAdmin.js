@@ -65,25 +65,28 @@ return (
             <>
                 <div className='charQuoteMap' 
                     key={quote._id}>                
-                    <h1 className='charQuotes'>"{quote.quoteText}"</h1>
-                    <h4 className='charQuotesSeason'>Season: {quote.season}</h4>
-                    <h4 className='charQuotesEpisode'>Episode: {quote.episodeName}</h4>                    
+                    <h1 className='charQuotesAdmin'>"{quote.quoteText}"</h1>
+                    <h4 className='charQuotesSeasonAdmin'>Season: {quote.season}</h4>
+                    <h4 className='charQuotesEpisodeAdmin'>Episode: {quote.episodeName}</h4>                    
                     {/* <h4 className='charQuotesEpisode'>Id: {quote._id}</h4> */}
 
                 </div>
-                { toggled ? 
+                {/* { toggled ? 
                     <>
                         <button onClick={() => {
                             editQuote(quote._id)
                             toggle()
                             }} 
                             className='quoteButton'>Edit</button>
-                        <button onClick={() => deleteQuote(props._id)} className='quoteButton'>Delete</button>
+                        <button onClick={() => deleteQuote(quote._id)} className='quoteButton'>Delete</button>
                     </>
                         :
                         <AddQuoteForm button='Save Changes' type='update' quote={props} toggle={toggle}/>  
-                }
-            </>               
+                } */}
+                <>
+                    <button onClick={() => deleteQuote(quote._id)} className='quoteButton'>Delete</button>
+                </>   
+            </>            
             )}
         </div>
     )

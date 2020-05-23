@@ -62,8 +62,8 @@ function AddQuoteForm(props) {
             .catch(err => console.error(err.response.data.message))
         }
     }
-    console.log(quoteInfo)
-    console.log(quote)
+    // console.log(quoteInfo)
+    // console.log(quote)
     
     const newQuote = () => {
         console.log('newQuote is being called')

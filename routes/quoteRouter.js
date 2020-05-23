@@ -5,10 +5,10 @@ const Quote = require("../models/scModel.js");
 // uuidv4();
 
 //POST NEW QUOTE
-const quotes = []
+// const quotes = []
 quoteRouter.post('/', (req, res, next) => {
     const quote = new Quote(req.body);    
-    quote.save(function(err, newQuote) {
+    quote.save(function (err, newQuote) {
         if (err) {
             res.status(500);
             return next(err);
@@ -41,12 +41,25 @@ quoteRouter.get('/', (req, res) => {
 //         return res.send(quote)
 //     })
 // })
-quoteRouter.get('/:quoteId', (req, res) => {
-    // const quoteId = req.params._id 
-    Quote.findById({ _id: req.params.quoteId }, (err, quote) => {
+// FIND ONE
+// quoteRouter.get('/:quoteId', (req, res) => {
+//     // const quoteId = req.params._id 
+//     Quote.findById({ _id: req.params.quoteId }, (err, quote) => {
+//         if(err){
+//             res.status(500);
+//             return res.send(err)
+//         } else if(!quote){
+//             res.status(404)
+//             return next(new Error('Quote not found with this ID'))
+//         } 
+//         return res.send(quote)
+//     })
+// })
+quoteRouter.get('/:quoteId', (req, res, next) => {
+    Quote.findOne({ _id: req.params.quoteId }, (err, quote) => {
         if(err){
             res.status(500);
-            return res.send(err)
+            return next(err)
         } else if(!quote){
             res.status(404)
             return next(new Error('Quote not found with this ID'))
@@ -54,48 +67,7 @@ quoteRouter.get('/:quoteId', (req, res) => {
         return res.send(quote)
     })
 })
-
-////////******** ALL QUOTES FOR CHARACTER
-// quoteRouter.get('/character/:character', (req, res, next) => {
-//     Quote.find( { character: req.params.character }, (err, charQuotes) => {
-//         if(err){
-//             res.status(500);
-//             return next(err);
-//         } else if(!charQuotes) {
-//             res.status(404)
-//             return next(new Error('Character not found'))
-//         }
-//         return res.send(charQuotes)
-//     })
-// })
-    ///////////////////////////
-
-    // quoteRouter.get('/', (req, res, next) => {
-    //     Quote.find(req.params.character, (err, charQuotes) => {
-    //         if(err){
-    //             res.status(500);
-    //             return next(err);
-    //         } else if(!charQuotes) {
-    //             res.status(404)
-    //             return next(new Error('Character not found'))
-    //         }
-    //         return res.send(charQuotes)
-    //     })
-    // })
-
-///////////////////////////
-
-    // const specificCharacter = quotes.find(quote => quote.character === req.params.character)
-    //     if (err) {
-    //         res.status(500);
-    //         return next(err);
-    //     }
-    //     // console.log(character)
-    //     return res.send(specificCharacter);
-    // })
-// })
-
-///////////////////////////
+/////////////////////////
 
 //EDIT QUOTE
 // quoteRouter.put('/:_id', (req, res) => {
@@ -123,13 +95,24 @@ quoteRouter.put('/:_id', (req, res, next) => {
 })
 
 //DELETE QUOTE
-quoteRouter.delete('/:_id', (req, res) => {
-    const quoteID = req.params._id
-    const quoteIndexToDelete = quotes.findIndex(quote => quote._id === quoteID)
-    const quoteText = quotes[quoteIndexToDelete].text
-    quotes.splice(quoteIndexToDelete, 1)
-    res.send(`Successfully deleted Quote ${quoteText}`)
-})
+// quoteRouter.delete('/:_id', (req, res) => {
+//     const quoteID = req.params._id
+//     const quoteIndexToDelete = quotes.findIndex(quote => quote._id === quoteID)
+//     const quoteText = quotes[quoteIndexToDelete].text
+//     quotes.splice(quoteIndexToDelete, 1)
+//     res.send(`Successfully deleted Quote ${quoteText}`)
+// })
+quoteRouter.delete('/:_id', (req, res, next) => {
+    Quote.findOneAndRemove({ _id: req.params._id }, (err, quote) => {
+        if (err) {
+            res.status(500);
+            return next(err);
+        }
+        return res.send(quote);
+    });
+});
+
+
 
 module.exports = quoteRouter;
 
