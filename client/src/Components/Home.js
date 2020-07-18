@@ -13,7 +13,7 @@ function Home(props) {
     const [ showCharacterSign, setShowCharacterSign ] = useState(false)
 
     function handleClickGame(){
-        setTimeout(() => props.history.push('/quiz'), 3000)
+        setTimeout(() => props.history.push('/quiz'), 4900)
         setShowQuizSign(true)
     }
     function handleClickCharacters(){

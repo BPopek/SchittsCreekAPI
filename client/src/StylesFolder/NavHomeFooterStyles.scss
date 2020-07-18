@@ -408,51 +408,63 @@
     }
 }
 .quizAnimation {
-    -webkit-animation: whoopsie 2.5s linear both;
-        animation: whoopsie 2.5s linear both;
+    -webkit-animation: whoopsie 4.5s linear both;
+        animation: whoopsie 4.5s linear both;
     -webkit-transform-origin: top left;
         transform-origin: top left;
 }
 @keyframes whoopsie {
-    0%{
+    0% {
         -webkit-transform: rotate(0deg);
-             transform: rotate(0deg);
+          transform: rotate(0deg);
+        -webkit-transform: translateY(0);
+          transform: translateY(0);
     }
-    10%{
+    12% {
         -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-            z-index: 2;
-        }
-    15%{
+          transform: rotate(0deg);
+          z-index: 2;
+    }
+    15% {
         -webkit-transform: rotate(5deg);
-            transform: rotate(5deg);
-            z-index: 2;
-        }
-    50%{
+          transform: rotate(5deg);
+          z-index: 2;
+    }
+    30% {
         -webkit-transform: rotate(5.5deg);
-            transform: rotate(5.5deg);
-            z-index: 2;
-        }
-    65%{
+          transform: rotate(5.5deg);
+          z-index: 2;
+    }
+    40% {
         -webkit-transform: rotate(50deg);
-            transform: rotate(50deg);
-            z-index: 2;
-        }
-    80%{
+          transform: rotate(50deg);
+          z-index: 2;
+    }
+    50% {
         -webkit-transform: rotate(35deg);
-            transform: rotate(35deg);
-            z-index: 2;
-        }
-    90%{
+          transform: rotate(35deg);
+          z-index: 2;
+    }
+    55% {
         -webkit-transform: rotate(30deg);
-            transform: rotate(30deg);
+          transform: rotate(30deg);
+          z-index: 2;
+    }
+    65% {
+      -webkit-transform: rotate(35deg);
+      transform: rotate(35deg);
+      z-index: 2;
+    }
+    90% {
+      -webkit-transform: rotate(33deg);
+            transform: rotate(33deg);
             z-index: 2;
-        }
+    }
     100%{
-        -webkit-transform: rotate(35deg);
-            transform: rotate(35deg);
+    -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);        
             z-index: 2;
-        }
+    }
 }
 .signContainer {
     position: relative;
