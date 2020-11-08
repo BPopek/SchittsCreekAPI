@@ -4,7 +4,7 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const expressJwt = require('express-jwt');
+// const expressJwt = require('express-jwt');
 const path = require('path');
 const PORT = process.env.PORT || 7250;
 
@@ -13,7 +13,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/quotesDB',
+mongoose.connect(process.env.DB_URI || 'mongodb://localhost:27017/quotesDB',
     { 
         useNewUrlParser: true, 
         useUnifiedTopology: true, 
