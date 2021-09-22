@@ -21,13 +21,6 @@ export default function RandomQuote(props) {
     // const [ totalPoints, setTotalPoints ] = useState(0)
     const [ correctFirstGuess, setCorrectFirstGuess ] = useState(0) 
 
-    // const [ nextRandomQuote, setNextRandomQuote ] = useState({
-    //     character: '',
-    //     quoteText: '',
-    //     season: '',
-    //     episodeName: '',
-    // })
-
     useEffect(() => {
         getAllQuotes()
     }, [])
@@ -156,12 +149,12 @@ export default function RandomQuote(props) {
         setBackgroundButtonColor5(false ? true : prev => {
             return !prev
         }) 
-        // setSeason6(false ? true : prev => {
-        //     return !prev
-        // }) 
-        // setBackgroundButtonColor6(false ? true : prev => {
-        //     return !prev
-        // }) 
+        setSeason6(false ? true : prev => {
+            return !prev
+        }) 
+        setBackgroundButtonColor6(false ? true : prev => {
+            return !prev
+        }) 
     }
     const [ backgroundButtonColorAllClear, setBackgroundButtonColorAllClear ] = useState(false)
 
@@ -379,8 +372,7 @@ export default function RandomQuote(props) {
     
     return (
         <>
-        {  needStart
-            ?
+        { needStart  ?
             <div className='readyPlay'>
                 <h1>Ready to Play?</h1>
                 <h2 className='chooseSeasons'>Choose your seasons below:</h2>
@@ -421,11 +413,9 @@ export default function RandomQuote(props) {
                         Season 5
                     </button>
                     <button                      
-                        //className={(backgroundButtonColor6 === false) ? 'disabled' : 'disabled'}  
                         className={(backgroundButtonColor6 === false) ? 'seasonNotSelected' : 'seasonSelected'} 
                         type='button' 
                         value='Season6' 
-                        //disabled={true}
                         onClick={handleChangeSeason6}
                         >
                         Season 6
@@ -454,7 +444,6 @@ export default function RandomQuote(props) {
                     </ChooseSeasonModal>
                 </div>
                 <button id='hide1' className='playButton' type='button' value='play' onClick={handleChangeCurrentQuote} >Start the Game</button>
-                
             </div>
             :
             <>  
@@ -463,7 +452,6 @@ export default function RandomQuote(props) {
                         <>
                             <div className='seasonButtonDivGame'>
                                 <h2 className='changeSeasons' onClick={toggleSeason}>Change Seasons<span className='toggleSeasonMenu'> ⊶ </span></h2>
-                                
                             </div>
                         </>
                         :
