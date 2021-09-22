@@ -119,42 +119,18 @@ export default function RandomQuote(props) {
         // setBackgroundButtonColorAll(prev => {
         //     return !prev
         // }) 
-        setSeason1(false ? true : prev => {
-            return !prev
-        }) 
-        setBackgroundButtonColor1(false ? true : prev => {
-            return !prev
-        }) 
-        setSeason2(false ? true : prev => {
-            return !prev
-        }) 
-        setBackgroundButtonColor2(false ? true : prev => {
-            return !prev
-        }) 
-        setSeason3(false ? true : prev => {
-            return !prev
-        }) 
-        setBackgroundButtonColor3(false ? true : prev => {
-            return !prev
-        }) 
-        setSeason4(false ? true : prev => {
-            return !prev
-        }) 
-        setBackgroundButtonColor4(false ? true : prev => {
-            return !prev
-        }) 
-        setSeason5(false ? true : prev => {
-            return !prev
-        }) 
-        setBackgroundButtonColor5(false ? true : prev => {
-            return !prev
-        }) 
-        setSeason6(false ? true : prev => {
-            return !prev
-        }) 
-        setBackgroundButtonColor6(false ? true : prev => {
-            return !prev
-        }) 
+        setSeason1(true) 
+        setBackgroundButtonColor1(true) 
+        setSeason2(true) 
+        setBackgroundButtonColor2(true) 
+        setSeason3(true) 
+        setBackgroundButtonColor3(true) 
+        setSeason4(true) 
+        setBackgroundButtonColor4(true) 
+        setSeason5(true) 
+        setBackgroundButtonColor5(true) 
+        setSeason6(true) 
+        setBackgroundButtonColor6(true) 
     }
     const [ backgroundButtonColorAllClear, setBackgroundButtonColorAllClear ] = useState(false)
 
